@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 144.01 150.27">
+	<defs>
+		<style>
+			.cls-1 { fill: #0a1020; } .cls-2 { fill: #fff; }
+		</style>
+	</defs>
+		<g id="main" >
+			<rect id="bg" class="cls-1" width="144.01" height="150.27" />
+			<polyline id="left" class="cls-2" points="55.51 79.36 55.51 103.36 29.51 103.36 29.51 53.36" />
+			<polyline id="right" class="cls-2" points="114.51 20.36 114.51 103.36 88.51 103.36 88.51 46.36" />
+			<polygon id="middle" class="cls-2" points="55.51 79.36 88.51 46.36 55.51 20.36 55.51 79.36" />
+		</g>
+</svg>
