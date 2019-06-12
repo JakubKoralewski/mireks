@@ -52,7 +52,14 @@ const config: NuxtConfiguration = {
 	/*
 	** Nuxt.js modules
 	*/
-	modules: ["@nuxtjs/sitemap"],
+	modules: ["@nuxtjs/sitemap", "@nuxtjs/style-resources"],
+
+	/*
+	** https://github.com/nuxt-community/style-resources-module/ 
+	*/
+	styleResources: {
+		scss: ["@/assets/scss/*.scss"]
+	},
 
 	/*
 	** Build configuration
