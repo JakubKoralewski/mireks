@@ -23,11 +23,15 @@ const config: NuxtConfiguration = {
 			}
 		],
 		link: [
-			{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+			{
+				rel: "icon",
+				type: "image/x-icon",
+				href: "/favicon.ico"
+			},
 			{
 				rel: "stylesheet",
 				href:
-					"https://fonts.googleapis.com/css?family=Montserrat:300,400,500,600,900&display=swap"
+					"https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500,600,900&display=swap"
 			}
 		]
 	},
@@ -52,9 +56,9 @@ const config: NuxtConfiguration = {
 	/*
 	** Nuxt.js modules
 	*/
-	modules: ["@nuxtjs/sitemap", "@nuxtjs/style-resources"],
+	modules: ["@nuxtjs/sitemap", "@nuxtjs/style-resources" /* , "nuxt-svg "*/],
 
-	/*
+	/* Global SCSS variables etc.
 	** https://github.com/nuxt-community/style-resources-module/ 
 	*/
 	styleResources: {
@@ -68,6 +72,30 @@ const config: NuxtConfiguration = {
 		/*
 		** You can extend webpack config here
 		*/
+		extend(config, { isClient }) {
+			if (isClient) {
+				config.devtool = "#cheap-module-eval-source-map";
+			}
+
+			/* Vue inline svg loader */
+			const vueRule = (config as any).module.rules.find(rule =>
+				rule.test.test(".vue")
+			);
+			vueRule.use = [
+				{
+					loader: vueRule.loader,
+					options: vueRule.options
+				},
+				{
+					loader: "vue-svg-inline-loader",
+					options: {
+						svgo: false
+					}
+				}
+			];
+			delete vueRule.loader;
+			delete vueRule.options;
+		},
 		postcss: {
 			plugins: {},
 			preset: {

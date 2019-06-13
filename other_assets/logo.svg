@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="85" height="83" viewBox="0 0 85 83">
+	<defs>
+		<style>
+			#logo{fill:#fff;}
+		</style>
+	</defs>
+		<g id="logo">
+			<polyline id="left" points="26 59 26 83 0 83 0 33" />
+			<polyline id="right" points="85 0 85 83 59 83 59 26" />
+			<polygon id="middle" points="26 59 59 26 26 0 26 59" />
+		</g>
+</svg>

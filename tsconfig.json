@@ -28,5 +28,8 @@
 			"@types/node",
 			"@nuxt/vue-app"
 		]
-	}
+	},
+	"exclude": [
+		"node_modules"
+	]
 }
