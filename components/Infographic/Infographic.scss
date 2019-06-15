@@ -1,13 +1,19 @@
 #infographic {
+	margin-bottom: $global-padding-vertical;
 	h1 {
 		font-weight: 600;
 		margin-bottom: 2rem;
+		width: 61%;
 	}
 	.round-bg {
-		background-color: transparentize(#dfdaf7, 0.95);
-		border-radius: calc(1vmin + 1rem);
+		height: calc(100vh - #{$global-padding-vertical} * 2);
+		display: flex;
+		justify-content: center;
+		align-items: center;
 		svg {
-			width: 100%;
+			border-radius: $round-bg-radius;
+			background-color: $round-bg-color;
+			height: 100%;
 		}
 	}
 }

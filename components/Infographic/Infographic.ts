@@ -310,7 +310,7 @@ export default class LandingPage extends Vue {
 					rotation: 0.001,
 					ease: Linear.easeNone
 				},
-				"text_gone"
+				"text_gone-=2"
 			)
 			// Move the text to the bottom again
 			.addLabel("PIT_arrived", "-=2.5")

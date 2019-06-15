@@ -3,6 +3,7 @@
 		<LandingPage @findOutMoreClick="findOutMoreClick" />
 		<WhyUs ref="whyUs" />
 		<Infographic />
+		<ServicesSearch />
 	</main>
 </template>
 
@@ -15,13 +16,14 @@
 	import LandingPage from "@/components/LandingPage/LandingPage";
 	import WhyUs from "@/components/WhyUs/WhyUs";
 	import Infographic from "@/components/Infographic/Infographic";
-
+	import ServicesSearch from "@/components/ServicesSearch/ServicesSearch";
 
 	@Component({
 		components: {
 			LandingPage,
 			WhyUs,
-			Infographic
+			Infographic,
+			ServicesSearch
 		}
 	})
 	export default class Index extends Vue {
@@ -33,9 +35,6 @@
 				scrollTo: { y: "#dlaczego-my", offsetY: 50 },
 				ease: Power4.easeOut
 			});
-			// .scrollIntoView({
-			// 	behavior: "smooth"
-			// });
 		}
 	}
 </script>

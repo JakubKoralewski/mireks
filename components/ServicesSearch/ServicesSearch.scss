@@ -1,0 +1,12 @@
+#services-search {
+	.round-bg {
+		border-radius: $round-bg-radius;
+		background-color: $round-bg-color;
+
+		height: calc(100vh - #{$global-padding-vertical} * 2);
+	}
+
+	h1 {
+		font-weight: 600;
+	}
+}
