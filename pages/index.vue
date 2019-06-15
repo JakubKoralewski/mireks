@@ -2,6 +2,7 @@
 	<main class="global-padding">
 		<LandingPage @findOutMoreClick="findOutMoreClick" />
 		<WhyUs ref="whyUs" />
+		<Infographic />
 	</main>
 </template>
 
@@ -9,15 +10,18 @@
 	import { Component, Vue } from "nuxt-property-decorator";
 	import { TweenMax, Elastic, Power4 } from "gsap";
 	import ScrollToPlugin from "gsap/umd/ScrollToPlugin";
+	// To avoid tree-shaking
+	ScrollToPlugin;
 	import LandingPage from "@/components/LandingPage/LandingPage";
 	import WhyUs from "@/components/WhyUs/WhyUs";
+	import Infographic from "@/components/Infographic/Infographic";
 
-	ScrollToPlugin;
 
 	@Component({
 		components: {
 			LandingPage,
-			WhyUs
+			WhyUs,
+			Infographic
 		}
 	})
 	export default class Index extends Vue {
