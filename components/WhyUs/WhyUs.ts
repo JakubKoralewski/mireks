@@ -32,8 +32,8 @@ function isElementInViewport(el: HTMLElement): boolean {
 }
 
 /** Time needed to change number (in seconds).  */
-const NUMBER_STATIONARY = 3;
-const NUMBER_ANIMATING = 7;
+const NUMBER_STATIONARY = 2;
+const NUMBER_ANIMATING = 3;
 const NUMBER_COOLDOWN = NUMBER_STATIONARY + NUMBER_ANIMATING;
 const CHANGING_NUMBERS_TRANSITION = `transform ${NUMBER_ANIMATING}s ease-in-out`;
 
