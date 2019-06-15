@@ -51,7 +51,10 @@ const config: NuxtConfiguration = {
 	/*
 	** Plugins to load before mounting the App
 	*/
-	plugins: ["@/plugins/fontawesome.ts"],
+	plugins: [
+		"@/plugins/fontawesome.ts",
+		{ src: "@/plugins/vue-scrollmagic.ts", ssr: false }
+	],
 
 	/*
 	** Nuxt.js modules
@@ -59,7 +62,7 @@ const config: NuxtConfiguration = {
 	modules: ["@nuxtjs/sitemap", "@nuxtjs/style-resources" /* , "nuxt-svg "*/],
 
 	/* Global SCSS variables etc.
-	** https://github.com/nuxt-community/style-resources-module/ 
+	** https://github.com/nuxt-community/style-resources-module/
 	*/
 	styleResources: {
 		scss: ["@/assets/scss/*.scss"]

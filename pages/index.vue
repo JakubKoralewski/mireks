@@ -1,30 +1,37 @@
 <template>
 	<main class="global-padding">
 		<LandingPage @findOutMoreClick="findOutMoreClick" />
-		<section id="dlaczego-my" ref="whyUs">
-			<h1>Dlaczego my?</h1>
-			<img
-			 src="mireks_bg.jpg"
-			 alt="Siedziba biura rachunkowego Mireks"
-			>
-		</section>
-
+		<WhyUs ref="whyUs" />
 	</main>
 </template>
 
 <script lang="ts">
 	import { Component, Vue } from "nuxt-property-decorator";
-	import LandingPage from "@/components/LandingPage.vue";
+	import { TweenMax, Elastic, Power4 } from "gsap";
+	import ScrollToPlugin from "gsap/umd/ScrollToPlugin";
+	import LandingPage from "@/components/LandingPage/LandingPage";
+	import WhyUs from "@/components/WhyUs/WhyUs";
+
+	ScrollToPlugin;
 
 	@Component({
 		components: {
-			LandingPage
+			LandingPage,
+			WhyUs
 		}
 	})
 	export default class Index extends Vue {
 		findOutMoreClick() {
-			console.log('findOutMoreClick()');
-			( this.$refs.whyUs as HTMLElement ).scrollIntoView({behavior: "smooth"});
+			console.log("findOutMoreClick()");
+			console.log(this.$refs.whyUs);
+			const elementToScrollTo = (this.$refs.whyUs as Vue).$el;
+			TweenMax.to(document.documentElement, 4, {
+				scrollTo: { y: "#dlaczego-my", offsetY: 50 },
+				ease: Power4.easeOut
+			});
+			// .scrollIntoView({
+			// 	behavior: "smooth"
+			// });
 		}
 	}
 </script>
@@ -39,38 +46,27 @@
 	}
 
 	body {
-		scroll-snap-type: proximity;
-		scroll-snap-points-y: repeat(100vh);
-		scroll-snap-type: y proximity;
+		// scroll-snap-type: proximity;
+		// scroll-snap-points-y: repeat(100vh);
+		// scroll-snap-type: y proximity;
 		overflow-x: hidden;
 		overflow-y: scroll;
-		scroll-padding-top: $global-padding-vertical;
+		// scroll-padding-top: $global-padding-vertical;
 	}
+</style>
 
+
+<style lang="scss" scoped>
 	main {
 		z-index: -10;
 
 		section {
-			scroll-snap-align: start;
-			scroll-snap-stop: normal;
+			// scroll-snap-align: start;
+			// scroll-snap-stop: normal;
 		}
 	}
 
 	.global-padding {
 		padding: $global-padding-vertical $global-padding-horizontal;
-	}
-
-	#dlaczego-my {
-		margin-top: calc(#{$global-padding-vertical} * 2);
-		height: 100vh;
-
-		img {
-			position: absolute;
-			transform: translate(-50%, 0);
-			width: 100vw;
-			left: 50%;
-			object-fit: cover;
-			height: 80vh;
-		}
 	}
 </style>

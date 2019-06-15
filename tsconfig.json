@@ -9,6 +9,7 @@
 			"dom"
 		],
 		"esModuleInterop": true,
+		"jsx": "preserve",
 		"experimentalDecorators": true,
 		"allowJs": true,
 		"sourceMap": true,

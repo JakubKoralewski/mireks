@@ -12,6 +12,7 @@
 	},
 	"rules": {
 		"prettier": [true, "prettier.config.js"],
+		"no-trailing-whitespace": [true, "ignore-blank-lines", "ignore-jsdoc"],
 		"trailing-comma": false,
 		"no-console": false,
 		"no-debugger": false,

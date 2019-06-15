@@ -1,0 +1,117 @@
+svg.landing-page-bg {
+	position: absolute;
+	left: 0;
+	top: 0;
+	opacity: 0.01;
+	height: 100vh;
+	z-index: -5;
+}
+.invisible {
+	opacity: 0;
+}
+#landing-page {
+	height: calc(100vh - calc(#{$global-padding-vertical}* 2));
+	padding-bottom: $global-padding-vertical;
+
+	#landing-page-container {
+		display: flex;
+		flex-direction: row;
+		height: 100%;
+
+		#text-container {
+			display: flex;
+			flex-direction: column;
+			flex-basis: 61%;
+
+			#buttons {
+				margin-top: auto;
+				display: flex;
+				flex-direction: row;
+				height: calc(2rem + 5vh);
+
+				.button {
+					cursor: pointer;
+					font-weight: 400;
+					padding: calc(0.8rem + 1vh) calc(0.8rem + 2vw);
+					border-radius: 2rem;
+
+					&#dowiedz-sie-wiecej {
+						margin-right: calc(1rem + 1vw);
+						border: 1.5px solid $vibrant-blue;
+						color: $vibrant-blue;
+						text-align: center;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+					}
+
+					&#zadzwon {
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						background-color: $vibrant-blue;
+						width: calc(5rem + 3vw);
+						justify-content: space-between;
+					}
+				}
+			}
+			h1 {
+				font-weight: 600;
+				font-size: 2.5rem;
+
+				small {
+					font-size: inherit;
+					font-weight: 100;
+				}
+			}
+			h2 {
+				color: $muted-white;
+				font-weight: 300;
+			}
+
+			#description-container {
+				//height: 100%;
+
+				#description {
+					margin-top: 2rem;
+					color: lighten($muted-white, 20%);
+					font-size: 1.2rem;
+					width: calc(61% + 5rem);
+					display: flex;
+					flex-direction: column;
+					//height: 70%;
+					justify-content: center;
+
+					#main-description {
+						color: white;
+						font-weight: 300;
+					}
+				}
+			}
+		}
+
+		#logotype {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+
+			flex-grow: 1;
+
+			svg.logo {
+				width: 100%;
+				$logo-padding: 2rem;
+				width: calc(100% - #{$logo-padding} * 2);
+				height: auto;
+				padding: $logo-padding;
+				padding-bottom: 0;
+			}
+
+			svg.logo-text {
+				align-self: center;
+				margin-top: 1vh;
+				width: 25%;
+				height: auto;
+			}
+		}
+	}
+}
