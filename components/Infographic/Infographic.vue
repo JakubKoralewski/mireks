@@ -1,10 +1,14 @@
 <template>
 	<section id="infographic">
-		<img
-		 svg-inline
-		 src="@/other_assets/infographic_svgomged.svg"
-		 ref="svg"
-		/>
+		<h1 ref="infographicTitle">Nam pozostaw formalności, a sam zajmij się rzeczami naprawdę ważnymi... takimi jak prowadzenie Twojej firmy</h1>
+		<div class="round-bg">
+
+			<img
+			 svg-inline
+			 src="@/other_assets/infographic_svgomged.svg"
+			 ref="svg"
+			/>
+		</div>
 	</section>
 </template>
 

@@ -1,5 +1,13 @@
 #infographic {
-	svg {
-		width: 100%;
+	h1 {
+		font-weight: 600;
+		margin-bottom: 2rem;
+	}
+	.round-bg {
+		background-color: transparentize(#dfdaf7, 0.95);
+		border-radius: calc(1vmin + 1rem);
+		svg {
+			width: 100%;
+		}
 	}
 }

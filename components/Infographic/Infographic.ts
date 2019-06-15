@@ -1,9 +1,9 @@
 import { Component, Vue } from "nuxt-property-decorator";
-import { TimelineLite, Linear, Power3, TweenLite } from "gsap";
+import { TimelineLite, Linear, Power3, Power4, TweenMax } from "gsap";
 import { textWrap } from "d3plus-text";
 import paths from "./paths";
 import { items, IItem, TARGET_PATH } from "./items";
-console.log("toZUS === toUS", paths.toUS === paths.toZUS);
+import { faTintSlash } from "@fortawesome/free-solid-svg-icons";
 
 /* tslint:disable max-classes-per-file*/
 
@@ -46,6 +46,7 @@ export default class LandingPage extends Vue {
 	private svg!: HTMLElement;
 	private comment!: SVGElement;
 	private textElement!: SVGTextElement;
+	infographicTitle!: HTMLHeadingElement;
 	private itemNumber = 0;
 	private animationNumber = -1;
 	private item: IItem = items[this.itemNumber];
@@ -53,6 +54,8 @@ export default class LandingPage extends Vue {
 		console.groupCollapsed("SVGElements.onLoaded()");
 		console.log("Object loaded");
 		this.svg = this.$refs.svg as HTMLElement;
+		this.infographicTitle = this.$refs
+			.infographicTitle as HTMLHeadingElement;
 		(this.svg.childNodes as NodeListOf<SVGGElement>).forEach(el => {
 			if (el.id) {
 				this.add(el);
@@ -65,6 +68,27 @@ export default class LandingPage extends Vue {
 		this.elements.dokumenty.setAttribute("x", "0");
 
 		this.animationLoop(true);
+
+		[this.svg].forEach((el, index) => {
+			const subtleAnimScene = this.$scrollmagic
+				.scene({
+					triggerElement: this.infographicTitle,
+					triggerHook: 0.5,
+					duration: `${500 + 30 * index}px`,
+					reverse: true
+				})
+				.setTween(
+					TweenMax.from(el, 1, {
+						y: "20%",
+						autoAlpha: 0,
+						ease: Power4.easeOut
+					})
+				);
+			// .addIndicators({
+			// 	name: el.id || el.classList[0]
+			// });
+			this.$scrollmagic.addScene(subtleAnimScene);
+		});
 		console.groupEnd();
 	}
 	private setItemText() {
@@ -87,11 +111,21 @@ export default class LandingPage extends Vue {
 		tSpanElement.setAttribute("font-size", fontSize);
 		tSpanElement.textContent = this.item.name;
 		PITTextElement.appendChild(tSpanElement);
+		console.log(
+			"PITELEMENT WIDTH:",
+			PITElement.getBoundingClientRect().width
+		);
+		console.log(
+			"PITTEXTELEMENT WIDTH:",
+			PITTextElement.getBoundingClientRect().width
+		);
 
 		tSpanElement.setAttribute(
 			"x",
-			`${PITElement.getBoundingClientRect().width / 2 -
-				PITTextElement.getBoundingClientRect().width / 2}`
+			// "0"
+			`${PITElement.getBBox().width / 2 -
+				PITTextElement.getBBox().width / 2 +
+				1}`
 		);
 		console.log("getBBox", PITTextElement.getBBox());
 		console.log("getBBoxParent", PITElement.getBBox());
@@ -140,7 +174,8 @@ export default class LandingPage extends Vue {
 	}
 	private animationLoop(isFirstTime: boolean) {
 		const tl = new TimelineLite();
-		tl.timeScale(2);
+		console.log("timeline: ", tl);
+		tl.timeScale(1);
 		const commentYPosition = 20;
 		this.setGlobalItem();
 		console.groupCollapsed("animationLoop");
