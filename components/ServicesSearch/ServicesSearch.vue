@@ -61,7 +61,7 @@
 			 :class="{visible: displayNothingFoundDialog}"
 			>
 				<div id="title">
-					Nie znalazłeś oferty dla Siebie?
+					Nie znalazłeś(aś) oferty dla Siebie?
 				</div>
 				<div id="description">
 					Przykro nam. Skontaktuj się z nami, może coś razem wymyślimy!
