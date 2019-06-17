@@ -31,7 +31,7 @@ const config: NuxtConfiguration = {
 			{
 				rel: "stylesheet",
 				href:
-					"https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500,600,900&display=swap"
+					"https://fonts.googleapis.com/css?family=Montserrat:100,300,400,500,600,800,900&display=swap"
 			}
 		]
 	},
