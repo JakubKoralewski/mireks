@@ -2,6 +2,7 @@ import { Component, Vue } from "nuxt-property-decorator";
 import { TweenMax, Elastic, Power4 } from "gsap";
 import { AssertionError } from "assert";
 import isElementInViewport from "@/components/isElementInViewport";
+import sleep from "@/components/sleep";
 
 interface ChangingNumber {
 	number: number | string;
@@ -10,10 +11,6 @@ interface ChangingNumber {
 }
 /** Founding date of FHU MIREKS  */
 const FOUNDING_DATE = new Date(1994, 9, 1);
-
-function sleep(ms: number) {
-	return new Promise(resolve => setTimeout(resolve, ms));
-}
 
 function diffYears(date1: Date, date2: Date): number {
 	return date1.getFullYear() - date2.getFullYear();
