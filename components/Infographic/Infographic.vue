@@ -1,7 +1,7 @@
 <template>
 	<section id="infographic">
 		<h1 ref="infographicTitle">Nam pozostaw formalności, a sam zajmij się rzeczami naprawdę ważnymi... takimi jak prowadzenie Twojej firmy</h1>
-		<div class="round-bg">
+		<div class="round-bg" ref="roundBG">
 
 			<img
 			 svg-inline

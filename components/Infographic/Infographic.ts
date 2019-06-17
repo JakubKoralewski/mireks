@@ -3,7 +3,8 @@ import { TimelineLite, Linear, Power3, Power4, TweenMax } from "gsap";
 import { textWrap } from "d3plus-text";
 import paths from "./paths";
 import { items, IItem, TARGET_PATH } from "./items";
-import { faTintSlash } from "@fortawesome/free-solid-svg-icons";
+// import { faTintSlash } from "@fortawesome/free-solid-svg-icons";
+import isElementInViewport from "@/components/isElementInViewport";
 
 /* tslint:disable max-classes-per-file*/
 
@@ -41,19 +42,27 @@ interface Elements {
 	[id: string]: SVGGElement;
 }
 @Component
-export default class LandingPage extends Vue {
+export default class Infographic extends Vue {
 	public elements: Elements = {} as Elements;
 	private svg!: HTMLElement;
 	private comment!: SVGElement;
 	private textElement!: SVGTextElement;
 	infographicTitle!: HTMLHeadingElement;
+	roundBG!: HTMLElement;
 	private itemNumber = 0;
 	private animationNumber = -1;
 	private item: IItem = items[this.itemNumber];
+	checkIfSVGInViewport() {
+		if (isElementInViewport(this.svg)) {
+			this.animationLoop(true);
+			window.removeEventListener("scroll", this.checkIfSVGInViewport);
+		}
+	}
 	mounted() {
-		console.groupCollapsed("SVGElements.onLoaded()");
+		console.groupCollapsed("Infographic mounted");
 		console.log("Object loaded");
 		this.svg = this.$refs.svg as HTMLElement;
+		this.roundBG = this.$refs.roundBG as HTMLElement;
 		this.infographicTitle = this.$refs
 			.infographicTitle as HTMLHeadingElement;
 		(this.svg.childNodes as NodeListOf<SVGGElement>).forEach(el => {
@@ -61,20 +70,20 @@ export default class LandingPage extends Vue {
 				this.add(el);
 			}
 		});
-
 		this.comment = this.elements.comment;
 		this.textElement = this.comment.querySelector("text") as SVGTextElement;
 		console.log("textElement: ", this.textElement);
 		this.elements.dokumenty.setAttribute("x", "0");
 
-		this.animationLoop(true);
+		window.addEventListener("scroll", this.checkIfSVGInViewport);
+		this.checkIfSVGInViewport();
 
-		[this.svg].forEach((el, index) => {
+		[this.svg, this.roundBG].forEach((el, index) => {
 			const subtleAnimScene = this.$scrollmagic
 				.scene({
 					triggerElement: this.infographicTitle,
 					triggerHook: 0.5,
-					duration: `${500 + 30 * index}px`,
+					duration: `${500 + 80 * index}px`,
 					reverse: true
 				})
 				.setTween(
@@ -334,5 +343,6 @@ export default class LandingPage extends Vue {
 			)
 			.call(() => console.groupEnd())
 			.call(this.animationLoop, [false], this);
+		console.groupEnd();
 	}
 }

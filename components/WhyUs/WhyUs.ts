@@ -1,6 +1,7 @@
 import { Component, Vue } from "nuxt-property-decorator";
 import { TweenMax, Elastic, Power4 } from "gsap";
 import { AssertionError } from "assert";
+import isElementInViewport from "@/components/isElementInViewport";
 
 interface ChangingNumber {
 	number: number | string;
@@ -16,19 +17,6 @@ function sleep(ms: number) {
 
 function diffYears(date1: Date, date2: Date): number {
 	return date1.getFullYear() - date2.getFullYear();
-}
-
-function isElementInViewport(el: HTMLElement): boolean {
-	const rect = el.getBoundingClientRect();
-
-	return (
-		rect.top >= 0 &&
-		rect.left >= 0 &&
-		rect.bottom <=
-			(window.innerHeight || document.documentElement.clientHeight) &&
-		rect.right <=
-			(window.innerWidth || document.documentElement.clientWidth)
-	);
 }
 
 /** Time needed to change number (in seconds).  */

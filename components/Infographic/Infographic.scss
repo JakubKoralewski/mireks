@@ -1,6 +1,10 @@
 #infographic {
 	margin-bottom: $global-padding-vertical;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
 	h1 {
+		text-align: center;
 		font-weight: 600;
 		margin-bottom: 2rem;
 		width: 61%;
@@ -10,10 +14,12 @@
 		display: flex;
 		justify-content: center;
 		align-items: center;
+		border-radius: $round-bg-radius;
+		background-color: $round-bg-color;
 		svg {
-			border-radius: $round-bg-radius;
-			background-color: $round-bg-color;
 			height: 100%;
+			padding: 0 1vw;
+			width: 61vw;
 		}
 	}
 }

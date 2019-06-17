@@ -1,9 +1,13 @@
 import { Component, Vue } from "nuxt-property-decorator";
-import {  } from "gsap";
+import {} from "gsap";
 @Component
 export default class ServicesSearch extends Vue {
-	
-	mounted() {
+	searchText = "";
+	mounted() {}
+	search() {
+		console.log("Searching: ", this.searchText);
 	}
-	
+	handleSearchInput() {
+		console.log("Input");
+	}
 }
