@@ -13,43 +13,84 @@
 					 spellcheck="false"
 					 v-model="searchText"
 					 ref="searchInput"
-					 @keyup.enter="search()"
-					 @input="handleSearchInput()"
 					 @focus="searchInputFocus()"
 					 @blur="searchInputBlur()"
 					/>
-					<font-awesome-icon
-					 icon="search"
-					 @click="search()"
-					/>
+					<font-awesome-icon icon="search" />
 				</div>
 				<div
 				 id="view-type"
 				 class="round"
 				>
-					<font-awesome-icon icon="list" />
-					<font-awesome-icon icon="th-large" />
+					<font-awesome-icon
+					 icon="list"
+					 :class="{active: viewType === VIEW_TYPES.LIST}"
+					 @click="viewType = VIEW_TYPES.LIST"
+					/>
+					<font-awesome-icon
+					 icon="th-large"
+					 :class="{active: viewType === VIEW_TYPES.GRID}"
+					 @click="viewType = VIEW_TYPES.GRID"
+					/>
 				</div>
 			</div>
 
-			<transition-group
-			 id="services-container"
-			 tag="div"
-			 name="services-group"
-			>
-				<div
-				 v-for="service in services"
-				 :key="service.title"
-				 class="service"
+			<div id="services-container">
+				<transition-group
+				 tag="div"
+				 name="services-group"
+				 id="services-group"
 				>
-					<div class="title">
-						{{service.title}}
-					</div>
-					<div class="description">
-						{{service.description}}
-					</div>
+					<Service
+					 v-for="( service, index ) in services"
+					 :isLast="index + 1 === services.length ? true : false"
+					 :service="service"
+					 :searchText="searchText"
+					 :key="service.title"
+					 :class="{list: viewType === VIEW_TYPES.LIST}"
+					 @serviceVisible="foundVisibleService"
+					 @lastServiceVisible="lastServiceVisible"
+					>
+					</Service>
+				</transition-group>
+			</div>
+			<div id="gradient-overlay" />
+			<div
+			 id="nothing-found"
+			 ref="nothingFoundDialog"
+			 :class="{visible: displayNothingFoundDialog}"
+			>
+				<div id="title">
+					Nie znalazłeś oferty dla Siebie?
 				</div>
-			</transition-group>
+				<div id="description">
+					Przykro nam. Skontaktuj się z nami, może coś razem wymyślimy!
+				</div>
+				<div id="buttons">
+					<a
+					 href="tel:+48 62 763 74 10"
+					 id="call-us"
+					>
+						<font-awesome-icon icon="phone" />
+						+48 62 763 74 10
+					</a>
+
+					<a id="email-us"
+					 :href="
+					 `mailto:mireks40@poczta.onet.pl
+					 	?subject=Nie mogłem(am) znaleźć szukanej przeze mnie oferty
+						&body=${new Date().getHours() > 18 ? 'Dobry Wieczór' : 'Dzień Dobry' }!%0A%0A
+						
+						W waszej ofercie znaleźć nie mogłem(am) znaleźć terminu: %22${searchText}%22.%0A
+						Czy można mimo wszystko coś na to poradzić?%0A`
+					 "
+					 target="_blank"
+					>
+						<font-awesome-icon icon="at" />
+						mireks40@poczta.onet.pl
+					</a>
+				</div>
+			</div>
 		</div>
 	</section>
 </template>

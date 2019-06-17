@@ -57,8 +57,10 @@
 					padding-bottom: $search-bar-padding-vertical;
 					padding-left: $search-bar-padding-horizontal;
 					padding-right: 0;
+					transition: all 0.25s ease-in-out;
 					&:focus {
 						outline: none !important;
+						border-color: transparentize($vibrant-blue, 0.8);
 						& + .fa-search {
 							color: $vibrant-blue;
 							opacity: 0.8;
@@ -89,26 +91,115 @@
 				svg {
 					cursor: pointer;
 					opacity: 0.6;
+					transition: all 0.25s ease-in-out;
 					&:hover {
 						opacity: 0.8;
+					}
+					&.active {
+						color: $vibrant-blue;
 					}
 				}
 			}
 		}
+		$top: 10%;
+		$left: 5%;
+		$border-radius: 1rem;
+		$padding: 2rem;
+		$width: calc(100% - #{$left} * 2 - #{$padding} * 2);
+		$height: calc(100% - #{$top} * 1.5 - #{$padding} * 2);
+		$scrollbar-width: 11px;
+		div#gradient-overlay {
+			position: absolute;
+			left: $left;
+			top: $top;
+			border-radius: $border-radius;
+			width: calc(#{$width} - #{$scrollbar-width});
+			height: $height;
+			padding: $padding;
+			pointer-events: none;
+			z-index: 20;
+			// padding-top: 0;
+			background: linear-gradient(
+				to bottom,
+				rgba(21, 27, 43, 0.8) 0%,
+				rgba(41, 137, 216, 0) 9%,
+				rgba(32, 124, 202, 0) 93%,
+				rgba(30, 110, 179, 0) 94%,
+				rgba(21, 27, 43, 0.8) 100%
+			); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#151b2b', endColorstr='#151b2b',GradientType=0 ); /* IE6-9 */
+		}
+		#nothing-found {
+			display: flex;
+			flex-direction: column;
+			background-color: transparentize(white, 0.2);
+			border-radius: 2rem;
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			width: 61%;
+			height: 60%;
+			padding: 2rem 3rem;
+			box-sizing: border-box;
+			color: #0a1020;
+			#title {
+				font-weight: 800;
+				font-size: 1.4rem;
+			}
+			#description {
+				margin-top: 1rem;
+				font-weight: 500;
+			}
+			#buttons {
+				margin-top: auto;
+				display: flex;
+				flex-direction: row;
+				justify-content: space-between;
+				align-items: flex-end;
+				flex-wrap: wrap;
+				width: 100%;
+				height: 100%;
+				align-content: space-evenly;
+				a {
+					border-radius: 2rem;
+					background-color: $vibrant-blue;
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					padding: 0 1rem;
+					text-align: center;
+					height: 2.5rem;
+					color: inherit;
+					text-decoration: none;
+					svg {
+						margin-right: 1vw;
+					}
+					font-weight: 500;
+					font-size: 0.8rem;
+					// &#call-us { // cursor: default; // }
+				}
+			}
+			transition: all 0.5s ease-out;
+			&:not(.visible) {
+				transition: transform 2s ease-in, opacity 1s ease-out;
+				opacity: 0;
+				pointer-events: none;
+				transform: translate(-50%, 80%);
+			}
+		}
 		div#services-container {
 			overflow-y: scroll;
-			border-radius: 1rem;
+			border-radius: $border-radius;
 			position: absolute;
-			top: 10%;
-			left: 5%;
-			background-color: rgba(255, 255, 255, 0.05);
-			width: calc(90% - 4rem);
-			height: calc(85% - 4rem);
+			top: $top;
+			left: $left;
+			width: $width;
+			height: $height;
 			transition: color 2s ease-in;
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-evenly;
-			padding: 2rem;
+			padding: $padding;
+			// padding-top: 0;
+			color: #121726;
 			&:hover {
 				&::-webkit-scrollbar-thumb {
 					background-color: $muted-blue;
@@ -116,39 +207,19 @@
 				color: $muted-blue;
 				transition: color 1s ease-out;
 			}
-			color: #121726;
 			.services-group-move {
 				transition: transform 1s;
 			}
-			div.service {
-				color: white !important;
+			#services-group {
 				display: flex;
-				flex-direction: column;
-				justify-content: space-evenly;
-				align-items: center;
-				flex-basis: 25%;
-				min-height: 100px;
-				margin-bottom: 2rem;
-				// height: 200px;
-				text-align: center;
-				padding: 1vw;
-				.title {
-					font-weight: 600;
-					font-size: 1.2rem;
-					color: black;
-				}
-				.description {
-					font-size: 0.7rem;
-					font-weight: 400;
-					color: black;
-				}
-				background-color: white;
-				border-radius: 1rem;
+				flex-wrap: wrap;
+				justify-content: space-between;
+				height: 100%;
 			}
 			&::-webkit-scrollbar {
 				position: absolute;
 				right: -5rem;
-				width: 11px;
+				width: $scrollbar-width;
 				&:hover {
 					cursor: pointer;
 					transition: all 1s ease-out;
