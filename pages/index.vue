@@ -4,37 +4,43 @@
 		<WhyUs ref="whyUs" />
 		<Infographic />
 		<ServicesSearch />
+		<Contact />
 	</main>
 </template>
 
 <script lang="ts">
 	import { Component, Vue } from "nuxt-property-decorator";
-	import { TweenMax, Elastic, Power4 } from "gsap";
-	import ScrollToPlugin from "gsap/umd/ScrollToPlugin";
+	// import { TweenMax, Elastic, Power4, TimelineLite } from "gsap";
+	// TweenMax;
+	// import TweenMax from "gsap/umd/TweenMax";
+	// console.log(xd);
+	// console.log(TweenMax, Elastic, Power4);
+	//import gsap from "gsap";
+	//console.log("gsap in index.vue: ", gsap);
+	//import ScrollToPlugin from "gsap/umd/ScrollToPlugin";
 	// To avoid tree-shaking
-	ScrollToPlugin;
+	//ScrollToPlugin;
 	import LandingPage from "@/components/LandingPage/LandingPage";
 	import WhyUs from "@/components/WhyUs/WhyUs";
 	import Infographic from "@/components/Infographic/Infographic";
 	import ServicesSearch from "@/components/ServicesSearch/ServicesSearch";
+	import Contact from "@/components/Contact/Contact";
 
 	@Component({
 		components: {
 			LandingPage,
 			WhyUs,
 			Infographic,
-			ServicesSearch
+			ServicesSearch,
+			Contact
 		}
 	})
 	export default class Index extends Vue {
 		findOutMoreClick() {
 			console.log("findOutMoreClick()");
-			console.log(this.$refs.whyUs);
-			const elementToScrollTo = (this.$refs.whyUs as Vue).$el;
-			TweenMax.to(document.documentElement, 4, {
-				scrollTo: { y: "#dlaczego-my", offsetY: 50 },
-				ease: Power4.easeOut
-			});
+			document
+				.querySelector("#dlaczego-my")!
+				.scrollIntoView({ behavior: "smooth" });
 		}
 	}
 </script>
