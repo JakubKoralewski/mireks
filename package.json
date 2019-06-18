@@ -8,7 +8,29 @@
 		"dev": "nuxt",
 		"build": "nuxt build",
 		"start": "nuxt start",
-		"generate": "nuxt generate"
+		"generate": "nuxt generate",
+		"test": "tsc && ava"
+	},
+	"ava": {
+		"compileEnhancements": false,
+		"extensions": [
+			"ts"
+		],
+		"files": [
+			"**/*.test.ts"
+		],
+		"sources": [
+			"src/**/*"
+		],
+		"require": [
+			"ts-node/register"
+		],
+		"verbose": true
+	},
+	"babel": {
+		"presets": [
+			"es2015"
+		]
 	},
 	"dependencies": {
 		"@fortawesome/fontawesome-svg-core": "^1.2.19",
@@ -30,6 +52,10 @@
 	},
 	"devDependencies": {
 		"@nuxt/typescript": "^2.8.1",
+		"ava": "^2.1.0",
+		"babel-preset-env": "^1.7.0",
+		"babel-register": "^6.26.0",
+		"jsdom": "^15.1.1",
 		"nodemon": "^1.11.0",
 		"nuxt-property-decorator": "^2.3.0",
 		"postcss-loader": "^3.0.0",

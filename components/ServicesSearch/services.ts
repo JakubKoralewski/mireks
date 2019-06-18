@@ -115,9 +115,9 @@ const services: IService[] = [
 	},
 	{
 		id: 11,
-		title: "Pomoc w zakładaniu działalności gospodarczej.",
+		title: "Pomoc w zakładaniu działalności gospodarczej",
 		description: "Pomagamy zacząć własny biznes.",
-		keywords: ["spółka", "biznes"],
+		keywords: ["spółka"],
 		visible: true
 	},
 	{
