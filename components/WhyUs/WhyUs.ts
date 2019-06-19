@@ -119,7 +119,7 @@ export default class WhyUs extends Vue {
 			}
 			this.currentNumberIndex += this.byWhat;
 		}
-		console.group("changing number to: ", this.currentNumberIndex);
+		console.groupCollapsed("changing number to: ", this.currentNumberIndex);
 		console.log(
 			`Simply moving ${this.byWhat === 1 ? "forwards" : "backwards"}`
 		);

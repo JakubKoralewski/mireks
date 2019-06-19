@@ -107,7 +107,8 @@ const config: NuxtConfiguration = {
 			preset: {
 				autoprefixer: {}
 			}
-		}
+		},
+		analyze: true
 	}
 };
 export default config;
