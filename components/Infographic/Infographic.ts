@@ -5,6 +5,7 @@ import paths from "./paths";
 import { items, IItem, TARGET_PATH } from "./items";
 // import { faTintSlash } from "@fortawesome/free-solid-svg-icons";
 import isElementInViewport from "@/components/isElementInViewport";
+// import { ScrollMagic } from "scrollmagic";
 
 /* tslint:disable max-classes-per-file*/
 
@@ -79,24 +80,19 @@ export default class Infographic extends Vue {
 		this.checkIfSVGInViewport();
 
 		[this.svg, this.roundBG].forEach((el, index) => {
-			const subtleAnimScene = this.$scrollmagic
-				.scene({
-					triggerElement: this.infographicTitle,
-					triggerHook: 0.5,
-					duration: `${500 + 80 * index}px`,
-					reverse: true
+			const subtleAnimScene = new this.$ScrollMagic.Scene({
+				triggerElement: this.infographicTitle,
+				triggerHook: 0.5,
+				duration: `${500 + 80 * index}px`,
+				reverse: true
+			}).setTween(
+				TweenMax.from(el, 1, {
+					y: "20%",
+					autoAlpha: 0,
+					ease: Power4.easeOut
 				})
-				.setTween(
-					TweenMax.from(el, 1, {
-						y: "20%",
-						autoAlpha: 0,
-						ease: Power4.easeOut
-					})
-				);
-			// .addIndicators({
-			// 	name: el.id || el.classList[0]
-			// });
-			this.$scrollmagic.addScene(subtleAnimScene);
+			);
+			this.$ScrollMagic.Controller.addScene(subtleAnimScene);
 		});
 		console.groupEnd();
 	}

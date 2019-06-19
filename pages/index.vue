@@ -4,7 +4,7 @@
 		<WhyUs ref="whyUs" />
 		<Infographic />
 		<ServicesSearch />
-		<Contact />
+		<!-- <Contact /> -->
 	</main>
 </template>
 
@@ -24,7 +24,7 @@
 	import WhyUs from "@/components/WhyUs/WhyUs";
 	import Infographic from "@/components/Infographic/Infographic";
 	import ServicesSearch from "@/components/ServicesSearch/ServicesSearch";
-	import Contact from "@/components/Contact/Contact";
+	// import Contact from "@/components/Contact/Contact";
 
 	@Component({
 		components: {
@@ -32,7 +32,7 @@
 			WhyUs,
 			Infographic,
 			ServicesSearch,
-			Contact
+			// Contact
 		}
 	})
 	export default class Index extends Vue {

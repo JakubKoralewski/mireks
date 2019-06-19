@@ -3,6 +3,7 @@ import { TweenMax, Elastic, Power4 } from "gsap";
 import { AssertionError } from "assert";
 import isElementInViewport from "@/components/isElementInViewport";
 import sleep from "@/components/sleep";
+// import { ScrollMagic } from "scrollmagic";
 
 interface ChangingNumber {
 	number: number | string;
@@ -226,13 +227,13 @@ export default class WhyUs extends Vue {
 		this.whyUsSubTitleElement = this.$refs.whyUsSubTitle as HTMLElement;
 		this.whyUsDescriptionElement = this.$refs
 			.whyUsDescription as HTMLElement;
-		const fadeInWhyUsScene = this.$scrollmagic.scene({
+		const fadeInWhyUsScene = new this.$ScrollMagic.Scene({
 			triggerElement: this.whyUsElement,
 			triggerHook: 0.9,
 			duration: "50%",
 			reverse: false
 		});
-		this.$scrollmagic.addScene(
+		this.$ScrollMagic.Controller.addScene(
 			fadeInWhyUsScene.setTween(
 				TweenMax.from(this.whyUsElement, 20, {
 					autoAlpha: 0,
@@ -241,53 +242,49 @@ export default class WhyUs extends Vue {
 			)
 		);
 
-		const parallaxWhyUsBG = this.$scrollmagic
-			.scene({
-				triggerElement: this.whyUsElement,
-				triggerHook: 1,
-				duration: "200%"
-			})
-			.setTween(
-				TweenMax.fromTo(
-					this.whyUsElement.querySelector(
-						"#mireks-bg-img"
-					) as HTMLDivElement,
-					1,
-					{
-						y: "-70%"
-					},
-					{
-						y: "00%"
-					}
-				)
-			);
+		const parallaxWhyUsBG = new this.$ScrollMagic.Scene({
+			triggerElement: this.whyUsElement,
+			triggerHook: 1,
+			duration: "200%"
+		}).setTween(
+			TweenMax.fromTo(
+				this.whyUsElement.querySelector(
+					"#mireks-bg-img"
+				) as HTMLDivElement,
+				1,
+				{
+					y: "-70%"
+				},
+				{
+					y: "00%"
+				}
+			)
+		);
 		// .addIndicators({
 		// 	name: "Parallax",
 		// 	colorTrigger: "re"
 		// });
-		this.$scrollmagic.addScene(parallaxWhyUsBG);
+		this.$ScrollMagic.Controller.addScene(parallaxWhyUsBG);
 
 		// Subtle move up and opacity elements
 		[this.whyUsSubTitleElement, this.whyUsDescriptionElement].forEach(
 			(el, index) => {
-				const subtleAnimScene = this.$scrollmagic
-					.scene({
-						triggerElement: this.whyUsElement,
-						triggerHook: 0.5,
-						duration: `${500 + 30 * index}px`,
-						reverse: true
+				const subtleAnimScene = new this.$ScrollMagic.Scene({
+					triggerElement: this.whyUsElement,
+					triggerHook: 0.5,
+					duration: `${500 + 30 * index}px`,
+					reverse: true
+				}).setTween(
+					TweenMax.from(el, 1, {
+						y: "20%",
+						autoAlpha: 0,
+						ease: Power4.easeOut
 					})
-					.setTween(
-						TweenMax.from(el, 1, {
-							y: "20%",
-							autoAlpha: 0,
-							ease: Power4.easeOut
-						})
-					);
+				);
 				// .addIndicators({
 				// 	name: el.id || el.classList[0]
 				// });
-				this.$scrollmagic.addScene(subtleAnimScene);
+				this.$ScrollMagic.Controller.addScene(subtleAnimScene);
 			}
 		);
 	}

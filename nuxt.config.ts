@@ -53,7 +53,8 @@ const config: NuxtConfiguration = {
 	*/
 	plugins: [
 		"@/plugins/fontawesome.ts",
-		{ src: "@/plugins/vue-scrollmagic.ts", ssr: false }
+		{ src: "@/plugins/scrollmagic-plugin.ts", ssr: false }
+		// { src: "@/plugins/vue-scrollmagic.ts", ssr: false }
 	],
 
 	/*

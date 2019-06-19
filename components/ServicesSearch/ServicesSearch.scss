@@ -71,7 +71,9 @@
 					}
 					&::placeholder {
 						opacity: 0.6;
-						font-size: calc(1vw / 0.5rem);
+						--vw: 1vw;
+						--rem: 0.5rem;
+						font-size: calc(var(--vw) / var(--rem));
 						transition: color 1.5s ease-out;
 					}
 				}
