@@ -66,6 +66,7 @@ export default class WhyUs extends Vue {
 			if (number.shouldBeUpdatedEveryYear) {
 				return true;
 			}
+			return false;
 		});
 		if (!numberObjectNeedingToUpdate) {
 			throw new AssertionError({
