@@ -1,5 +1,5 @@
 import { Component, Vue } from "nuxt-property-decorator";
-import { TimelineLite, Power4, Sine } from "gsap";
+import { Power4, TimelineLite } from "gsap";
 
 interface LogoElements {
 	left: SVGPathElement;
@@ -16,12 +16,12 @@ export default class LandingPage extends Vue {
 	findOutMoreButton!: HTMLDivElement;
 	tl = new TimelineLite();
 	mounted() {
-		// Assigns types to $refs and supplies less typing
+		// Assigns types to $refs elements so less type asserting is necessary
 		this.findOutMoreButton = this.$refs.findOutMoreButton as HTMLDivElement;
 		this.logoTextSVG = this.$refs.logoText as HTMLElement;
 		this.logoSVG = this.$refs.logo as HTMLElement;
 
-		// Create logoElements object
+		// Create this.logoElements object
 		((this.logoSVG.querySelector("g#logo") as SVGGElement)
 			.childNodes as NodeListOf<SVGPathElement>).forEach(child => {
 			if (!child.id) {

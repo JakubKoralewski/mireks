@@ -9,6 +9,7 @@
 </template>
 
 <script lang="ts">
+// import "@/plugins/animation.gsap";
 	import { Component, Vue } from "nuxt-property-decorator";
 	// import { TweenMax, Elastic, Power4, TimelineLite } from "gsap";
 	// TweenMax;

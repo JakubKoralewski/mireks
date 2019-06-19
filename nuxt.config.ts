@@ -75,10 +75,12 @@ const config: NuxtConfiguration = {
 		/*
 		** You can extend webpack config here
 		*/
-		extend(config, { isClient }) {
-			if (isClient) {
+		extend(config, { isClient, isDev }) {
+			if (isClient && isDev) {
 				config.devtool = "#cheap-module-eval-source-map";
 			}
+
+			// config.mode = "production";
 
 			/* Vue inline svg loader */
 			const vueRule = (config as any).module.rules.find(rule =>
@@ -104,7 +106,8 @@ const config: NuxtConfiguration = {
 			preset: {
 				autoprefixer: {}
 			}
-		}
+		},
+		analyze: true
 	}
 };
 export default config;

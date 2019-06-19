@@ -9,7 +9,7 @@
 		"build": "nuxt build",
 		"start": "nuxt start",
 		"generate": "nuxt generate",
-		"test": "tsc && ava"
+		"test": "tsc -p \".\\tsconfig.test.json\" && ava"
 	},
 	"ava": {
 		"compileEnhancements": false,
