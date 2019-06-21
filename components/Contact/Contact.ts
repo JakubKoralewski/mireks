@@ -60,7 +60,7 @@ export default class Contact extends Vue {
 			},
 			body: this.encode({
 				"form-name": "contact-form",
-				...this.form
+				...this.formHoneypotted
 			})
 		});
 	}
