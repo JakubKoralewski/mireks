@@ -59,7 +59,14 @@ export default class Contact extends Vue {
 				"form-name": "contact-form",
 				...this.formHoneypotted
 			})
-		});
+		}).then(
+			res => {
+				alert(res.ok);
+			},
+			rej => {
+				alert(rej);
+			}
+		);
 	}
 
 	@Watch("contacts", { deep: true })
