@@ -41,18 +41,15 @@ export default class Contact extends Vue {
 
 	get formHoneypotted() {
 		const form = Object.assign({}, this.form);
-		if (!this.form.honeypot) {
+		if (!form.honeypot) {
 			delete form.honeypot;
-			return this.form;
+			return form;
 		}
 		return this.form;
 	}
 
 	contactFormSubmit(formEvent: FormSubmitEvent) {
 		console.log("Form submit vars: ", formEvent);
-		// const form = formEvent.target;
-		// const formData = new FormData(form);
-		// console.log("Form Data: ", formData);
 		fetch("/", {
 			method: "POST",
 			headers: {

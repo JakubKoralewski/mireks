@@ -22,7 +22,6 @@
 			<form
 			 @submit.prevent="contactFormSubmit"
 			 name="contact-form"
-			 method="post"
 			 data-netlify="true"
 			 data-netlify-recaptcha="true"
 			 netlify-honeypot="nie-wpisuj-tego"
