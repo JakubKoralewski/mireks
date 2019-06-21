@@ -19,7 +19,7 @@
 			/>
 		</div>
 		<div id="contact-form" data-netlify="true" data-netlify-recaptcha="true" netlify-honeypot="nie-wpisuj-tego">
-			<form @submit.prevent="contactFormSubmit"> 
+			<form @submit.prevent="contactFormSubmit" name="contact-form"> 
 				<label for="name">
 					Twoje imię:
 					<input type="text" id="name" name="name" v-model="form.name">
