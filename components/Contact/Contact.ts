@@ -38,10 +38,10 @@ export default class Contact extends Vue {
 			)
 			.join("&");
 	}
-	
-	get formHoneypotted {
+
+	get formHoneypotted() {
 		const form = Object.assign({}, this.form);
-		if(!this.form.honeypot) {
+		if (!this.form.honeypot) {
 			delete form.honeypot;
 			return this.form;
 		}
