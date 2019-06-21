@@ -26,7 +26,7 @@ export default class Contact extends Vue {
 		const form = formEvent.target;
 		const formData = new FormData(form);
 		console.log("Form Data: ", formData);
-		fetch(formEvent.target.action, {
+		fetch("/", {
 			method: "POST",
 			body: formData
 		});
