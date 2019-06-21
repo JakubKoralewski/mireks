@@ -21,6 +21,7 @@
 		<div id="contact-form">
 			<form
 			 @submit.prevent="contactFormSubmit"
+			 action=""
 			 name="contact-form"
 			 data-netlify="true"
 			 data-netlify-recaptcha="true"
