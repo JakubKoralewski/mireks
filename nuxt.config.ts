@@ -77,7 +77,7 @@ const config: NuxtConfiguration = {
 		** You can extend webpack config here
 		*/
 		extend(config, { isClient, isDev }) {
-			if (isClient && isDev) {
+			if (isClient) {
 				config.devtool = "#cheap-module-eval-source-map";
 			}
 

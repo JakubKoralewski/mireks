@@ -9,7 +9,8 @@ section#contact {
 		margin-bottom: 3rem;
 	}
 	#contact-container {
-		height: calc(100vh - #{$global-padding-vertical} * 2);
+		// height: calc(100vh - #{$global-padding-vertical} * 2);
+		margin-bottom: 20vh;
 		width: $contact-whole-width;
 		position: relative;
 
@@ -38,6 +39,14 @@ section#contact {
 					// transform: /* rotateY(60deg )*/
 					// 	translateX(calc(#{$contact-space}));
 				}
+			}
+		}
+	}
+	
+	#contact-form {
+		form {
+			label[for="nie-wpisuj-tego"] {
+				display: none;
 			}
 		}
 	}

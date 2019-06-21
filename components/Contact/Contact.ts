@@ -3,6 +3,11 @@ import ContactElement from "./ContactElement/ContactElement";
 import IContact from "./IContact";
 import contacts from "./contacts";
 
+interface FormSubmitEvent extends Event {
+	type: "submit";
+	target: HTMLFormElement;
+}
+
 @Component({
 	components: {
 		ContactElement
@@ -15,6 +20,54 @@ export default class Contact extends Vue {
 	anySelected = false;
 	contacts = contacts;
 	reverseIndex = -1;
+
+	form = {
+		name: "",
+		email: "",
+		body: "",
+		honeypot: ""
+	};
+
+	encode(data: any) {
+		return Object.keys(data)
+			.map(
+				key =>
+					`${encodeURIComponent(key)}=${encodeURIComponent(
+						data[key]
+					)}`
+			)
+			.join("&");
+	}
+
+	get formHoneypotted() {
+		const form = Object.assign({}, this.form);
+		if (!form.honeypot) {
+			delete form.honeypot;
+			return form;
+		}
+		return this.form;
+	}
+
+	contactFormSubmit(formEvent: FormSubmitEvent) {
+		console.log("Form submit vars: ", formEvent);
+		fetch("/", {
+			method: "POST",
+			headers: {
+				"Content-Type": "application/x-www-form-urlencoded"
+			},
+			body: this.encode({
+				"form-name": "contact-form",
+				...this.formHoneypotted
+			})
+		}).then(
+			res => {
+				alert(res.ok);
+			},
+			rej => {
+				alert(rej);
+			}
+		);
+	}
 
 	@Watch("contacts", { deep: true })
 	onContactsChange(newValue: IContact[]) {
