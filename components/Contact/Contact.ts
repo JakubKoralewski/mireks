@@ -50,7 +50,7 @@ export default class Contact extends Vue {
 
 	contactFormSubmit(formEvent: FormSubmitEvent) {
 		console.log("Form submit vars: ", formEvent);
-		const form = formEvent.target;
+		// const form = formEvent.target;
 		// const formData = new FormData(form);
 		// console.log("Form Data: ", formData);
 		fetch("/", {

@@ -22,19 +22,19 @@
 			<form @submit.prevent="contactFormSubmit"> 
 				<label for="name">
 					Twoje imię:
-					<input type="text" id="name" name="name" :value="form.name">
+					<input type="text" id="name" name="name" v-model="form.name">
 				</label>
 				<label for="mail">
 					Twój e-mail:
-					<input type="text" id="e-mail" name="e-mail" :value="form.email">
+					<input type="text" id="e-mail" name="e-mail" v-model="form.email">
 				</label>
 				<label for="body">
 					Twoja wiadomość:
-					<textarea id="body" name="body" :value="form.body"></textarea>
+					<textarea id="body" name="body" v-model="form.body"></textarea>
 				</label>
 				<label for="nie-wpisuj-tego" class="hidden">
 					Nie wpisuj tego:
-					<input type="text" name="nie-wpisuj-tego" :value="form.honeypot">
+					<input type="text" name="nie-wpisuj-tego" v-model="form.honeypot">
 				</label>
 				<div data-netlify-recaptcha="true"></div>
 				<button type="submit">Wyślij</button>
