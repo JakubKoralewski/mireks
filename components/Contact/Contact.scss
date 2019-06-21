@@ -42,4 +42,12 @@ section#contact {
 			}
 		}
 	}
+	
+	#contact-form {
+		form {
+			label[for="nie-wpisuj-tego"] {
+				display: none;
+			}
+		}
+	}
 }
