@@ -4,28 +4,18 @@
 		<WhyUs ref="whyUs" />
 		<Infographic />
 		<ServicesSearch />
-		<!-- <Contact /> -->
+		<Contact />
 	</main>
 </template>
 
 <script lang="ts">
-// import "@/plugins/animation.gsap";
 	import { Component, Vue } from "nuxt-property-decorator";
-	// import { TweenMax, Elastic, Power4, TimelineLite } from "gsap";
-	// TweenMax;
-	// import TweenMax from "gsap/umd/TweenMax";
-	// console.log(xd);
-	// console.log(TweenMax, Elastic, Power4);
-	//import gsap from "gsap";
-	//console.log("gsap in index.vue: ", gsap);
-	//import ScrollToPlugin from "gsap/umd/ScrollToPlugin";
-	// To avoid tree-shaking
-	//ScrollToPlugin;
+
 	import LandingPage from "@/components/LandingPage/LandingPage";
 	import WhyUs from "@/components/WhyUs/WhyUs";
 	import Infographic from "@/components/Infographic/Infographic";
 	import ServicesSearch from "@/components/ServicesSearch/ServicesSearch";
-	// import Contact from "@/components/Contact/Contact";
+	import Contact from "@/components/Contact/Contact";
 
 	@Component({
 		components: {
@@ -33,7 +23,7 @@
 			WhyUs,
 			Infographic,
 			ServicesSearch,
-			// Contact
+			Contact
 		}
 	})
 	export default class Index extends Vue {

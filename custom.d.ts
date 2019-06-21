@@ -1,4 +1,4 @@
-declare module "*.svg" {
-	const content: typeof Vue;
-	export default content;
+declare module "*.scss" {
+	const styles: any;
+	export default styles;
 }

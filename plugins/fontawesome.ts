@@ -10,8 +10,10 @@ import {
 	faUser,
 	faAt,
 	faBusinessTime,
-	faMapMarkedAlt
+	faMapMarkedAlt,
+	faTimes
 } from "@fortawesome/free-solid-svg-icons";
+import { faCopy } from "@fortawesome/free-regular-svg-icons";
 
 // This is important, we are going to let Nuxt.js worry about the CSS
 config.autoAddCss = false;
@@ -27,7 +29,9 @@ library.add(
 	faUser,
 	faAt,
 	faBusinessTime,
-	faMapMarkedAlt
+	faMapMarkedAlt,
+	faTimes,
+	faCopy
 );
 
 // Register the component globally

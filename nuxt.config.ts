@@ -81,7 +81,7 @@ const config: NuxtConfiguration = {
 				config.devtool = "#cheap-module-eval-source-map";
 			}
 
-			config.mode = "production";
+			// config.mode = "production";
 
 			/* Vue inline svg loader */
 			const vueRule = (config as any).module.rules.find(rule =>
@@ -108,7 +108,15 @@ const config: NuxtConfiguration = {
 				autoprefixer: {}
 			}
 		},
-		analyze: true
+		terser: {
+			terserOptions: {
+				compress: {
+					drop_console: true,
+					drop_debugger: true
+				}
+			}
+		} // ,
+		// analyze: true
 	}
 };
 export default config;

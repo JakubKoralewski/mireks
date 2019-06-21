@@ -7,3 +7,29 @@ $global-padding-horizontal: calc(10vw + 2rem);
 $round-bg-radius: calc(1vmin + 1rem);
 // $round-bg-color: transparentize(#dfdaf7, 0.95);
 $round-bg-color: #151b2b;
+
+//contact
+$contact-width: calc(20rem + 5vw);
+$contact-horizontal-padding: 2vw;
+$contact-right-margin: calc(0.5rem + 1vw);
+$contact-font-size: 1.5rem;
+$contact-space-const: calc(
+	(#{$contact-horizontal-padding} * 2 + #{$contact-font-size})
+);
+$contact-space: calc((#{$contact-space-const}) * var(--index));
+$contact-whole-width: calc(
+	#{$contact-width} + #{$contact-space-const} * (var(--length) - 1)
+);
+$contact-move: calc((#{$contact-width} - #{$contact-space-const}) * -1);
+$contact-middle: calc(( #{$contact-space} * -1 ) + (#{$contact-whole-width} / 2) - (#{$contact-width} / 2));
+
+/* :export {
+	contactWidth: $contact-width;
+	contactHorziontalPadding: $contact-horizontal-padding;
+	contactRightMargin: $contact-right-margin;
+	contactFontSize: $contact-font-size;
+	contactSpaceConst: $contact-space-const;
+	contactSpace: $contact-space;
+	contactWholeWidth: $contact-whole-width;
+	contactMove: $contact-move;
+ }*/

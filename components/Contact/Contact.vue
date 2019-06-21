@@ -1,37 +1,22 @@
 <template>
 	<section id="contact">
 		<h1>Skontaktuj się z nami!</h1>
-		<div id="contact-container">
-			<div class="contact">
-				<font-awesome-icon icon="map-marked-alt" />
-				<div class="info-container">
-					<div class="subtitle">Adres</div>
-					<div class="info">
-						62-840 Koźminek, ul. Nakwasińska 1
-					</div>
-				</div>
-			</div>
-			<div class="contact">
-				<font-awesome-icon icon="phone" />
-				<div class="info-container">
-					<div class="subtitle">Numer telefonu</div>
-					<div class="info">+48 62 763 74 10</div>
-				</div>
-			</div>
-			<div class="contact">
-				<font-awesome-icon icon="business-time" />
-				<div class="info-container">
-					<div class="subtitle">Godziny otwarcia</div>
-					<div class="info">Od poniedziałku do piątku: 8:00-16:00</div>
-				</div>
-			</div>
-			<div class="contact">
-				<font-awesome-icon icon="at" />
-				<div class="info-container">
-					<div class="subtitle">E-mail</div>
-					<div class="info">mireks40@poczta.onet.pl</div>
-				</div>
-			</div>
+		<div
+		 id="contact-container"
+		 :style="`--length: ${contacts.length}; ${anyHover ? `--hoverIndex: ${hoverIndex}` : ''}`"
+		 :class="{'active-hover': anyHover, 'active-selected': anySelected}"
+		>
+			<ContactElement
+			 v-for="( contact, index ) in contacts"
+			 :class="{'last': index + 1 === contacts.length, 'reverse': reverseIndex === index}"
+			 :index="index"
+			 ref="contacts"
+			 :key="contact.id"
+			 :contact="contact"
+			 :style="`--index: ${index};`"
+			 @clicked="contactClicked"
+			 @closed="contactClosed"
+			/>
 		</div>
 		<div id="contact-form">
 
