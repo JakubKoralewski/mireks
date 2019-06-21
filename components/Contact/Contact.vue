@@ -25,6 +25,7 @@
 			 data-netlify-recaptcha="true"
 			 netlify-honeypot="nie-wpisuj-tego"
 			>
+
 				<label for="name">
 					Twoje imię:
 					<input
