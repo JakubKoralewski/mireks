@@ -24,22 +24,20 @@
 			 data-netlify="true"
 			 data-netlify-recaptcha="true"
 			 netlify-honeypot="nie-wpisuj-tego"
+			 @submit.prevent="contactFormSubmit"
 			>
-
 				<label for="name">
 					Twoje imię:
 					<input
 					 type="text"
-					 id="name"
 					 name="name"
 					 v-model="form.name"
 					>
 				</label>
-				<label for="mail">
+				<label for="e-mail">
 					Twój e-mail:
 					<input
 					 type="text"
-					 id="e-mail"
 					 name="e-mail"
 					 v-model="form.email"
 					>
@@ -47,14 +45,11 @@
 				<label for="body">
 					Twoja wiadomość:
 					<textarea
-					 id="body"
 					 name="body"
 					 v-model="form.body"
 					></textarea>
 				</label>
-				<label
-				 for="nie-wpisuj-tego"
-				>
+				<label for="nie-wpisuj-tego">
 					Nie wpisuj tego:
 					<input
 					 type="text"
@@ -63,7 +58,7 @@
 					>
 				</label>
 				<div data-netlify-recaptcha="true"></div>
-				<button @click="contactFormSubmit">Wyślij</button>
+				<button>Wyślij</button>
 			</form>
 		</div>
 		<div id="map">
