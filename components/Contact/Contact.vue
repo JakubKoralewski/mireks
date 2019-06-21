@@ -20,12 +20,11 @@
 		</div>
 		<div id="contact-form">
 			<form
-			 @submit.prevent="contactFormSubmit"
-			 action="#"
 			 name="contact-form"
 			 data-netlify="true"
 			 data-netlify-recaptcha="true"
 			 netlify-honeypot="nie-wpisuj-tego"
+			 @submit.prevent
 			>
 				<label for="name">
 					Twoje imię:
@@ -55,7 +54,6 @@
 				</label>
 				<label
 				 for="nie-wpisuj-tego"
-				 class="hidden"
 				>
 					Nie wpisuj tego:
 					<input
@@ -65,7 +63,7 @@
 					>
 				</label>
 				<div data-netlify-recaptcha="true"></div>
-				<button type="submit">Wyślij</button>
+				<button @click="contactFormSubmit">Wyślij</button>
 			</form>
 		</div>
 		<div id="map">
