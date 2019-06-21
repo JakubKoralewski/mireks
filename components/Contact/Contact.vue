@@ -18,8 +18,27 @@
 			 @closed="contactClosed"
 			/>
 		</div>
-		<div id="contact-form">
-
+		<div id="contact-form" data-netlify="true" data-netlify-recaptcha="true" netlify-honeypot="nie-wpisuj-tego">
+			<form @submit.prevent="contactFormSubmit"> 
+				<label for="name">
+					Twoje imię:
+					<input type="text" id="name" name="name">
+				</label>
+				<label for="mail">
+					Twój e-mail:
+					<input type="text" id="e-mail" name="e-mail">
+				</label>
+				<label for="body">
+					Twoja wiadomość:
+					<textarea id="body" name="body"></textarea>
+				</label>
+				<label for="nie-wpisuj-tego" class="hidden">
+					Nie wpisuj tego:
+					<input type="text" name="nie-wpisuj-tego">
+				</label>
+				<div data-netlify-recaptcha="true"></div>
+				<button type="submit">Wyślij</button>
+			</form>
 		</div>
 		<div id="map">
 

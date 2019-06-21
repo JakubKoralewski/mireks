@@ -3,6 +3,11 @@ import ContactElement from "./ContactElement/ContactElement";
 import IContact from "./IContact";
 import contacts from "./contacts";
 
+interface FormSubmitEvent extends Event {
+	type: "submit";
+	target: HTMLFormElement;
+}
+
 @Component({
 	components: {
 		ContactElement
@@ -15,6 +20,17 @@ export default class Contact extends Vue {
 	anySelected = false;
 	contacts = contacts;
 	reverseIndex = -1;
+
+	contactFormSubmit(formEvent: FormSubmitEvent) {
+		console.log("Form submit vars: ", formEvent);
+		const form = formEvent.target;
+		const formData = new FormData(form);
+		console.log("Form Data: ", formData);
+		fetch(formEvent.target.action, {
+			method: "POST",
+			body: formData
+		});
+	}
 
 	@Watch("contacts", { deep: true })
 	onContactsChange(newValue: IContact[]) {
