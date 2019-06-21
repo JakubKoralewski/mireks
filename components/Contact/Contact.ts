@@ -42,10 +42,13 @@ export default class Contact extends Vue {
 	contactFormSubmit(formEvent: FormSubmitEvent) {
 		console.log("Form submit vars: ", formEvent);
 		const form = formEvent.target;
-		const formData = new FormData(form);
-		console.log("Form Data: ", formData);
+		// const formData = new FormData(form);
+		// console.log("Form Data: ", formData);
 		fetch("/", {
 			method: "POST",
+			headers: {
+				"Content-Type": "application/x-www-form-urlencoded"
+			},
 			body: this.encode({
 				"form-name": "contact-form",
 				...this.form
