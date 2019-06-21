@@ -21,6 +21,24 @@ export default class Contact extends Vue {
 	contacts = contacts;
 	reverseIndex = -1;
 
+	form = {
+		name: "",
+		email: "",
+		body: "",
+		honeypot: ""
+	};
+
+	encode(data: any) {
+		return Object.keys(data)
+			.map(
+				key =>
+					`${encodeURIComponent(key)}=${encodeURIComponent(
+						data[key]
+					)}`
+			)
+			.join("&");
+	}
+
 	contactFormSubmit(formEvent: FormSubmitEvent) {
 		console.log("Form submit vars: ", formEvent);
 		const form = formEvent.target;
@@ -28,7 +46,10 @@ export default class Contact extends Vue {
 		console.log("Form Data: ", formData);
 		fetch("/", {
 			method: "POST",
-			body: formData
+			body: this.encode({
+				"form-name": "contact-form",
+				...this.form
+			})
 		});
 	}
 
