@@ -5,6 +5,7 @@
 		<Infographic />
 		<ServicesSearch />
 		<Contact />
+		<Footer />
 	</main>
 </template>
 
@@ -16,6 +17,7 @@
 	import Infographic from "@/components/Infographic/Infographic";
 	import ServicesSearch from "@/components/ServicesSearch/ServicesSearch";
 	import Contact from "@/components/Contact/Contact";
+	import Footer from "@/components/Footer/Footer";
 
 	@Component({
 		components: {
@@ -23,7 +25,8 @@
 			WhyUs,
 			Infographic,
 			ServicesSearch,
-			Contact
+			Contact,
+			Footer
 		}
 	})
 	export default class Index extends Vue {
@@ -38,7 +41,7 @@
 
 <style lang="scss">
 	html {
-		background-color: #0a1020;
+		background-color: $bg-color;
 		color: white;
 		font-weight: 200;
 		-webkit-font-smoothing: antialiased;

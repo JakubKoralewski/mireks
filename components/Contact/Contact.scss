@@ -9,7 +9,9 @@ section#contact {
 		margin-bottom: 3rem;
 	}
 	#contact-container {
-		height: calc(100vh - #{$global-padding-vertical} * 2);
+		height: $contact-height;
+		margin-bottom: 3rem;
+		// height: calc(100vh - #{$global-padding-vertical} * 2);
 		width: $contact-whole-width;
 		position: relative;
 
@@ -38,6 +40,28 @@ section#contact {
 					// transform: /* rotateY(60deg )*/
 					// 	translateX(calc(#{$contact-space}));
 				}
+			}
+		}
+	}
+
+	#map {
+		display: flex;
+		justify-content: center;
+		border-radius: 2rem;
+		background-color: $round-bg-color;
+		border: 1px solid $round-border-color;
+		#map-container {
+			position: relative;
+			height: calc(63vmin);
+			width: calc(63vmin);
+			display: flex;
+			align-items: center;
+			justify-content: center;
+
+			iframe {
+				width: 90%;
+				height: 90%;
+				border-radius: 0.5rem;
 			}
 		}
 	}

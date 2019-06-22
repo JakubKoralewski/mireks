@@ -7,23 +7,25 @@
 	 @mouseleave="contact.hover = false"
 	 @click="clicked"
 	>
-		<font-awesome-icon
-		 class="icon"
-		 :icon="contact.icon"
-		/>
-		<div class="info-container">
-			<div class="subtitle">{{contact.subtitle}}</div>
-			<div
-			 v-if="!contact.link"
-			 class="info"
-			>{{contact.info}}</div>
-			<a
-			 v-if="contact.link"
-			 class="info"
-			 :href="contact.link"
-			 target="_blank"
-			>{{contact.info}}</a>
-		</div>
+		<!-- <div class="left"> -->
+			<font-awesome-icon
+			 class="icon"
+			 :icon="contact.icon"
+			/>
+			<div class="info-container">
+				<div class="subtitle">{{contact.subtitle}}</div>
+				<div
+				 v-if="!contact.link"
+				 class="info"
+				>{{contact.info}}</div>
+				<a
+				 v-if="contact.link"
+				 class="info"
+				 :href="contact.link"
+				 target="_blank"
+				>{{contact.info}}</a>
+			</div>
+		<!-- </div> -->
 		<font-awesome-icon
 		 :icon="[ 'far', 'copy' ]"
 		 @click="copyClicked"

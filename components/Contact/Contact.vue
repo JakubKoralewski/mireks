@@ -22,8 +22,36 @@
 
 		</div>
 		<div id="map">
+			<div id="map-container">
 
+				<div class="overlay" />
+				<iframe
+				 id="gmap_canvas"
+				 src="https://maps.google.com/maps?q=mireks%20ko%C5%BAminek&t=&z=14&ie=UTF8&iwloc=&output=embed"
+				 frameborder="0"
+				 scrolling="no"
+				 marginheight="0"
+				 marginwidth="0"
+				>
+				</iframe>
+			</div>
+			<!-- <style>
+				.mapouter {
+					position: relative;
+					text-align: right;
+					height: 500px;
+					width: 600px;
+				}
+
+				.gmap_canvas {
+					overflow: hidden;
+					background: none !important;
+					height: 500px;
+					width: 600px;
+				}
+				</style> -->
 		</div>
+		<!-- </div> -->
 	</section>
 </template>
 

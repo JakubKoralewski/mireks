@@ -1,12 +1,18 @@
+$bg-color: #0a1020;
 $muted-white: #8c8e93;
 $vibrant-blue: #0ec7ff;
 $muted-blue: #0f96c2;
 $global-padding-vertical: calc(12vh + 2rem);
 $global-padding-horizontal: calc(10vw + 2rem);
 
+$round-border-color: transparentize(#2e3340, 0.7);
 $round-bg-radius: calc(1vmin + 1rem);
 // $round-bg-color: transparentize(#dfdaf7, 0.95);
 $round-bg-color: #151b2b;
+
+//services-search
+$services-height: calc(100vh - #{$global-padding-vertical} * 2);
+$services-width: calc(63vw);
 
 //contact
 $contact-width: calc(20rem + 5vw);
@@ -22,6 +28,7 @@ $contact-whole-width: calc(
 );
 $contact-move: calc((#{$contact-width} - #{$contact-space-const}) * -1);
 $contact-middle: calc(( #{$contact-space} * -1 ) + (#{$contact-whole-width} / 2) - (#{$contact-width} / 2));
+$contact-height: 6rem;
 
 /* :export {
 	contactWidth: $contact-width;

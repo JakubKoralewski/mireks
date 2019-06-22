@@ -19,20 +19,12 @@
 	display: flex;
 	flex-direction: row;
 	align-items: center;
-	height: 6rem;
+	height: $contact-height;
 	width: $contact-width;
 
 	position: absolute;
 	top: 0;
 	transition: transform 1.5s ease-out;
-	svg.icon {
-		color: black;
-		opacity: 0.4;
-		font-size: $contact-font-size;
-		height: 80%;
-		margin-right: $contact-horizontal-padding;
-		transition: opacity 1s ease-in-out, color 2s ease-in;
-	}
 	svg.fa-times {
 		color: darken(red, 10%) !important;
 		$size: 0.7rem;
@@ -51,26 +43,41 @@
 			pointer-events: none;
 		}
 	}
-	.info-container {
-		.subtitle {
-			font-weight: 400;
+	// .left {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+		flex-basis: 80%;
+		svg.icon {
+			color: black;
+			opacity: 0.4;
+			font-size: $contact-font-size;
+			height: 80%;
+			margin-right: $contact-horizontal-padding;
+			transition: opacity 1s ease-in-out, color 2s ease-in;
 		}
-		.info {
-			font-weight: 500;
-		}
-		a.info {
-			text-decoration: none;
-			color: $muted-blue;
-			transition: color 0.5s ease-in;
+		.info-container {
+			.subtitle {
+				font-weight: 400;
+			}
+			.info {
+				font-weight: 500;
+			}
+			a.info {
+				text-decoration: none;
+				color: $muted-blue;
+				transition: color 0.5s ease-in;
 
-			&:hover {
-				color: $vibrant-blue;
+				&:hover {
+					color: $vibrant-blue;
+				}
 			}
 		}
-	}
+	// }
 	svg.fa-copy {
 		margin-left: auto;
-		// margin-right: auto;
+		margin-right: 5%;
 		font-size: 1.3rem;
 		opacity: 0.3;
 		cursor: pointer;

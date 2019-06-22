@@ -5,14 +5,14 @@ $blue-border: transparentize($vibrant-blue, 0.8);
 	flex-direction: column;
 	align-items: center;
 	.round {
-		border: 1px solid transparentize(#2e3340, 0.7);
+		border: 1px solid $round-border-color;
 		background-color: $round-bg-color;
 		border-radius: 50%;
 	}
 	.round-bg {
 		border-radius: $round-bg-radius;
-		height: calc(100vh - #{$global-padding-vertical} * 2);
-		width: calc(63vw);
+		height: $services-height;
+		width: $services-width;
 		position: relative;
 		transition: all 0.4s ease-out;
 		&:active {
