@@ -30,7 +30,7 @@
 				Nd: zamknięte<br />
 			</div>
 			<div id="address">
-				<b>Adres:</b><br />
+				<b>Adres:</b>
 				62-840 Koźminek,
 				ul.Nakwasińska 1
 			</div>

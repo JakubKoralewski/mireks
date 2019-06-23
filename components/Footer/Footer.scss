@@ -12,6 +12,9 @@ section#footer {
 	padding: calc(1rem + 1vh) $global-padding-horizontal;
 	//Font
 	font-weight: 400;
+	
+	//TODO: Fix overflow
+	overflow-x: hidden;
 
 	//Flex
 	// display: flex;
@@ -24,12 +27,9 @@ section#footer {
 		$footer-mq-900px: "screen and (max-width: 900px)";
 		//Grid
 		display: grid;
-		grid-template-columns: 2.4fr 2fr 2fr 2fr;
-		grid-template-rows: auto auto auto;
+		grid-template-rows: 1fr 1fr auto;
 		grid-column-gap: 1rem;
 		align-items: center;
-		// place-items: center center;
-		// grid-auto-flow: row;
 
 		//Every
 		div {

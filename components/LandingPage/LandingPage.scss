@@ -1,116 +1,171 @@
 svg.landing-page-bg {
 	position: absolute;
-	left: 0;
-	top: 0;
+	left: calc(#{$global-padding-horizontal} * -1);
+	top: calc(#{$global-padding-vertical} * -1);
+	// height: 100vh;
+	height: 100%;
+	@media screen and (max-width: $global-padding-top-override-max-px) {
+		top: -$global-padding-top-override-amount;
+	}
 	opacity: 0.01;
-	height: 100vh;
 	z-index: -5;
 }
 .invisible {
 	opacity: 0;
 }
 #landing-page {
-	height: calc(100vh - calc(#{$global-padding-vertical}* 2));
+	min-height: calc(100vh - calc(#{$global-padding-vertical} * 2));
 	padding-bottom: $global-padding-vertical;
+	position: relative;
 
 	#landing-page-container {
 		display: flex;
-		flex-direction: row;
-		height: 100%;
+		flex-direction: column;
+		min-height: inherit;
 
-		#text-container {
+		#buttons {
+			margin-top: auto;
+			margin-bottom: 5vw;
 			display: flex;
-			flex-direction: column;
-			flex-basis: 61%;
+			flex-direction: row;
+			@media #{$mq-phone} {
+				flex-direction: column;
+				align-items: center;
+			}
+			@media #{$mq-tablet} {
+				justify-content: space-evenly;
+			}
+			//height: calc(2rem + 5vh);
 
-			#buttons {
-				margin-top: auto;
-				display: flex;
-				flex-direction: row;
-				height: calc(2rem + 5vh);
+			.button {
+				cursor: pointer;
+				font-weight: 400;
+				padding: calc(0.8rem + 1vh) calc(0.8rem + 2vw);
+				border-radius: 2rem;
+				box-sizing: border-box;
 
-				.button {
-					cursor: pointer;
-					font-weight: 400;
-					padding: calc(0.8rem + 1vh) calc(0.8rem + 2vw);
-					border-radius: 2rem;
-
-					&#dowiedz-sie-wiecej {
-						margin-right: calc(1rem + 1vw);
-						border: 1.5px solid $vibrant-blue;
-						color: $vibrant-blue;
-						text-align: center;
-						display: flex;
-						justify-content: center;
-						align-items: center;
+				&#dowiedz-sie-wiecej {
+					margin-right: calc(1rem + 1vw);
+					@media #{$mq-phone} {
+						margin-right: 0;
 					}
-
-					&#zadzwon {
-						display: flex;
-						justify-content: center;
-						align-items: center;
-						background-color: $vibrant-blue;
-						width: calc(5rem + 3vw);
-						justify-content: space-between;
-					}
-				}
-			}
-			h1 {
-				font-weight: 600;
-				font-size: 2.5rem;
-
-				small {
-					font-size: inherit;
-					font-weight: 100;
-				}
-			}
-			h2 {
-				color: $muted-white;
-				font-weight: 300;
-			}
-
-			#description-container {
-				//height: 100%;
-
-				#description {
-					margin-top: 2rem;
-					color: lighten($muted-white, 20%);
-					font-size: 1.2rem;
-					width: calc(61% + 5rem);
+					border: 1.5px solid $vibrant-blue;
+					color: $vibrant-blue;
+					text-align: center;
 					display: flex;
-					flex-direction: column;
-					//height: 70%;
 					justify-content: center;
+					align-items: center;
+				}
 
-					#main-description {
-						color: white;
-						font-weight: 300;
+				&#zadzwon {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					background-color: $vibrant-blue;
+					min-width: calc(5rem + 3vw);
+					justify-content: space-between;
+					margin-right: 2vw;
+
+					@media #{$mq-phone} {
+						padding-left: calc(5rem - 2vw);
+						padding-right: calc(5rem - 2vw);
+						width: inherit;
+						//margin-right: calc(1rem + 1vw);
+						justify-content: space-evenly;
+						margin-top: 1rem;
+						margin-right: 0;
 					}
+				}
+				@media #{$mq-phone} {
+					width: 90% !important;
 				}
 			}
 		}
-
-		#logotype {
+		#text-container {
 			display: flex;
-			flex-direction: column;
-			justify-content: center;
+			flex-direction: row;
+			@media #{$mq-phone} {
+				flex-direction: column;
+				margin-bottom: 2rem;
+			}
+			//flex-basis: 61%;
 
-			flex-grow: 1;
+			#text-inner-container {
+				flex-basis: 61%;
 
-			svg.logo {
-				width: 100%;
-				$logo-padding: 2rem;
-				width: calc(100% - #{$logo-padding} * 2);
-				height: auto;
-				padding: $logo-padding;
-				padding-bottom: 0;
+				@media #{$mq-phone} {
+					text-align: center;
+				}
+
+				h1 {
+					font-weight: 600;
+					font-size: 2.5rem;
+
+					small {
+						font-size: inherit;
+						font-weight: 100;
+					}
+				}
+				h2 {
+					color: $muted-white;
+					font-weight: 300;
+				}
+
+				#description-container {
+					//height: 100%;
+
+					#description {
+						margin-top: 2rem;
+						width: calc(61% + 5rem);
+						@media #{$mq-phone} {
+							margin: 0;
+							width: 100%;
+							margin-top: 1rem;
+						}
+						color: lighten($muted-white, 20%);
+						font-size: 1.2rem;
+						@media #{$mq-phone} {
+							font-size: 0.9rem;
+						}
+						display: flex;
+						flex-direction: column;
+						//height: 70%;
+						justify-content: center;
+
+						#main-description {
+							color: white;
+							font-weight: 300;
+						}
+					}
+				}
 			}
 
-			svg.logo-text {
-				align-self: center;
-				margin-top: 1vh;
-				width: 25%;
-				height: auto;
+			#logotype {
+				display: flex;
+				flex-direction: column;
+				justify-content: center;
+				align-items: center;
+
+				flex-grow: 1;
+
+				svg.logo {
+					width: 100%;
+					$logo-padding: 2rem;
+					width: calc(100% - #{$logo-padding} * 2);
+					@media #{$mq-phone} {
+						width: calc(80% - #{$logo-padding} * 3);
+					}
+					height: auto;
+					padding: $logo-padding;
+					padding-bottom: 0;
+				}
+
+				svg.logo-text {
+					align-self: center;
+					margin-top: 1vh;
+					width: 25%;
+					height: auto;
+				}
 			}
 		}
 	}

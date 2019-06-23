@@ -25,12 +25,18 @@
 
 		#flex-container {
 			$text-container-padding-vertical: calc(2rem + 5vh);
+			$mq-break: 700px;
 			position: absolute;
 			height: calc(100% - #{$text-container-padding-vertical} * 2);
 			padding: $text-container-padding-vertical $global-padding-horizontal;
 			align-items: center;
 			display: flex;
 			flex-direction: row;
+			overflow-y: auto;
+
+			@media screen and (max-width: $mq-break) {
+				flex-direction: column;
+			}
 
 			#text {
 				flex-basis: 60%;
@@ -53,6 +59,11 @@
 				align-items: center;
 				flex-direction: column;
 				$number-height: $big-number-size + $description-size;
+
+				@media screen and (max-width: $mq-break) {
+					min-height: 20vh;
+					width: 100%;
+				}
 				#numbers {
 					height: $number-height;
 					display: flex;

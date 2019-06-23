@@ -22,7 +22,23 @@
 						</div>
 					</div>
 				</div>
+<div id="logotype">
+				<img
+				 svg-inline
+				 src="@/other_assets/logo.svg"
+				 class="logo"
+				 ref="logo"
+				/>
+				<img
+				 svg-inline
+				 src="@/other_assets/logo-text.svg"
+				 class="logo-text"
+				 ref="logoText"
+				/>
+			</div>
 
+
+			</div>
 				<div id="buttons">
 					<div
 					 class="button"
@@ -42,22 +58,7 @@
 						Zadzwoń
 					</div>
 				</div>
-
-			</div>
-			<div id="logotype">
-				<img
-				 svg-inline
-				 src="@/other_assets/logo.svg"
-				 class="logo"
-				 ref="logo"
-				/>
-				<img
-				 svg-inline
-				 src="@/other_assets/logo-text.svg"
-				 class="logo-text"
-				 ref="logoText"
-				/>
-			</div>
+			
 		</div>
 	</section>
 

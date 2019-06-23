@@ -2,7 +2,7 @@ $bg-color: #0a1020;
 $muted-white: #8c8e93;
 $vibrant-blue: #0ec7ff;
 $muted-blue: #0f96c2;
-$global-padding-vertical: calc(12vh + 2rem);
+$global-padding-vertical: calc(5vh + 4rem);
 $global-padding-horizontal: calc(10vw + 2rem);
 
 $round-border-color: transparentize(#2e3340, 0.7);
@@ -27,16 +27,24 @@ $contact-whole-width: calc(
 	#{$contact-width} + #{$contact-space-const} * (var(--length) - 1)
 );
 $contact-move: calc((#{$contact-width} - #{$contact-space-const}) * -1);
-$contact-middle: calc(( #{$contact-space} * -1 ) + (#{$contact-whole-width} / 2) - (#{$contact-width} / 2));
+$contact-middle: calc(
+	(#{$contact-space} * -1) + (#{$contact-whole-width} / 2) -
+		(#{$contact-width} / 2)
+);
 $contact-height: 6rem;
 
-/* :export {
-	contactWidth: $contact-width;
-	contactHorziontalPadding: $contact-horizontal-padding;
-	contactRightMargin: $contact-right-margin;
-	contactFontSize: $contact-font-size;
-	contactSpaceConst: $contact-space-const;
-	contactSpace: $contact-space;
-	contactWholeWidth: $contact-whole-width;
-	contactMove: $contact-move;
- }*/
+//Media queries
+
+//Phone
+$mq-phone-break-px: 600px;
+$mq-phone-break: "(max-width: #{$mq-phone-break-px})";
+$mq-phone: "screen and #{$mq-phone-break};";
+
+//Tablet-not-phone
+$mq-tablet-break-px: 900px;
+$mq-tablet-break: "(max-width: #{$mq-tablet-break-px})";
+$mq-tablet: "screen and #{$mq-tablet-break};";
+$mq-tablet-not-phone: "screen and (min-width: #{$mq-phone-break-px}) and #{$mq-tablet-break};";
+
+$global-padding-top-override-max-px: 600px;
+$global-padding-top-override-amount: 3rem;
