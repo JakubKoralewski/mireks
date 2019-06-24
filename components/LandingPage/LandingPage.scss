@@ -66,6 +66,10 @@ svg.landing-page-bg {
 					justify-content: space-between;
 					margin-right: 2vw;
 
+					svg {
+						margin-right: 1vw;
+					}
+
 					@media #{$mq-phone} {
 						padding-left: calc(5rem - 2vw);
 						padding-right: calc(5rem - 2vw);

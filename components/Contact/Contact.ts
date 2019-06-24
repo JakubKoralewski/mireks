@@ -16,6 +16,8 @@ export default class Contact extends Vue {
 	contacts = contacts;
 	reverseIndex = -1;
 
+	smallViewport = false;
+
 	@Watch("contacts", { deep: true })
 	onContactsChange(newValue: IContact[]) {
 		console.log("contacts change");
@@ -35,6 +37,18 @@ export default class Contact extends Vue {
 			this.anyHover = false;
 		}
 		this.anySelected = newValue.some(x => x.selected);
+	}
+
+	mounted() {
+		const checkViewportSize = () => {
+			if (window.innerWidth <= 600) {
+				this.smallViewport = true;
+			} else {
+				this.smallViewport = false;
+			}
+		};
+		window.addEventListener("resize", checkViewportSize);
+		checkViewportSize();
 	}
 
 	contactClosed(index: number) {

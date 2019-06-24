@@ -8,23 +8,25 @@
 	 @click="clicked"
 	>
 		<!-- <div class="left"> -->
-			<font-awesome-icon
-			 class="icon"
-			 :icon="contact.icon"
+		<font-awesome-icon
+		 class="icon"
+		 :icon="contact.icon"
+		/>
+		<div class="info-container">
+			<div class="subtitle">{{contact.subtitle}}</div>
+			<div
+			 v-if="!contact.link"
+			 class="info"
+			 v-html="contact.info"
 			/>
-			<div class="info-container">
-				<div class="subtitle">{{contact.subtitle}}</div>
-				<div
-				 v-if="!contact.link"
-				 class="info"
-				>{{contact.info}}</div>
-				<a
-				 v-if="contact.link"
-				 class="info"
-				 :href="contact.link"
-				 target="_blank"
-				>{{contact.info}}</a>
-			</div>
+			<a
+			 v-else
+			 class="info"
+			 :href="contact.link"
+			 target="_blank"
+			 v-html="contact.info"
+			/>
+		</div>
 		<!-- </div> -->
 		<font-awesome-icon
 		 :icon="[ 'far', 'copy' ]"

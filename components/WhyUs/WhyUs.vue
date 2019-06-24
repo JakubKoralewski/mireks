@@ -38,7 +38,7 @@
 								 id="-1 last-clone"
 								 style="left: -100%"
 								>
-									<div id="description">
+									<div id="number-description">
 										{{numbers[numbers.length-1].description}}
 									</div>
 									<div id="number">
@@ -65,7 +65,7 @@
 								 :id="`${numbers.length} first-clone`"
 								 :style="`left: ${100* numbers.length}%`"
 								>
-									<div id="description">
+									<div id="number-description">
 										{{numbers[0].description}}
 									</div>
 									<div id="number">

@@ -33,7 +33,7 @@ const contacts: IContact[] = [
 		id: "e-mail",
 		icon: "at",
 		subtitle: "E-mail",
-		info: "mireks40@poczta.onet.pl",
+		info: "mireks40<br/>@poczta.onet.pl",
 		link: "mailto:mireks40@poczta.onet.pl",
 		hover: false,
 		selected: false,

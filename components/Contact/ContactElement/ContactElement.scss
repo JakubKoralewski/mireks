@@ -20,11 +20,34 @@
 	flex-direction: row;
 	align-items: center;
 	height: $contact-height;
-	width: $contact-width;
 
-	position: absolute;
-	top: 0;
 	transition: transform 1.5s ease-out;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	align-items: center;
+	flex-basis: 80%;
+	
+	br {
+		display: none;
+	}
+
+	&.big-viewport {
+		left: $contact-space;
+		position: absolute;
+		top: 0;
+		width: $contact-width;
+	}
+
+	&.small-viewport {
+		margin-bottom: 2rem;
+		padding-left: 1rem;
+		padding-right: 1rem;
+		
+		br {
+			display: block;
+		}
+	}
 	svg.fa-times {
 		color: darken(red, 10%) !important;
 		$size: 0.7rem;
@@ -43,38 +66,38 @@
 			pointer-events: none;
 		}
 	}
-	// .left {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		align-items: center;
-		flex-basis: 80%;
-		svg.icon {
-			color: black;
-			opacity: 0.4;
-			font-size: $contact-font-size;
-			height: 80%;
-			margin-right: $contact-horizontal-padding;
-			transition: opacity 1s ease-in-out, color 2s ease-in;
-		}
-		.info-container {
-			.subtitle {
-				font-weight: 400;
-			}
-			.info {
-				font-weight: 500;
-			}
-			a.info {
-				text-decoration: none;
-				color: $muted-blue;
-				transition: color 0.5s ease-in;
 
-				&:hover {
-					color: $vibrant-blue;
-				}
+	svg.icon {
+		color: black;
+		opacity: 0.4;
+		font-size: $contact-font-size;
+		height: 80%;
+		margin-right: $contact-horizontal-padding;
+		transition: opacity 1s ease-in-out, color 2s ease-in;
+	}
+	.info-container {
+		.subtitle {
+			font-weight: 400;
+			@media #{$mq-phone} {
+				font-size: 0.8rem;
 			}
 		}
-	// }
+		.info {
+			font-weight: 500;
+			@media #{$mq-phone} {
+				font-size: 0.9rem;
+			}
+		}
+		a.info {
+			text-decoration: none;
+			color: $muted-blue;
+			transition: color 0.5s ease-in;
+
+			&:hover {
+				color: $vibrant-blue;
+			}
+		}
+	}
 	svg.fa-copy {
 		margin-left: auto;
 		margin-right: 5%;
@@ -90,7 +113,6 @@
 			color: $muted-blue;
 		}
 	}
-	left: $contact-space;
 	@keyframes selected {
 		0% {
 			z-index: inherit;

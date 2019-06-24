@@ -11,7 +11,8 @@ import {
 	faAt,
 	faBusinessTime,
 	faMapMarkedAlt,
-	faTimes
+	faTimes,
+	faExternalLinkAlt
 } from "@fortawesome/free-solid-svg-icons";
 import { faCopy } from "@fortawesome/free-regular-svg-icons";
 
@@ -31,7 +32,8 @@ library.add(
 	faBusinessTime,
 	faMapMarkedAlt,
 	faTimes,
-	faCopy
+	faCopy,
+	faExternalLinkAlt
 );
 
 // Register the component globally

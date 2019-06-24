@@ -1,6 +1,6 @@
 <template>
 	<section id="footer">
-		<div id="footer-container"> 
+		<div id="footer-container">
 
 			<div id="logo">
 				<img
@@ -18,6 +18,8 @@
 				6181009277<br />
 				<b>REGON:</b>
 				250454919<br />
+				<b>Świadectwo kwalfikacyne:</b>
+				nr 20113/2000
 			</div>
 			<div id="business-time">
 				<b>Godziny otwarcia:</b>
@@ -31,7 +33,7 @@
 			</div>
 			<div id="address">
 				<b>Adres:</b>
-				62-840 Koźminek,
+				62-840 Koźminek,<br />
 				ul.Nakwasińska 1
 			</div>
 			<div id="phone-number">
@@ -40,14 +42,17 @@
 			</div>
 			<div id="e-mail">
 				<b>Email:</b>
-				mireks40@poczta.onet.pl
+				mireks40<br />@poczta.onet.pl
 			</div>
 		</div>
-			<div id="credits">
-				Strona wykonana przez
+		<a id="credits" href="https://jakubkoralewski.pl/pl" target="_blank">
+			<div id="text">
+				Strona wykonana przez <br />
 				<b>Jakuba Koralewskiego</b>
 			</div>
-		</section>
+			<font-awesome-icon icon="external-link-alt" />
+		</a>
+	</section>
 </template>
 
 <script lang="ts" src="./Footer.ts"></script>
