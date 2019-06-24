@@ -1,7 +1,6 @@
 <template>
 	<section id="footer">
 		<div id="footer-container">
-
 			<div id="logo">
 				<img
 				 svg-inline

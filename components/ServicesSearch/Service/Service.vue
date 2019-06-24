@@ -1,5 +1,5 @@
 <template>
-	<div :class="[{visible: isVisible(searchText)}, 'service']">
+	<div :class="[{visible: isVisible(searchText), active, opaque}, 'service']" @click="clicked">
 		<div
 		 class="title"
 		 :style="`--length: ${50/(service.shortTitle ? service.shortTitle : service.title).length + 10}`"

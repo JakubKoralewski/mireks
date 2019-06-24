@@ -35,7 +35,7 @@
 				</div>
 			</div>
 
-			<div id="services-container">
+			<div id="services-container" ref="servicesContainer">
 				<transition-group
 				 tag="div"
 				 name="services-group"
@@ -50,6 +50,7 @@
 					 :class="{list: viewType === VIEW_TYPES.LIST}"
 					 @serviceVisible="foundVisibleService"
 					 @lastServiceVisible="lastServiceVisible"
+					 :container="servicesContainer"
 					>
 					</Service>
 				</transition-group>

@@ -21,6 +21,7 @@ export default class ServicesSearch extends Vue {
 		LIST: 1
 	};
 	viewType = this.VIEW_TYPES.GRID;
+	servicesContainer: HTMLElement = {} as HTMLElement;
 
 	@Watch("searchText")
 	onSearchTextChange() {
@@ -43,6 +44,7 @@ export default class ServicesSearch extends Vue {
 	mounted() {
 		this.nothingFoundDialogElement = this.$refs
 			.nothingFoundDialog as HTMLElement;
+		this.servicesContainer = this.$refs.servicesContainer as HTMLElement;
 	}
 
 	async searchInputFocus() {
