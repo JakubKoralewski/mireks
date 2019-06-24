@@ -1,25 +1,44 @@
 #infographic {
 	margin-bottom: $global-padding-vertical;
 	display: flex;
-    flex-direction: column;
-    align-items: center;
+	flex-direction: column;
+	align-items: center;
 	h1 {
 		text-align: center;
 		font-weight: 600;
 		margin-bottom: 2rem;
 		width: 61%;
+		@media #{$mq-phone} {
+			width: 100%;
+			font-size: 1rem;
+		}
 	}
 	.round-bg {
-		height: calc(100vh - #{$global-padding-vertical} * 2);
+		min-height: calc(100vh - #{$global-padding-vertical} * 2);
+		width: 100%;
 		display: flex;
 		justify-content: center;
 		align-items: center;
 		border-radius: $round-bg-radius;
 		background-color: $round-bg-color;
+		@media screen and (max-width: 900px) {
+			padding-bottom: 10vw;
+			padding-top: 10vw;
+		}
+		@media screen and (max-width: 500px) {
+			width: 90vw;
+		}
 		svg {
-			height: 100%;
 			padding: 0 1vw;
-			width: 61vw;
+			width: 100%;
+			height: 100%;
+			overflow: visible;
+
+			@media screen and (max-width: 700px) {
+				#comment-text {
+					font-size: 20px;
+				}
+			}
 		}
 	}
 }

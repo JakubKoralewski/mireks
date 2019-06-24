@@ -7,14 +7,26 @@ section#contact {
 		font-weight: 600;
 		font-size: 1.7rem;
 		margin-bottom: 3rem;
+
+		@media #{$mq-phone} {
+			text-align: center;
+		}
 	}
 	#contact-container {
-		height: $contact-height;
+		&.big-viewport {
+			width: $contact-whole-width;
+			height: $contact-height;
+			position: relative;
+		}
 		margin-bottom: 3rem;
+		@media #{$mq-phone} {
+			margin-bottom: 1rem;
+		}
 		// height: calc(100vh - #{$global-padding-vertical} * 2);
-		width: $contact-whole-width;
-		position: relative;
-
+		&.small-viewport {
+			display: flex;
+			flex-direction: column;
+		}
 		&.active-hover {
 			&::v-deep .contact {
 				&:not(.hover) {
@@ -36,9 +48,6 @@ section#contact {
 			&::v-deep .contact {
 				&:not(.selected):not(.reverse) {
 					transition: transform 1s ease-out;
-					// transform: translateX(calc((#{$contact-width} * -1)))
-					// transform: /* rotateY(60deg )*/
-					// 	translateX(calc(#{$contact-space}));
 				}
 			}
 		}
@@ -50,10 +59,18 @@ section#contact {
 		border-radius: 2rem;
 		background-color: $round-bg-color;
 		border: 1px solid $round-border-color;
+		@media #{$mq-phone} {
+			width: 85vw;
+		}
 		#map-container {
 			position: relative;
 			height: calc(63vmin);
 			width: calc(63vmin);
+
+			@media #{$mq-phone} {
+				height: 91vh;
+				width: 100%;
+			}
 			display: flex;
 			align-items: center;
 			justify-content: center;
@@ -64,5 +81,10 @@ section#contact {
 				border-radius: 0.5rem;
 			}
 		}
+	}
+
+	margin-bottom: $global-padding-vertical;
+	@media #{$mq-phone} {
+		margin-bottom: 3rem;
 	}
 }

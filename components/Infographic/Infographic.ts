@@ -39,9 +39,24 @@ const textWrapFunc = textWrap()
 	.fontSize("13.89")
 	.width("120");
 
-interface Elements {
-	[id: string]: SVGGElement;
-}
+const textWrapFuncBigText = textWrap()
+	.fontFamily("Montserrat")
+	.fontWeight("200")
+	.fontSize("20")
+	.width("100");
+
+type ELEMENTS_ID =
+	| "droga"
+	| "dokumenty"
+	| "comment"
+	| "PIT"
+	| "zus"
+	| "krus"
+	| "us"
+	| "mireks"
+	| "osoba";
+
+type Elements = { [key in ELEMENTS_ID]: SVGGElement };
 @Component
 export default class Infographic extends Vue {
 	public elements: Elements = {} as Elements;
@@ -53,10 +68,96 @@ export default class Infographic extends Vue {
 	private itemNumber = 0;
 	private animationNumber = -1;
 	private item: IItem = items[this.itemNumber];
+
+	textWrapFunc = textWrapFunc;
+
+	hasLoopBeenStarted = false;
+
+	commentOriginalXValue = 113.94;
+	commentOriginalYValue = 73.72;
+	commentOriginalVBYMax = 262.33;
+	defaultViewBox!: string;
+
+	/** Changes waiting to happen */
+	// changesQueue: any = [];
+
 	checkIfSVGInViewport() {
-		if (isElementInViewport(this.svg)) {
+		console.group("Is element in viewport?");
+		if (isElementInViewport(this.roundBG)) {
+			console.log("Yes");
 			this.animationLoop(true);
+			this.hasLoopBeenStarted = true;
 			window.removeEventListener("scroll", this.checkIfSVGInViewport);
+		}
+		console.groupEnd();
+	}
+	filterNodes(nodes: NodeListOf<SVGGElement>) {
+		return Array.from(nodes).filter(node => !["droga"].includes(node.id));
+	}
+
+	onResize(ev?: Event) {
+		console.log("Resize event:", ev);
+		if (window.innerWidth <= 900) {
+			// Flip SVG
+			console.log("this.svg: ", this.svg);
+			TweenMax.set(this.svg, {
+				rotation: 90,
+				minWidth: this.roundBG.getBoundingClientRect().height,
+				minHeight: this.roundBG.getBoundingClientRect().width
+			});
+			TweenMax.set(this.elements.comment, {
+				scale: 0.7,
+				x: 129,
+				y: 40
+			});
+
+			// Make the comment appear above else
+			(this.elements.comment.parentElement as HTMLElement).appendChild(
+				this.elements.comment
+			);
+
+			// Modify viewBox for better centering on vertical devices
+			const viewBox = this.defaultViewBox.split(" ");
+			viewBox[3] = "212";
+			console.log("Setting new viewBox to: ", viewBox.join(" "));
+			this.svg.setAttribute("viewBox", viewBox.join(" "));
+
+			// Rotate all the elements opposite way
+			// to how the svg was rotated to now face
+			// correctly.
+			this.filterNodes(this.svg.childNodes as NodeListOf<
+				SVGGElement
+			>).forEach(child => {
+				TweenMax.set(child, {
+					transformOrigin: "center center",
+					rotation: -90
+				});
+			});
+
+			if (window.innerWidth <= 700) {
+				this.textWrapFunc = textWrapFuncBigText;
+			}
+		} else {
+			// Reverse whatever was done above
+			this.svg.setAttribute("viewBox", this.defaultViewBox);
+			this.filterNodes(this.svg.childNodes as NodeListOf<
+				SVGGElement
+			>).forEach(child => {
+				TweenMax.set(child, {
+					rotation: 0
+				});
+			});
+			TweenMax.set(this.elements.comment, {
+				scale: 1,
+				transformOrigin: "0 0",
+				x: this.commentOriginalXValue,
+				y: this.commentOriginalYValue
+			});
+			(this.elements.comment.parentElement as HTMLElement).insertBefore(
+				this.elements.comment,
+				(this.elements.comment.parentElement as HTMLElement).firstChild
+			);
+			TweenMax.set(this.svg, { rotation: 0, minWidth: 0, minHeight: 0 });
 		}
 	}
 	mounted() {
@@ -76,9 +177,6 @@ export default class Infographic extends Vue {
 		console.log("textElement: ", this.textElement);
 		this.elements.dokumenty.setAttribute("x", "0");
 
-		window.addEventListener("scroll", this.checkIfSVGInViewport);
-		this.checkIfSVGInViewport();
-
 		[this.svg, this.roundBG].forEach((el, index) => {
 			const subtleAnimScene = new this.$ScrollMagic.Scene({
 				triggerElement: this.infographicTitle,
@@ -94,6 +192,12 @@ export default class Infographic extends Vue {
 			);
 			this.$ScrollMagic.Controller.addScene(subtleAnimScene);
 		});
+
+		this.defaultViewBox = this.svg.getAttribute("viewBox") as string;
+
+		this.checkIfSVGInViewport();
+		window.addEventListener("resize", this.onResize);
+		window.addEventListener("scroll", this.checkIfSVGInViewport);
 		console.groupEnd();
 	}
 	private setItemText() {
@@ -102,6 +206,7 @@ export default class Infographic extends Vue {
 		const PITTextElement = PITElement.querySelector(
 			"text"
 		) as SVGTextElement;
+
 		while (PITTextElement.lastChild) {
 			PITTextElement.removeChild(PITTextElement.lastChild);
 		}
@@ -127,7 +232,6 @@ export default class Infographic extends Vue {
 
 		tSpanElement.setAttribute(
 			"x",
-			// "0"
 			`${PITElement.getBBox().width / 2 -
 				PITTextElement.getBBox().width / 2 +
 				1}`
@@ -157,7 +261,7 @@ export default class Infographic extends Vue {
 		while (this.textElement.lastChild) {
 			this.textElement.removeChild(this.textElement.lastChild);
 		}
-		const wrappedText = textWrapFunc(new_text);
+		const wrappedText = this.textWrapFunc(new_text);
 		console.log("textWrap:", wrappedText.lines);
 		for (const line of wrappedText.lines) {
 			const tSpanElement = document.createElementNS(
@@ -187,8 +291,8 @@ export default class Infographic extends Vue {
 		this.setItemText();
 		this.increaseAnimationCounter();
 
-		// Basically if animation iteration variable
-		// is beyond the supplied comments, then use the last one.
+		// If animation iteration index
+		// is beyond the supplied comments length use the last one.
 		const commentTexts =
 			allCommentTexts[
 				this.animationNumber < allCommentTexts.length
@@ -196,7 +300,8 @@ export default class Infographic extends Vue {
 					: allCommentTexts.length - 1
 			];
 
-		tl.call(() => this.setCommentText(commentTexts[0]))
+		tl.call(this.onResize)
+			.call(() => this.setCommentText(commentTexts[0]))
 			.addLabel("start", "0")
 			// Move text from above
 			.fromTo(
@@ -235,7 +340,7 @@ export default class Infographic extends Vue {
 						),
 						type: "cubic"
 					},
-					rotation: 0.001,
+					// rotation: 0.001,
 					ease: Linear.easeNone
 				},
 				"start"
@@ -312,7 +417,6 @@ export default class Infographic extends Vue {
 						),
 						type: "cubic"
 					},
-					rotation: 0.001,
 					ease: Linear.easeNone
 				},
 				"text_gone-=2"

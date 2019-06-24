@@ -71,5 +71,10 @@
 
 	.global-padding {
 		padding: $global-padding-vertical $global-padding-horizontal;
+		overflow-x: hidden;
+		
+		@media screen and (max-width: 600px) {
+			padding-top: $global-padding-top-override-amount;
+		}
 	}
 </style>

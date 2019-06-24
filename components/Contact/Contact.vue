@@ -4,11 +4,21 @@
 		<div
 		 id="contact-container"
 		 :style="`--length: ${contacts.length}; ${anyHover ? `--hoverIndex: ${hoverIndex}` : ''}`"
-		 :class="{'active-hover': anyHover, 'active-selected': anySelected}"
+		 :class="{
+			'active-hover': anyHover,
+			'active-selected': anySelected,
+			'small-viewport': smallViewport,
+			'big-viewport': !smallViewport
+		 }"
 		>
 			<ContactElement
 			 v-for="( contact, index ) in contacts"
-			 :class="{'last': index + 1 === contacts.length, 'reverse': reverseIndex === index}"
+			 :class="{
+				'last': index + 1 === contacts.length,
+			 	'reverse': reverseIndex === index,
+				'small-viewport': smallViewport,
+				'big-viewport': !smallViewport
+			 }"
 			 :index="index"
 			 ref="contacts"
 			 :key="contact.id"
@@ -23,7 +33,6 @@
 		</div>
 		<div id="map">
 			<div id="map-container">
-
 				<div class="overlay" />
 				<iframe
 				 id="gmap_canvas"
@@ -35,23 +44,8 @@
 				>
 				</iframe>
 			</div>
-			<!-- <style>
-				.mapouter {
-					position: relative;
-					text-align: right;
-					height: 500px;
-					width: 600px;
-				}
-
-				.gmap_canvas {
-					overflow: hidden;
-					background: none !important;
-					height: 500px;
-					width: 600px;
-				}
-				</style> -->
+		
 		</div>
-		<!-- </div> -->
 	</section>
 </template>
 
