@@ -8,8 +8,7 @@ const contacts: IContact[] = [
 		info: "62-840 Koźminek, ul. Nakwasińska 1",
 		hover: false,
 		selected: false,
-		reverse: false,
-		
+		reverse: false
 	},
 	{
 		id: "phone",
@@ -19,7 +18,7 @@ const contacts: IContact[] = [
 		link: "tel:+48 62 763 74 10",
 		hover: false,
 		selected: false,
-		reverse: false,
+		reverse: false
 	},
 	{
 		id: "time",
