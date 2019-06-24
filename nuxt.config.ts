@@ -14,10 +14,22 @@ for (const service of services) {
 			alternateName: service.shortTitle,
 			serviceType: "Usługa rachunkowa",
 			provider: {
-				"@type": "Organization",
-				legalName: "Firma Handlowo-Usługowa Mireks Mirosław Koralewski",
-				name: "Mireks",
-				alternateName: "FHU MIREKS"
+				"@id": "mireks_org"
+			},
+			availableChannel: {
+				"@type": "ServiceChannel",
+				availableLanguage: {
+					"@type": "Language",
+					name: "Polish",
+					alternateName: "pl"
+				},
+				serviceLocation: {
+					"@id": "mireks_place"
+				},
+				servicePhone: "+48 62 763 74 10",
+				servicePostalAddress: {
+					"@id": "address"
+				}
 			}
 		}
 	});
@@ -25,15 +37,51 @@ for (const service of services) {
 
 const structuredJSONData = {
 	"@context": "http://schema.org",
+	"@graph": [
+		{
+			"@context": "http://schema.org",
+			"@id": "mireks_org",
+			"@type": "Organization",
+			legalName: "Firma Handlowo-Usługowa Mireks Mirosław Koralewski",
+			name: "Mireks",
+			alternateName: "FHU MIREKS"
+		},
+		{
+			"@id": "mireks_place",
+			"@type": "Place",
+			address: {
+				"@id": "address"
+			}
+		},
+		{
+			"@id": "address",
+			"@type": "PostalAddress",
+			streetAddress: "Nakwasińska 1",
+			addressLocality: "Koźminek",
+			addressRegion: "Wielkopolska",
+			postalCode: "62-840",
+			addressCountry: "Poland"
+		}
+	],
 	"@type": "AccountingService",
 	name: "Mireks",
-	address: {
-		"@type": "PostalAddress",
-		streetAddress: "Nakwasińska 1",
-		addressLocality: "Koźminek",
-		addressRegion: "Wielkopolska",
-		postalCode: "62-840"
+	contactPoint: {
+		"@type": "ContactPoint",
+		availableLanguage: {
+			"@type": "Language",
+			name: "Polish",
+			alternateName: "pl"
+		},
+		contactType: "Customer service",
+		email: "mireks40@poczta.onet.pl",
+		telephone: "+48 62 763 74 10",
+		areaServed: "Poland"
 	},
+	address: {
+		"@id": "address"
+	},
+	photo: "/mireks_bg.jpg",
+	image: "/mireks_bg.jpg",
 	currenciesAccepted: "PLN",
 	email: "mireks40@poczta.onet.pl",
 	telePhone: "+48 62 763 74 10",
@@ -59,28 +107,6 @@ const structuredJSONData = {
 		itemListElement: offerItemListElement
 	}
 };
-
-// schemaName: "availableChannel",
-// 		schemaInfo: {
-// 			"@type": "ServiceChannel",
-// 			name: "Mireks",
-// 			availableLanguage: {
-// 				"@type": "Language",
-// 				name: "Polish",
-// 				alternateName: "pl"
-// 			},
-// 			serviceLocation: {
-// 				type: "AccountingService",
-// 				name: "Mireks",
-// 				address: {
-// 					"@type": "PostalAddress",
-// 					streetAddress: "Nakwasińska 1",
-// 					addressLocality: "Koźminek",
-// 					addressRegion: "Wielkopolska",
-// 					postalCode: "62-840"
-// 				}
-// 			}
-// 		}
 
 const config: NuxtConfiguration = {
 	mode: "universal",
