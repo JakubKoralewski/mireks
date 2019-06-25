@@ -9,7 +9,7 @@
 		 itemprop="provider"
 		 itemscope
 		 itemtype="http://schema.org/AccountingService"
-		 itemid="mireks_accounting_service"
+		 itemref="mireks_accounting_service"
 		/>
 		<div
 		 class="title"
