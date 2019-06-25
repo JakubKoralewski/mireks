@@ -79,6 +79,7 @@ const structuredJSONData = {
 		}
 	],
 	"@type": "AccountingService",
+	"@id": "mireks_accounting_service",
 	name: "Mireks",
 	contactPoint: {
 		"@id": "mireks_contact_point"

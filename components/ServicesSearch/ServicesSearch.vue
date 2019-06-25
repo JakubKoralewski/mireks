@@ -47,8 +47,8 @@
 				 itemtype="http://schema.org/LocalBusiness"
 				>
 					<meta
-					 itemprop="name"
-					 content="Mireks"
+					 itemprop="@id"
+					 content="mireks_accounting_service"
 					/>
 				</span>
 				<div
