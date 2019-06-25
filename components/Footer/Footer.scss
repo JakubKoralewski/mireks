@@ -9,6 +9,10 @@ section#footer {
 	box-sizing: border-box;
 	padding: calc(1rem + 1vh) $global-padding-horizontal;
 
+	//Flex
+	display: flex;
+	flex-direction: column;
+
 	//Font
 	font-weight: 400;
 
@@ -39,8 +43,9 @@ section#footer {
 			justify-content: center;
 			align-items: center;
 			svg {
-				width: 100%;
-				height: 100%;
+				width: unset;
+				height: unset;
+				min-width: 80%;
 				padding: 1vmax;
 				box-sizing: border-box;
 				#logo {
@@ -130,6 +135,8 @@ section#footer {
 		text-decoration: none;
 		color: inherit;
 		transition: all 0.25s ease-in-out;
+		
+		align-self: center;
 
 		cursor: pointer;
 
@@ -142,7 +149,7 @@ section#footer {
 		}
 
 		border-radius: 0.5rem;
-		padding: 0.25rem 0;
+		padding: 0.25rem 1rem;
 		@media not screen and (pointer: fine) {
 			background-color: lighten($muted-blue, 3%);
 			border: 1px solid $bg-color;
