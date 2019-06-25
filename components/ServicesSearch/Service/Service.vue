@@ -11,7 +11,7 @@
 		 itemtype="http://schema.org/AccountingService"
 		>
 			<meta
-			 itemprop="@id"
+			 itemprop="itemid"
 			 content="mireks_accounting_service"
 			/>
 		</span>
