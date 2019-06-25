@@ -26,20 +26,20 @@
 				<img
 				 svg-inline
 				 src="@/other_assets/logo.svg"
-				 class="logo"
+				 :class="['logo', { 'disappear-at-start': disappearAtStart }]"
 				 ref="logo"
 				/>
 				<img
 				 svg-inline
 				 src="@/other_assets/logo-text.svg"
-				 class="logo-text"
+				 :class="['logo-text', { 'disappear-at-start': disappearAtStart }]"
 				 ref="logoText"
 				/>
 			</div>
 
 
 			</div>
-				<div id="buttons">
+				<div id="buttons" :class="{ 'disappear-at-start': disappearAtStart }">
 					<div
 					 class="button"
 					 id="dowiedz-sie-wiecej"

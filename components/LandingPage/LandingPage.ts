@@ -14,12 +14,15 @@ export default class LandingPage extends Vue {
 	logoElements: LogoElements = {} as LogoElements;
 	findOutMoreButtonTimeline = new TimelineLite();
 	findOutMoreButton!: HTMLDivElement;
+	buttons!: HTMLElement;
 	tl = new TimelineLite();
+	disappearAtStart = true;
 	mounted() {
 		// Assigns types to $refs elements so less type asserting is necessary
 		this.findOutMoreButton = this.$refs.findOutMoreButton as HTMLDivElement;
 		this.logoTextSVG = this.$refs.logoText as HTMLElement;
 		this.logoSVG = this.$refs.logo as HTMLElement;
+		this.buttons = this.$refs.buttons as HTMLElement;
 
 		// Create this.logoElements object
 		((this.logoSVG.querySelector("g#logo") as SVGGElement)
@@ -29,6 +32,7 @@ export default class LandingPage extends Vue {
 			}
 			this.logoElements[child.id] = child;
 		});
+		this.disappearAtStart = false;
 		this.animateSVG();
 		this.animateButtons();
 	}

@@ -7,7 +7,6 @@
 	 @mouseleave="contact.hover = false"
 	 @click="clicked"
 	>
-		<!-- <div class="left"> -->
 		<font-awesome-icon
 		 class="icon"
 		 :icon="contact.icon"
@@ -27,7 +26,6 @@
 			 v-html="contact.info"
 			/>
 		</div>
-		<!-- </div> -->
 		<font-awesome-icon
 		 :icon="[ 'far', 'copy' ]"
 		 @click="copyClicked"

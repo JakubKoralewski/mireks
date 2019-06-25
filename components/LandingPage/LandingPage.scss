@@ -10,6 +10,9 @@ svg.landing-page-bg {
 	opacity: 0.01;
 	z-index: -5;
 }
+.disappear-at-start {
+	opacity: 0 !important;
+}
 .invisible {
 	opacity: 0;
 }

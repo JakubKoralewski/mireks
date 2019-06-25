@@ -10,7 +10,10 @@
 			'small-viewport': smallViewport,
 			'big-viewport': !smallViewport
 		 }"
+		 itemscope
+		 itemtype="http://schema.org/ContactPoint"
 		>
+			<meta itemprop="availableLanguage" content="Polish" itemtype="http://schema.org/Language" />
 			<ContactElement
 			 v-for="( contact, index ) in contacts"
 			 :class="{

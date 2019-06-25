@@ -35,11 +35,29 @@
 				</div>
 			</div>
 
-			<div id="services-container">
+			<div
+			 id="services-container"
+			 itemprop="hasOfferCatalog"
+			 itemscope
+			 itemtype="http://schema.org/OfferCatalog"
+			>
+				<span
+				 itemprop="provider"
+				 itemscope
+				 itemtype="http://schema.org/LocalBusiness"
+				>
+					<meta
+					 itemprop="name"
+					 content="Mireks"
+					/>
+				</span>
 				<transition-group
 				 tag="div"
 				 name="services-group"
 				 id="services-group"
+				 itemprop="itemListElement"
+				 itemscope
+				 itemtype="http://schema.org/OfferCatalog"
 				>
 					<Service
 					 v-for="( service, index ) in services"
@@ -75,7 +93,8 @@
 						+48 62 763 74 10
 					</a>
 
-					<a id="email-us"
+					<a
+					 id="email-us"
 					 :href="
 					 `mailto:mireks40@poczta.onet.pl
 					 	?subject=Nie mogłem(am) znaleźć szukanej przeze mnie oferty
