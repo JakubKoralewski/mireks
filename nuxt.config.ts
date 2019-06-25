@@ -81,7 +81,7 @@ const structuredJSONData = {
 		"@id": "address"
 	},
 	photo: "/mireks_bg.jpg",
-	image: "/mireks_bg.jpg",
+	image: "/mireks_og.jpg",
 	currenciesAccepted: "PLN",
 	email: "mireks40@poczta.onet.pl",
 	telePhone: "+48 62 763 74 10",
@@ -108,6 +108,10 @@ const structuredJSONData = {
 	}
 };
 
+const TITLE = "FHU Mireks - Biuro Rachunkowe";
+const KEYWORDS =
+	"biuro rachunkowe, księgowy, księgowa, koźminek, mirosław koralewski, mireks, fhu, mirex, kalisz, polska, biuro";
+
 const config: NuxtConfiguration = {
 	mode: "universal",
 
@@ -115,7 +119,16 @@ const config: NuxtConfiguration = {
 	** Headers of the page
 	*/
 	head: {
-		title: pkg.name,
+		title: TITLE,
+		noscript: [
+			{
+				innerHTML:
+					"Ta strona wymaga włączenia JavaScript do prawidłowego działania!"
+			}
+		],
+		htmlAttrs: {
+			lang: "pl"
+		},
 		meta: [
 			{ charset: "utf-8" },
 			{
@@ -123,9 +136,68 @@ const config: NuxtConfiguration = {
 				content: "width=device-width, initial-scale=1"
 			},
 			{
-				hid: "description",
 				name: "description",
 				content: pkg.description
+			},
+			{
+				name: "keywords",
+				content: KEYWORDS
+			},
+			{
+				name: "keyword",
+				content: KEYWORDS
+			},
+			{
+				name: "msapplication-TileColor",
+				content: "#0a1020"
+			},
+			{
+				name: "msapplication-TileImage",
+				content: "/icon192.png"
+			},
+			{
+				name: "msapplication-config",
+				content: "/browserconfig.xml"
+			},
+			{
+				name: "theme-color",
+				content: "#0a1020"
+			},
+			{
+				name: "og:image",
+				content: "/mireks_og.jpg"
+			},
+			{
+				name: "og:url",
+				content: URL
+			},
+			{
+				name: "og:title",
+				content: TITLE
+			},
+			{
+				name: "og:description",
+				content: pkg.description
+			},
+			{
+				name: "fb:app_id",
+				content: "331204421139475"
+			},
+			{
+				name: "twitter:description",
+				content: pkg.description
+			},
+			{
+				name: "twitter:title",
+				content: TITLE
+			},
+			{
+				name: "twitter:image",
+				content: "/mireks_og.jpg"
+			},
+			{
+				name: "twitter:card",
+				content: "summary_large_image"
 			}
 		],
 		script: [
@@ -138,8 +210,21 @@ const config: NuxtConfiguration = {
 		link: [
 			{
 				rel: "icon",
-				type: "image/x-icon",
-				href: "/favicon.ico"
+				type: "image/png",
+				href: "/icon16.png",
+				sizes: "16x16"
+			},
+			{
+				rel: "icon",
+				type: "image/png",
+				href: "/icon192.png",
+				sizes: "192x192"
+			},
+			{
+				rel: "icon",
+				type: "image/png",
+				href: "/icon32.png",
+				sizes: "32x32"
 			},
 			{
 				rel: "stylesheet",
