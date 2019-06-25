@@ -6,7 +6,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "nuxt",
-		"build": "nuxt build && cp copied_to_dist/* dist",
+		"build": "nuxt build",
 		"start": "nuxt start",
 		"generate": "nuxt generate",
 		"test": "ava"
