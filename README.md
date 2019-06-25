@@ -23,4 +23,4 @@ For detailed explanation on how things work, checkout [Nuxt.js docs](https://nux
 
 ## LICENSE
 
-This project is open-source; however, I **do not** allow using any substantial portions of the source code without my explicit permission.
+[© 2019 Jakub Koralewski](https://choosealicense.com/no-permission/)
