@@ -95,7 +95,7 @@
 				 :class="{'nothing-found': displayNothingFoundDialog}"
 				 itemprop="itemListElement"
 				 itemscope
-				 itemtype="http://schema.org/OfferCatalog"
+				 itemtype="http://schema.org/Offer"
 				>
 					<Service
 					 v-for="( service, index ) in services"
