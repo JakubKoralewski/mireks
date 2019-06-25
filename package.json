@@ -1,7 +1,7 @@
 {
 	"name": "mireks",
 	"version": "1.0.0",
-	"description": "Strona biura rachunkowego FHU MIREKS",
+	"description": "Nuxt Vue website - universal but still SPA.",
 	"author": "Jakub Koralewski",
 	"private": true,
 	"scripts": {
