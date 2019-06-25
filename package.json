@@ -6,7 +6,7 @@
 	"private": true,
 	"scripts": {
 		"dev": "nuxt",
-		"build": "nuxt build",
+		"build": "nuxt build && cp copied_to_dist/* dist",
 		"start": "nuxt start",
 		"generate": "nuxt generate",
 		"test": "ava"
@@ -40,6 +40,7 @@
 		"@fortawesome/vue-fontawesome": "^0.1.6",
 		"@nuxtjs/sitemap": "^1.2.0",
 		"@nuxtjs/style-resources": "^0.1.2",
+		"@types/dom-inputevent": "^1.0.5",
 		"@types/gsap": "^1.20.2",
 		"cross-env": "^5.2.0",
 		"d3plus-text": "^0.9.43",
