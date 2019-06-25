@@ -168,73 +168,6 @@ $blue-border: transparentize($vibrant-blue, 0.8);
 			); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#151b2b', endColorstr='#151b2b',GradientType=0 ); /* IE6-9 */
 		}
-		#nothing-found {
-			display: flex;
-			flex-direction: column;
-			background-color: transparentize(white, 0.2);
-			border-radius: 2rem;
-			position: absolute;
-			top: 50%;
-			left: 50%;
-			transform: translate(-50%, -50%);
-			width: 61%;
-			height: 60%;
-			padding: 2rem 3rem;
-			box-sizing: border-box;
-			color: #0a1020;
-			#title {
-				font-weight: 800;
-				font-size: 1.4rem;
-			}
-			#description {
-				margin-top: 1rem;
-				font-weight: 500;
-			}
-			#buttons {
-				margin-top: auto;
-				display: flex;
-				flex-direction: row;
-				justify-content: space-between;
-				align-items: flex-end;
-				flex-wrap: wrap;
-				width: 100%;
-				height: 100%;
-				align-content: space-evenly;
-				a {
-					border-radius: 2rem;
-					background-color: $vibrant-blue;
-					display: flex;
-					justify-content: center;
-					align-items: center;
-					padding: 0 1rem;
-					text-align: center;
-					height: 2.5rem;
-					color: inherit;
-					text-decoration: none;
-					&#call-us {
-						@media screen and (pointer: fine) {
-							// Disable telephone link on non-touch-screens
-							pointer-events: inherit;
-							a:-webkit-any-link {
-								cursor: default;
-							}
-						}
-					}
-					svg {
-						margin-right: 1vw;
-					}
-					font-weight: 500;
-					font-size: 0.8rem;
-				}
-			}
-			transition: all 0.5s ease-out;
-			&:not(.visible) {
-				transition: transform 2s ease-in, opacity 1s ease-out;
-				opacity: 0;
-				pointer-events: none;
-				transform: translate(-50%, 80%);
-			}
-		}
 		div#services-container {
 			overflow-y: scroll;
 			border-radius: $border-radius;
@@ -262,11 +195,102 @@ $blue-border: transparentize($vibrant-blue, 0.8);
 			.services-group-move {
 				transition: transform 1s;
 			}
+			#nothing-found {
+				display: flex;
+				flex-direction: column;
+				background-color: transparentize(white, 0.2);
+				border-radius: 2rem;
+				// position: absolute;
+				// top: 50%;
+				// left: 50%;
+				// transform: translate(-50%, -50%);
+				margin-right: 2rem;
+				// width: 61%;
+				// height: 60%;
+				padding: 2rem 3rem;
+				box-sizing: border-box;
+				color: #0a1020;
+				#title {
+					font-weight: 800;
+					font-size: 1.4rem;
+				}
+				#description {
+					margin-top: 1rem;
+					font-weight: 500;
+					margin-bottom: 1rem;
+				}
+				#buttons {
+					margin-top: auto;
+					display: flex;
+					flex-direction: row;
+					justify-content: space-evenly;
+					align-items: flex-end;
+					flex-wrap: wrap;
+					width: 100%;
+					height: 100%;
+					align-content: space-evenly;
+					a {
+						border-radius: 2rem;
+						background-color: $vibrant-blue;
+						display: flex;
+						justify-content: center;
+						align-items: center;
+						padding: 0 1rem;
+						text-align: center;
+						height: 2.5rem;
+						color: inherit;
+						text-decoration: none;
+						br {
+							display: none;
+						}
+						&#call-us {
+							@media screen and (pointer: fine) {
+								// Disable telephone link on non-touch-screens
+								pointer-events: inherit;
+								a:-webkit-any-link {
+									cursor: default;
+								}
+							}
+						}
+						svg {
+							margin-right: 1vw;
+						}
+						font-weight: 500;
+						font-size: 0.7rem;
+					}
+				}
+				transition: opacity 0.5s ease-out;
+				&:not(.visible) {
+					transition: opacity 1s ease-out, visibility 0s ease-in 2s,
+						position 0s ease-in 2s;
+					opacity: 0;
+					pointer-events: none;
+					// transform: translate(-50%, 80%);
+					// display: none;
+					position: absolute;
+					visibility: hidden;
+				}
+				@media screen and (max-width: 1000px) {
+					// height: 100%;
+					#buttons {
+						height: 10rem;
+						flex-direction: column;
+						justify-self: center;
+						align-items: center;
+						br {
+							display: block;
+						}
+					}
+				}
+			}
 			#services-group {
 				display: flex;
 				flex-wrap: wrap;
 				justify-content: space-between;
 				height: 100%;
+				&.nothing-found {
+					height: 0;
+				}
 			}
 			&::-webkit-scrollbar {
 				position: absolute;

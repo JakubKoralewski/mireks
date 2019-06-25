@@ -51,10 +51,48 @@
 					 content="Mireks"
 					/>
 				</span>
+				<div
+				 id="nothing-found"
+				 ref="nothingFoundDialog"
+				 :class="{visible: displayNothingFoundDialog}"
+				>
+					<div id="title">
+						Nie znalazłeś(aś) oferty dla Siebie?
+					</div>
+					<div id="description">
+						Przykro nam. Skontaktuj się z nami, może coś razem wymyślimy!
+					</div>
+					<div id="buttons">
+						<a
+						 :[isTouchScreenHref]="'tel:+48 62 763 74 10'"
+						 id="call-us"
+						>
+							<font-awesome-icon icon="phone" />
+							+48 62 763 74 10
+						</a>
+
+						<a
+						 id="email-us"
+						 :href="
+							 `mailto:mireks40@poczta.onet.pl
+							 	?subject=Nie mogłem(am) znaleźć szukanej przeze mnie oferty
+								&body=${new Date().getHours() > 18 ? 'Dobry Wieczór' : 'Dzień Dobry' }!%0A%0A
+								
+								W waszej ofercie znaleźć nie mogłem(am) znaleźć terminu: %22${searchText}%22.%0A
+								Czy można mimo wszystko coś na to poradzić?%0A`
+							 "
+						 target="_blank"
+						>
+							<font-awesome-icon icon="at" />
+							mireks40<br />@poczta.onet.pl
+						</a>
+					</div>
+				</div>
 				<transition-group
 				 tag="div"
 				 name="services-group"
 				 id="services-group"
+				 :class="{'nothing-found': displayNothingFoundDialog}"
 				 itemprop="itemListElement"
 				 itemscope
 				 itemtype="http://schema.org/OfferCatalog"
@@ -73,43 +111,6 @@
 				</transition-group>
 			</div>
 			<div id="gradient-overlay" />
-			<div
-			 id="nothing-found"
-			 ref="nothingFoundDialog"
-			 :class="{visible: displayNothingFoundDialog}"
-			>
-				<div id="title">
-					Nie znalazłeś(aś) oferty dla Siebie?
-				</div>
-				<div id="description">
-					Przykro nam. Skontaktuj się z nami, może coś razem wymyślimy!
-				</div>
-				<div id="buttons">
-					<a
-					 :[isTouchScreenHref]="'tel:+48 62 763 74 10'"
-					 id="call-us"
-					>
-						<font-awesome-icon icon="phone" />
-						+48 62 763 74 10
-					</a>
-
-					<a
-					 id="email-us"
-					 :href="
-					 `mailto:mireks40@poczta.onet.pl
-					 	?subject=Nie mogłem(am) znaleźć szukanej przeze mnie oferty
-						&body=${new Date().getHours() > 18 ? 'Dobry Wieczór' : 'Dzień Dobry' }!%0A%0A
-						
-						W waszej ofercie znaleźć nie mogłem(am) znaleźć terminu: %22${searchText}%22.%0A
-						Czy można mimo wszystko coś na to poradzić?%0A`
-					 "
-					 target="_blank"
-					>
-						<font-awesome-icon icon="at" />
-						mireks40@poczta.onet.pl
-					</a>
-				</div>
-			</div>
 		</div>
 	</section>
 </template>

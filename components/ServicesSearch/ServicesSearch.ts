@@ -46,10 +46,6 @@ export default class ServicesSearch extends IsTouchScreen {
 	mounted() {
 		this.nothingFoundDialogElement = this.$refs
 			.nothingFoundDialog as HTMLElement;
-		console.log(
-			"ServicesSearch istouchscreen href:",
-			this.isTouchScreenHref
-		);
 	}
 
 	async searchInputFocus() {

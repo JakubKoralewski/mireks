@@ -15,10 +15,6 @@ div.service {
 		flex-basis: 40%;
 	}
 	z-index: 10;
-	&:last-of-type {
-		//margin-bottom: 0;
-	}
-	// height: 200px;
 	text-align: center;
 	padding: 2vw;
 	.title {
@@ -36,17 +32,19 @@ div.service {
 	transition: all 1s ease-out;
 	&.list {
 		flex-basis: 100%;
-		flex-direction: row; // justify-content: flex-start;
+		flex-direction: row;
 		justify-content: space-between;
 		padding-left: 2rem;
 		padding-right: 2rem;
 		min-height: calc(10px + 2vh);
+		max-height: unset;
 		.title {
-			// margin-right: 1rem; // margin-left: 1rem;
-			text-align: left; // flex-basis: 40%;
+			text-align: left;
+			// width: 150%;
+			// word-break: break-all;
 		}
 		.description {
-			font-size: calc(var(--size) * 1.5px);
+			font-size: calc(var(--size) * 1.3px);
 			text-align: right;
 		}
 	}
