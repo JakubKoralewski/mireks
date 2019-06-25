@@ -123,12 +123,6 @@ const config: NuxtConfiguration = {
 	*/
 	head: {
 		title: TITLE,
-		noscript: [
-			{
-				innerHTML:
-					"Ta strona wymaga włączenia JavaScript do prawidłowego działania!"
-			}
-		],
 		htmlAttrs: {
 			lang: "pl"
 		},
