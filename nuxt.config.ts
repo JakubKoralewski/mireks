@@ -26,7 +26,9 @@ for (const service of services) {
 				serviceLocation: {
 					"@id": "mireks_place"
 				},
-				servicePhone: "+48 62 763 74 10",
+				servicePhone: {
+					"@id": "mireks_contact_point"
+				},
 				servicePostalAddress: {
 					"@id": "address"
 				}
@@ -61,21 +63,25 @@ const structuredJSONData = {
 			addressRegion: "Wielkopolska",
 			postalCode: "62-840",
 			addressCountry: "Poland"
+		},
+		{
+			"@id": "mireks_contact_point",
+			"@type": "ContactPoint",
+			availableLanguage: {
+				"@type": "Language",
+				name: "Polish",
+				alternateName: "pl"
+			},
+			contactType: "Customer service",
+			email: "mireks40@poczta.onet.pl",
+			telephone: "+48 62 763 74 10",
+			areaServed: "Poland"
 		}
 	],
 	"@type": "AccountingService",
 	name: "Mireks",
 	contactPoint: {
-		"@type": "ContactPoint",
-		availableLanguage: {
-			"@type": "Language",
-			name: "Polish",
-			alternateName: "pl"
-		},
-		contactType: "Customer service",
-		email: "mireks40@poczta.onet.pl",
-		telephone: "+48 62 763 74 10",
-		areaServed: "Poland"
+		"@id": "mireks_contact_point"
 	},
 	address: {
 		"@id": "address"
