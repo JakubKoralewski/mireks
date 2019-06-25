@@ -1,8 +1,9 @@
-import { Component, Vue, Prop, Watch } from "nuxt-property-decorator";
+import { Component, Vue, Prop } from "nuxt-property-decorator";
+import IsTouchScreen from "@/components/mixins/IsTouchScreen";
 import IContact from "../IContact";
 const DEFAULT_COPY_TEXT = "Skopiuj";
 @Component
-export default class ContactElement extends Vue {
+export default class ContactElement extends IsTouchScreen {
 	@Prop()
 	contact!: IContact;
 
@@ -12,6 +13,13 @@ export default class ContactElement extends Vue {
 	index!: number;
 
 	hover = false;
+
+	mounted() {
+		// Only overwrite for phone, leave email link intact
+		if (this.contact.id !== "phone") {
+			this.isTouchScreenHref = "href";
+		} 
+	}
 
 	clicked() {
 		console.log("Contact clicked");

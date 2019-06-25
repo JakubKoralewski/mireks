@@ -21,7 +21,7 @@
 			<a
 			 v-else
 			 class="info"
-			 :href="contact.link"
+			 :[isTouchScreenHref]="contact.link"
 			 target="_blank"
 			 v-html="contact.info"
 			/>

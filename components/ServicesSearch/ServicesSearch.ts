@@ -1,7 +1,8 @@
-import { Component, Vue, Watch } from "nuxt-property-decorator";
+import { Component, Watch } from "nuxt-property-decorator";
 import Service from "./Service/Service";
 import services from "./services";
 import sleep from "@/components/sleep";
+import IsTouchScreen from "@/components/mixins/IsTouchScreen";
 
 const SEARCH_PLACEHOLDER = "np.: VAT, CIT, PIT";
 @Component({
@@ -9,7 +10,7 @@ const SEARCH_PLACEHOLDER = "np.: VAT, CIT, PIT";
 		Service
 	}
 })
-export default class ServicesSearch extends Vue {
+export default class ServicesSearch extends IsTouchScreen {
 	searchText = "";
 	services = services;
 	searchPlaceholder = SEARCH_PLACEHOLDER;
@@ -26,12 +27,14 @@ export default class ServicesSearch extends Vue {
 	onSearchTextChange() {
 		this.wasSomethingFound = false;
 	}
+
 	/** Event  */
 	foundVisibleService(id: number) {
 		// console.log("found visible service:", id);
 		this.wasSomethingFound = true;
 		this.displayNothingFoundDialog = false;
 	}
+
 	/** Event */
 	lastServiceVisible(visible: boolean) {
 		if (!this.wasSomethingFound) {
@@ -43,6 +46,7 @@ export default class ServicesSearch extends Vue {
 	mounted() {
 		this.nothingFoundDialogElement = this.$refs
 			.nothingFoundDialog as HTMLElement;
+		console.log("ServicesSearch istouchscreen href:", this.isTouchScreenHref);
 	}
 
 	async searchInputFocus() {
@@ -51,6 +55,7 @@ export default class ServicesSearch extends Vue {
 			await sleep(Math.log(i) * 10);
 		}
 	}
+
 	searchInputBlur() {
 		this.searchPlaceholder = SEARCH_PLACEHOLDER;
 	}

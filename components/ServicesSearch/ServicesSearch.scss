@@ -21,6 +21,7 @@ $blue-border: transparentize($vibrant-blue, 0.8);
 	.round-bg {
 		border-radius: $round-bg-radius;
 		height: $services-height;
+		min-height: 400px;
 		width: $services-width;
 		@media #{$mq-phone} {
 			width: 85vw;
@@ -213,7 +214,10 @@ $blue-border: transparentize($vibrant-blue, 0.8);
 					&#call-us {
 						@media screen and (pointer: fine) {
 							// Disable telephone link on non-touch-screens
-							pointer-events: none;
+							pointer-events: inherit;
+							a:-webkit-any-link {
+								cursor: default;
+							}
 						}
 					}
 					svg {
