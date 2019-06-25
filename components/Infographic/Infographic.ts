@@ -83,7 +83,7 @@ export default class Infographic extends Vue {
 	 */
 	checkIfSVGInViewport() {
 		console.group("Is element in viewport?");
-		if (isElementInViewport(this.roundBG)) {
+		if (isElementInViewport(this.roundBG, 90)) {
 			console.log("Yes");
 			this.animationLoop(true);
 			this.hasLoopBeenStarted = true;
@@ -200,6 +200,7 @@ export default class Infographic extends Vue {
 
 		window.addEventListener("resize", this.onResize);
 		window.addEventListener("scroll", this.checkIfSVGInViewport);
+		this.onResize();
 		this.checkIfSVGInViewport();
 		console.groupEnd();
 	}

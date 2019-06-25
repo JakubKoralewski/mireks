@@ -79,7 +79,9 @@ export default class WhyUs extends Vue {
 	}
 
 	onScrollCheckIfNumbersInViewport() {
-		if (isElementInViewport(this.$refs.changingNumbers as HTMLElement)) {
+		if (
+			isElementInViewport(this.$refs.changingNumbers as HTMLElement, 10)
+		) {
 			this.startCountdown();
 			window.removeEventListener(
 				"scroll",
