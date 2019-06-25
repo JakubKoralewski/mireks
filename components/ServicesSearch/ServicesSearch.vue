@@ -44,7 +44,7 @@
 				<span
 				 itemprop="provider"
 				 itemscope
-				 itemtype="http://schema.org/LocalBusiness"
+				 itemtype="http://schema.org/AccountingService"
 				>
 					<meta
 					 itemprop="@id"
