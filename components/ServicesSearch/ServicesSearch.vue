@@ -37,9 +37,6 @@
 
 			<div
 			 id="services-container"
-			 itemprop="hasOfferCatalog"
-			 itemscope
-			 itemtype="http://schema.org/OfferCatalog"
 			>
 				
 				<div
@@ -84,9 +81,6 @@
 				 name="services-group"
 				 id="services-group"
 				 :class="{'nothing-found': displayNothingFoundDialog}"
-				 itemprop="itemListElement"
-				 itemscope
-				 itemtype="http://schema.org/Offer"
 				>
 					<Service
 					 v-for="( service, index ) in services"

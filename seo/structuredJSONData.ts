@@ -43,7 +43,15 @@ export default {
 			"@type": "Organization",
 			legalName: "Firma Handlowo-Usługowa Mireks Mirosław Koralewski",
 			name: "Mireks",
-			alternateName: "FHU MIREKS"
+			alternateName: "FHU MIREKS",
+			contactPoint: {
+				"@id": "mireks_contact_point"
+			},
+			address: {
+				"@id": "address"
+			},
+			email: "mireks40@poczta.onet.pl",
+			telephone: "+48 62 763 74 10"
 		},
 		{
 			"@id": "mireks_place",
