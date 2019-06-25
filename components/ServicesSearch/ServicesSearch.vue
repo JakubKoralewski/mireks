@@ -86,7 +86,7 @@
 				</div>
 				<div id="buttons">
 					<a
-					 [isTouchScreenHref]="tel:+48 62 763 74 10"
+					 :[isTouchScreenHref]="'tel:+48 62 763 74 10'"
 					 id="call-us"
 					>
 						<font-awesome-icon icon="phone" />
