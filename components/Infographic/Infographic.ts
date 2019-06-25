@@ -78,9 +78,9 @@ export default class Infographic extends Vue {
 	commentOriginalVBYMax = 262.33;
 	defaultViewBox!: string;
 
-	/** Changes waiting to happen */
-	// changesQueue: any = [];
-
+	/** Has to be ran after registering the scroll event listener
+	 *  in order to function properly!
+	 */
 	checkIfSVGInViewport() {
 		console.group("Is element in viewport?");
 		if (isElementInViewport(this.roundBG)) {
@@ -88,8 +88,11 @@ export default class Infographic extends Vue {
 			this.animationLoop(true);
 			this.hasLoopBeenStarted = true;
 			window.removeEventListener("scroll", this.checkIfSVGInViewport);
+			console.groupEnd();
+			return true;
 		}
 		console.groupEnd();
+		return false;
 	}
 	filterNodes(nodes: NodeListOf<SVGGElement>) {
 		return Array.from(nodes).filter(node => !["droga"].includes(node.id));
@@ -195,9 +198,9 @@ export default class Infographic extends Vue {
 
 		this.defaultViewBox = this.svg.getAttribute("viewBox") as string;
 
-		this.checkIfSVGInViewport();
 		window.addEventListener("resize", this.onResize);
 		window.addEventListener("scroll", this.checkIfSVGInViewport);
+		this.checkIfSVGInViewport();
 		console.groupEnd();
 	}
 	private setItemText() {
