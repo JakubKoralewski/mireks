@@ -210,6 +210,12 @@ $blue-border: transparentize($vibrant-blue, 0.8);
 					height: 2.5rem;
 					color: inherit;
 					text-decoration: none;
+					&#call-us {
+						@media screen and (pointer: fine) {
+							// Disable telephone link on non-touch-screens
+							pointer-events: none;
+						}
+					}
 					svg {
 						margin-right: 1vw;
 					}
@@ -274,8 +280,7 @@ $blue-border: transparentize($vibrant-blue, 0.8);
 				border-radius: 0.5rem;
 			}
 			&::-webkit-scrollbar-thumb {
-				border-radius: 0.5rem;
-				// opacity: 0.4;
+				border-radius: 0.5rem; // opacity: 0.4;
 				box-shadow: inset 0 0 0 10px;
 				transition: all 0.25s ease-in-out;
 			}

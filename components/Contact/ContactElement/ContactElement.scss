@@ -28,6 +28,18 @@
 	align-items: center;
 	flex-basis: 80%;
 	
+	&#phone {
+		.info-container {
+			.info {
+				@media screen and (pointer: fine) {
+					pointer-events: none;
+					cursor: default;
+					color: inherit;
+				}
+			}
+		}
+	}
+	
 	br {
 		display: none;
 	}
@@ -96,6 +108,7 @@
 			&:hover {
 				color: $vibrant-blue;
 			}
+			
 		}
 	}
 	svg.fa-copy {
