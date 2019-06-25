@@ -8,26 +8,26 @@ div.service {
 	min-height: 100px;
 	max-height: 50%;
 	flex-grow: 1;
-	margin-right: 1rem;
+	margin-right: 2rem;
+	margin-bottom: 2rem;
 	@media #{$mq-phone} {
 		max-height: inherit;
 		flex-basis: 40%;
 	}
-	margin-bottom: 2rem;
 	z-index: 10;
 	&:last-of-type {
 		//margin-bottom: 0;
 	}
 	// height: 200px;
 	text-align: center;
-	padding: 1vw;
+	padding: 2vw;
 	.title {
 		font-weight: 600;
-		font-size: calc(var(--length) * 1px);
+		font-size: calc(var(--size) * 1px);
 		color: black;
 	}
 	.description {
-		font-size: calc(var(--length) * 1px);
+		font-size: calc(var(--size) * 1px);
 		font-weight: 400;
 		color: black;
 	}
@@ -46,7 +46,7 @@ div.service {
 			text-align: left; // flex-basis: 40%;
 		}
 		.description {
-			font-size: calc(var(--length) * 1.5px);
+			font-size: calc(var(--size) * 1.5px);
 			text-align: right;
 		}
 	}

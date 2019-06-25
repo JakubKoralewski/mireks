@@ -7,14 +7,14 @@
 	>
 		<div
 		 class="title"
-		 :style="`--length: ${50/(service.shortTitle ? service.shortTitle : service.title).length + 10}`"
+		 :style="`--size: ${40/(service.shortTitle ? service.shortTitle : service.title).length + 12}`"
 		 itemprop="name"
 		>
 			{{service.shortTitle ? service.shortTitle : service.title}}
 		</div>
 		<div
 		 class="description"
-		 :style="`--length: ${100/service.description.length + 7}`"
+		 :style="`--size: ${50/service.description.length + 11}`"
 		 itemprop="description"
 		>
 			{{service.description}}
