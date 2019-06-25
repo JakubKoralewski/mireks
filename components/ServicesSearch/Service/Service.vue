@@ -1,6 +1,6 @@
 <template>
 	<div
-	 :class="[{visible: isVisible(searchText)}, 'service']"
+	 :class="[{visible: service.visible, 'only-list': ( oneVisibleInList && service.visible ) }, 'service']"
 	 itemprop="itemOffered"
 	 itemscope
 	 itemtype="http://schema.org/Service"
@@ -9,12 +9,8 @@
 		 itemprop="provider"
 		 itemscope
 		 itemtype="http://schema.org/AccountingService"
-		>
-			<meta
-			 itemprop="itemid"
-			 content="mireks_accounting_service"
-			/>
-		</span>
+		 itemid="mireks_accounting_service"
+		/>
 		<div
 		 class="title"
 		 :style="`--size: ${40/(service.shortTitle ? service.shortTitle : service.title).length + 12}`"
