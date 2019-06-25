@@ -111,6 +111,9 @@ const structuredJSONData = {
 const TITLE = "FHU Mireks - Biuro Rachunkowe";
 const KEYWORDS =
 	"biuro rachunkowe, księgowy, księgowa, koźminek, mirosław koralewski, mireks, fhu, mirex, kalisz, polska, biuro";
+const DESCRIPTION =
+	"Strona internetowa biura rachunkowego FHU Mireks znajdującego się w Koźminku (k. Kalisza) na ulicy Nakwasińskiej 1.";
+const URL = "https://fhumireks.pl";
 
 const config: NuxtConfiguration = {
 	mode: "universal",
@@ -136,10 +139,12 @@ const config: NuxtConfiguration = {
 				content: "width=device-width, initial-scale=1"
 			},
 			{
+				hid: "description",
 				name: "description",
-				content: pkg.description
+				content: DESCRIPTION
 			},
 			{
+				hid: "keywords",
 				name: "keywords",
 				content: KEYWORDS
 			},
@@ -177,7 +182,7 @@ const config: NuxtConfiguration = {
 			},
 			{
 				name: "og:description",
-				content: pkg.description
+				content: DESCRIPTION
 			},
 			{
 				name: "fb:app_id",
@@ -185,7 +190,7 @@ const config: NuxtConfiguration = {
 			},
 			{
 				name: "twitter:description",
-				content: pkg.description
+				content: DESCRIPTION
 			},
 			{
 				name: "twitter:title",
