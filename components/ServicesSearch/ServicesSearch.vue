@@ -41,16 +41,7 @@
 			 itemscope
 			 itemtype="http://schema.org/OfferCatalog"
 			>
-				<span
-				 itemprop="provider"
-				 itemscope
-				 itemtype="http://schema.org/AccountingService"
-				>
-					<meta
-					 itemprop="@id"
-					 content="mireks_accounting_service"
-					/>
-				</span>
+				
 				<div
 				 id="nothing-found"
 				 ref="nothingFoundDialog"

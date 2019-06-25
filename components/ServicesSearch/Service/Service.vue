@@ -5,6 +5,16 @@
 	 itemscope
 	 itemtype="http://schema.org/Service"
 	>
+		<span
+		 itemprop="provider"
+		 itemscope
+		 itemtype="http://schema.org/AccountingService"
+		>
+			<meta
+			 itemprop="@id"
+			 content="mireks_accounting_service"
+			/>
+		</span>
 		<div
 		 class="title"
 		 :style="`--size: ${40/(service.shortTitle ? service.shortTitle : service.title).length + 12}`"
