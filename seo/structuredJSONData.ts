@@ -1,4 +1,4 @@
-import services from "components/ServicesSearch/services";
+import services from "../components/ServicesSearch/services";
 
 const offerItemListElement: any[] = [];
 

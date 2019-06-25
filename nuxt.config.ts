@@ -1,8 +1,8 @@
 import NuxtConfiguration from "@nuxt/config";
 
-import structuredJSONData from "seo/structuredJSONData";
-import metaTags from "seo/metaTags";
-import { TITLE } from "seo/variables";
+import structuredJSONData from "./seo/structuredJSONData";
+import metaTags from "./seo/metaTags";
+import { TITLE } from "./seo/variables";
 
 const config: NuxtConfiguration = {
 	mode: "universal",

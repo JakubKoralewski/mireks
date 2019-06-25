@@ -1,4 +1,4 @@
-import { TITLE, DESCRIPTION, KEYWORDS, URL } from "seo/variables";
+import { TITLE, DESCRIPTION, KEYWORDS, URL } from "./variables";
 
 export default [
 	{ charset: "utf-8" },
