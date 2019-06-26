@@ -92,23 +92,62 @@ export default {
 			address: {
 				"@id": "address"
 			},
-			photo: "/mireks_bg.jpg",
-			image: "/mireks_og.jpg",
+			photo: "https://www.fhumireks.pl/mireks_bg.jpg",
+			image: "https://www.fhumireks.pl/mireks_og.jpg",
 			currenciesAccepted: "PLN",
 			email: "mireks40@poczta.onet.pl",
 			telePhone: "+48 62 763 74 10",
 			paymentAccepted: ["cash", "check", "credit card"],
 			openingHours: "Mo,Tu,We,Th,Fr 08:00-16:00",
+			url: "https://www.fhumireks.pl",
 			openingHoursSpecification: [
 				{
 					"@type": "OpeningHoursSpecification",
-					dayOfWeek: [
-						"Monday",
-						"Tuesday",
-						"Wednesday",
-						"Thursday",
-						"Friday"
-					],
+					dayOfWeek: {
+						"@type": "DayOfWeek",
+						name: "Poniedziałek",
+						supersededBy: "Monday"
+					},
+					opens: "08:00",
+					closes: "16:00"
+				},
+				{
+					"@type": "OpeningHoursSpecification",
+					dayOfWeek: {
+						"@type": "DayOfWeek",
+						name: "Wtorek",
+						supersededBy: "Tuesday"
+					},
+					opens: "08:00",
+					closes: "16:00"
+				},
+				{
+					"@type": "OpeningHoursSpecification",
+					dayOfWeek: {
+						"@type": "DayOfWeek",
+						name: "Środa",
+						supersededBy: "Wednesday"
+					},
+					opens: "08:00",
+					closes: "16:00"
+				},
+				{
+					"@type": "OpeningHoursSpecification",
+					dayOfWeek: {
+						"@type": "DayOfWeek",
+						name: "Czwartek",
+						supersededBy: "Thursday"
+					},
+					opens: "08:00",
+					closes: "16:00"
+				},
+				{
+					"@type": "OpeningHoursSpecification",
+					dayOfWeek: {
+						"@type": "DayOfWeek",
+						name: "Piątek",
+						supersededBy: "Friday"
+					},
 					opens: "08:00",
 					closes: "16:00"
 				}
