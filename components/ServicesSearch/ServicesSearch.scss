@@ -145,7 +145,7 @@ $blue-border: transparentize($vibrant-blue, 0.8);
 		$left: 5%;
 		$border-radius: 1rem;
 		$padding: 2rem;
-		$width: calc(100% - #{$left} * 2 - #{$padding} * 2);
+		$width: calc(100% - #{$left} - #{$padding} * 2);
 		$height: calc(100% - #{$top} * 1.5 - #{$padding} * 2);
 		$scrollbar-width: 11px;
 		div#gradient-overlay {
@@ -207,17 +207,23 @@ $blue-border: transparentize($vibrant-blue, 0.8);
 				margin-right: 2rem;
 				// width: 61%;
 				// height: 60%;
-				padding: 2rem 3rem;
+				padding: 2rem 5vw;
 				box-sizing: border-box;
 				color: #0a1020;
 				#title {
 					font-weight: 800;
 					font-size: 1.4rem;
+					@media #{$mq-phone} {
+						font-size: 1.1rem;
+					}
 				}
 				#description {
 					margin-top: 1rem;
 					font-weight: 500;
 					margin-bottom: 1rem;
+					@media #{$mq-phone} {
+						font-size: 0.8rem;
+					}
 				}
 				#buttons {
 					margin-top: auto;

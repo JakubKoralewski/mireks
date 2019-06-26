@@ -32,11 +32,13 @@
 			 v-html="contact.info"
 			/>
 		</div>
-		<div class="copy">
+		<div
+		 class="copy"
+		 @[!smallViewport?`click`:`touchstart`]="copyClicked"
+		>
 			<font-awesome-icon
 			 :icon="[ 'far', 'copy' ]"
 			 :class="{'copy-in-progress': copyInProgress}"
-			 @[!smallViewport?`click`:`touchstart`]="copyClicked"
 			 :title="copyText"
 			 @mouseleave="copyTextReset"
 			/>

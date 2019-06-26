@@ -1,6 +1,7 @@
 #dlaczego-my {
 	$top-margin: 3rem;
 	scroll-margin-top: $top-margin;
+	scroll-snap-align: start;
 	margin-top: $top-margin;
 	height: 100vh;
 	z-index: 5;
@@ -30,6 +31,12 @@
 				height: calc(100% - #{$text-container-padding-vertical} * 2);
 				padding: $text-container-padding-vertical
 					$global-padding-horizontal;
+				@media #{$mq-phone} {
+					padding-left: unset;
+					padding-right: unset;
+					margin-left: $global-padding-horizontal;
+					margin-right: $global-padding-horizontal;
+				}
 				// align-items: center;
 				display: grid;
 				grid-template-columns: 1.5fr 1fr;
@@ -148,8 +155,6 @@
 						}
 						.controls {
 							position: absolute;
-						}
-						#control {
 						}
 
 						#circles {

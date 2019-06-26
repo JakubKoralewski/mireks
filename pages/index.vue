@@ -62,8 +62,10 @@
 <style lang="scss" scoped>
 	main {
 		z-index: -10;
+		scroll-snap-type: y mandatory;
 
-		section {
+		&::v-deep section {
+			scroll-snap-align: start;
 			// scroll-snap-align: start;
 			// scroll-snap-stop: normal;
 		}
