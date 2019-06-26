@@ -99,7 +99,7 @@ const config: NuxtConfiguration = {
 	// PWA
 	manifest: {
 		lang: "pl",
-		name: "Strona FHU Mireks",
+		name: "Jesteśmy z tobą wszędzie!",
 		short_name: "FHU Mireks",
 		description: DESCRIPTION
 	},
