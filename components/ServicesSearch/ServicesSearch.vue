@@ -11,8 +11,8 @@
 					 class="round"
 					 :placeholder="searchPlaceholder"
 					 spellcheck="false"
-					 v-model="searchText"
 					 ref="searchInput"
+					 @input="searchInput"
 					 @focus="searchInputFocus()"
 					 @blur="searchInputBlur()"
 					/>
@@ -84,11 +84,12 @@
 				>
 					<Service
 					 v-for="( service, index ) in services"
-					 :isLast="index + 1 === services.length ? true : false"
-					 :service="service"
-					 :searchText="searchText"
 					 :key="service.title"
 					 :class="{list: viewType === VIEW_TYPES.LIST}"
+					 :isLast="index + 1 === services.length"
+					 :service="service"
+					 :searchText="searchText"
+					 :oneVisibleInList="oneVisibleInList"
 					 @serviceVisible="foundVisibleService"
 					 @lastServiceVisible="lastServiceVisible"
 					>

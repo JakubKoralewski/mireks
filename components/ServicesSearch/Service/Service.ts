@@ -1,4 +1,4 @@
-import { Component, Vue, Prop } from "nuxt-property-decorator";
+import { Component, Vue, Prop, Watch } from "nuxt-property-decorator";
 import IService from "../IService";
 @Component
 export default class Service extends Vue {
@@ -7,9 +7,20 @@ export default class Service extends Vue {
 	service!: IService;
 	@Prop()
 	searchText!: string;
+
+	/** If the service is last in the array it can signal when
+	 *  the search is finished to the parent ServicesSearch.
+	 */
 	@Prop()
 	isLast!: boolean;
+	@Prop()
+	oneVisibleInList!: boolean;
 
+	/** The Service.created function:
+	 *
+	 *  1. Creates a lowercase version of its data.
+	 *    - it removes the need of converting to lowercase on each search
+	 */
 	created() {
 		const lowerService = {} as IService;
 		lowerService.id = this.service.id;
@@ -25,9 +36,9 @@ export default class Service extends Vue {
 		}
 		this.lowerService = lowerService;
 	}
-
-	isVisible(searchText: string) {
-		const searchedKeywords = searchText.toLowerCase().split(" ");
+	@Watch("searchText")
+	isVisible() {
+		const searchedKeywords = this.searchText.toLowerCase().split(" ");
 		let isVisible = false;
 		for (const sk of searchedKeywords) {
 			if (this.lowerService.title.includes(sk)) {
@@ -60,6 +71,6 @@ export default class Service extends Vue {
 		if (this.isLast) {
 			this.$emit("lastServiceVisible", isVisible);
 		}
-		return isVisible;
+		this.service.visible = isVisible;
 	}
 }

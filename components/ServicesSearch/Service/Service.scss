@@ -47,6 +47,14 @@ div.service {
 			font-size: calc(var(--size) * 1.3px);
 			text-align: right;
 		}
+		
+		transition: margin 1.5s ease-out;
+
+		&.only-list {
+			height: 50%;
+			margin-top: auto;
+			margin-bottom: auto;
+		}
 	}
 
 	&:not(.visible) {
