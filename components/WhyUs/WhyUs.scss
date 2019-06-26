@@ -177,11 +177,12 @@
 				fill: black !important;
 			}
 		}
-
-		#mireks-bg-img {
-			background: url("/mireks_bg.jpg") no-repeat;
-			background-size: cover;
-			background-position: center;
+		picture#mireks-bg-img {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			// background-size: cover;
+			// background-position: center;
 			height: 150%;
 			width: 100%;
 			position: absolute;

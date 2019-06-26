@@ -226,6 +226,8 @@ export default class WhyUs extends Vue {
 			this.onTransitionEnd
 		);
 
+		// (this.$refs.bgImg as HTMLDivElement).style.background =
+		// 	"url('/mireks_bg.jpg') no-repeat";
 		this.whyUsElement = this.$refs.whyUs as HTMLElement;
 		this.whyUsSubTitleElement = this.$refs.whyUsSubTitle as HTMLElement;
 		this.whyUsDescriptionElement = this.$refs
