@@ -2,7 +2,7 @@ import NuxtConfiguration from "@nuxt/config";
 
 import structuredJSONData from "./seo/structuredJSONData";
 import metaTags from "./seo/metaTags";
-import { TITLE } from "./seo/variables";
+import { TITLE, DESCRIPTION } from "./seo/variables";
 
 const config: NuxtConfiguration = {
 	mode: "universal",
@@ -68,7 +68,7 @@ const config: NuxtConfiguration = {
 	/*
 	** Customize the progress-bar color
 	*/
-	loading: { color: "#fff" },
+	loading: { color: "#0a1020" },
 
 	/*
 	** Global CSS
@@ -89,8 +89,22 @@ const config: NuxtConfiguration = {
 	/*
 	** Nuxt.js modules
 	*/
-	modules: ["@nuxtjs/style-resources", "@nuxtjs/sitemap"],
+	modules: ["@nuxtjs/style-resources", "@nuxtjs/pwa", "@nuxtjs/sitemap"],
 
+	loadingIndicator: {
+		color: "#0a1020",
+		color2: "#0ec7ff"
+	},
+
+	// PWA
+	manifest: {
+		lang: "pl",
+		name: "Jesteśmy z tobą wszędzie!",
+		short_name: "FHU Mireks",
+		description: DESCRIPTION
+	},
+
+	// Sitemap
 	sitemap: {
 		hostname: "https://www.fhumireks.pl",
 		gzip: true,

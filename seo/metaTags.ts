@@ -34,7 +34,7 @@ export default [
 	},
 	{
 		name: "theme-color",
-		content: "#0a1020"
+		content: "#0ec7ff"
 	},
 	{
 		name: "og:image",

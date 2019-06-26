@@ -11,6 +11,9 @@ yarn-error.log*
 .history
 sw.*
 
+# PWA
+sw.*
+
 # Runtime data
 pids
 *.pid
