@@ -7,6 +7,11 @@ import { TITLE } from "./seo/variables";
 const config: NuxtConfiguration = {
 	mode: "universal",
 
+	server: {
+		port: 3000,
+		host: "192.168.2.2"
+	},
+
 	/*
 	** Headers of the page
 	*/
@@ -68,7 +73,7 @@ const config: NuxtConfiguration = {
 	/*
 	** Customize the progress-bar color
 	*/
-	loading: { color: "#fff" },
+	loading: { color: "#0a1020" },
 
 	/*
 	** Global CSS
@@ -89,8 +94,22 @@ const config: NuxtConfiguration = {
 	/*
 	** Nuxt.js modules
 	*/
-	modules: ["@nuxtjs/style-resources", "@nuxtjs/sitemap"],
+	modules: ["@nuxtjs/style-resources", "@nuxtjs/pwa", "@nuxtjs/sitemap"],
 
+	loadingIndicator: {
+		color: "#0a1020",
+		color2: "#0ec7ff"
+	},
+
+	// PWA
+	meta: {
+		lang: "pl"
+	},
+	manifest: {
+		lang: "pl"
+	},
+
+	// Sitemap
 	sitemap: {
 		hostname: "https://www.fhumireks.pl",
 		gzip: true,
