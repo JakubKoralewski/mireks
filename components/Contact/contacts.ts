@@ -5,7 +5,7 @@ const contacts: IContact[] = [
 		id: "address",
 		icon: "map-marked-alt",
 		subtitle: "Adres",
-		info: "62-840 Koźminek, ul. Nakwasińska 1",
+		info: "62-840 Koźminek,<br/> ul. Nakwasińska 1",
 		hover: false,
 		selected: false,
 		reverse: false
@@ -24,7 +24,7 @@ const contacts: IContact[] = [
 		id: "time",
 		icon: "business-time",
 		subtitle: "Godziny otwarcia",
-		info: "Od poniedziałku do piątku: 8:00-16:00",
+		info: "Od poniedziałku do piątku:<br/> 8:00-16:00",
 		hover: false,
 		selected: false,
 		reverse: false

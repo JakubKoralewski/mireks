@@ -13,6 +13,7 @@ section#contact {
 		}
 	}
 	#contact-container {
+		//@media
 		&.big-viewport {
 			width: $contact-whole-width;
 			height: $contact-height;
@@ -22,19 +23,15 @@ section#contact {
 		@media #{$mq-phone} {
 			margin-bottom: 1rem;
 		}
-		// height: calc(100vh - #{$global-padding-vertical} * 2);
+		//@media <- for searching
 		&.small-viewport {
 			display: flex;
 			flex-direction: column;
 		}
 		&.active-hover {
 			&::v-deep .contact {
-				&:not(.hover) {
+				&:not(.hover):not(.small-viewport) {
 					transition: transform 1s ease-out;
-					/* 					transform: rotateY(5deg)
-						translateX(
-							calc( #{$contact-space} / 50)
-						); */
 					transform: translateX(
 						calc(
 							#{$contact-space} / 50 * ((var(--hoverIndex) + 1) /

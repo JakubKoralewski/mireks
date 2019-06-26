@@ -16,14 +16,13 @@
 			 :class="{
 				'last': index + 1 === contacts.length,
 			 	'reverse': reverseIndex === index,
-				'small-viewport': smallViewport,
-				'big-viewport': !smallViewport
 			 }"
 			 :index="index"
 			 ref="contacts"
 			 :key="contact.id"
 			 :contact="contact"
 			 :style="`--index: ${index};`"
+			 :smallViewport="smallViewport"
 			 @clicked="contactClicked"
 			 @closed="contactClosed"
 			/>

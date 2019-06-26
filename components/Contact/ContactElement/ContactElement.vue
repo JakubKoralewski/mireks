@@ -1,11 +1,17 @@
 <template>
 	<div
-	 :class="[{'hover': contact.hover, 'selected': contact.selected}, 'contact']"
+	 :class="[
+	 {
+		'hover': contact.hover,
+	 	'selected': contact.selected,
+		'small-viewport': smallViewport,
+		'big-viewport': !smallViewport
+	}, 'contact']"
 	 :id="contact.id"
 	 :index="index"
-	 @mouseenter="contact.hover = true"
-	 @mouseleave="contact.hover = false"
-	 @click="clicked"
+	 @[!smallViewport?`mouseenter`:`touchstart`]="contact.hover = true"
+	 @[!smallViewport?`mouseleave`:`touchend`]="contact.hover = false"
+	 @[!smallViewport?`click`:``]="clicked"
 	>
 		<font-awesome-icon
 		 class="icon"
@@ -26,12 +32,16 @@
 			 v-html="contact.info"
 			/>
 		</div>
-		<font-awesome-icon
-		 :icon="[ 'far', 'copy' ]"
-		 @click="copyClicked"
-		 :title="copyText"
-		 @mouseleave="copyTextReset"
-		/>
+		<div class="copy">
+			<font-awesome-icon
+			 :icon="[ 'far', 'copy' ]"
+			 :class="{'copy-in-progress': copyInProgress}"
+			 @[!smallViewport?`click`:`touchstart`]="copyClicked"
+			 :title="copyText"
+			 @mouseleave="copyTextReset"
+			/>
+			<span id="copy-text">{{copyText}}</span>
+		</div>
 		<font-awesome-icon
 		 icon="times"
 		 :class="{'visible': contact.selected}"
