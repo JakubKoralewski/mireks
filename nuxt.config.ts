@@ -74,7 +74,19 @@ const config: NuxtConfiguration = {
 	/*
 	** Nuxt.js modules
 	*/
-	modules: ["@nuxtjs/sitemap", "@nuxtjs/style-resources" /* , "nuxt-svg "*/],
+	modules: ["@nuxtjs/style-resources", "@nuxtjs/sitemap"],
+
+	sitemap: {
+		hostname: "https://www.fhumireks.pl",
+		gzip: true,
+		routes: [
+			{
+				url: "/",
+				changefreq: "monthly",
+				priority: 1
+			}
+		]
+	},
 
 	/* Global SCSS variables etc.
 	** https://github.com/nuxt-community/style-resources-module/
