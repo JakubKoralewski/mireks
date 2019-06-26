@@ -20,6 +20,21 @@ const config: NuxtConfiguration = {
 			{
 				type: "application/ld+json",
 				innerHTML: JSON.stringify(structuredJSONData)
+			},
+			{
+				src:
+					"https://www.googletagmanager.com/gtag/js?id=UA-142751142-1",
+				async: true,
+				type: "application/javascript"
+			},
+			{
+				innerHTML: `
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-142751142-1');`,
+				type: "application/javascript"
 			}
 		],
 		__dangerouslyDisableSanitizers: ["script"],
