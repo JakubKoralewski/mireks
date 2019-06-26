@@ -2,15 +2,10 @@ import NuxtConfiguration from "@nuxt/config";
 
 import structuredJSONData from "./seo/structuredJSONData";
 import metaTags from "./seo/metaTags";
-import { TITLE } from "./seo/variables";
+import { TITLE, DESCRIPTION } from "./seo/variables";
 
 const config: NuxtConfiguration = {
 	mode: "universal",
-
-	server: {
-		port: 3000,
-		host: "192.168.2.2"
-	},
 
 	/*
 	** Headers of the page
@@ -102,11 +97,11 @@ const config: NuxtConfiguration = {
 	},
 
 	// PWA
-	meta: {
-		lang: "pl"
-	},
 	manifest: {
-		lang: "pl"
+		lang: "pl",
+		name: "Strona FHU Mireks",
+		short_name: "FHU Mireks",
+		description: DESCRIPTION
 	},
 
 	// Sitemap
