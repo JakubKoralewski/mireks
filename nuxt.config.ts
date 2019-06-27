@@ -161,14 +161,6 @@ const config: NuxtConfiguration = {
 				config.devtool = "#source-map"; // Sentry
 			}
 
-			// config.plugins += new SentryWebpackPlugin({
-			// 	include: ".",
-			// 	ignoreFile: ".sentrycliignore",
-			// 	ignore: ["node_modules", "webpack.config.js", "nuxt.config.ts"]
-			// });
-
-			// config.mode = "production";
-
 			/* Vue inline svg loader */
 			const vueRule = (config as any).module.rules.find(rule =>
 				rule.test.test(".vue")
