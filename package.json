@@ -8,8 +8,7 @@
 		"dev": "nuxt",
 		"build": "nuxt build",
 		"start": "nuxt start",
-		"generate": "nuxt generate",
-		"dist": "npm run generate && rimraf dist/**/*.js.map",
+		"generate": "npm run generate && rimraf dist/**/*.js.map",
 		"test": "ava"
 	},
 	"ava": {
