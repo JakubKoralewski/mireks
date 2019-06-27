@@ -7,6 +7,10 @@ export default [
 		content: "width=device-width, initial-scale=1"
 	},
 	{
+		name: "author",
+		content: "Jakub Koralewski"
+	},
+	{
 		hid: "description",
 		name: "description",
 		content: DESCRIPTION
