@@ -47,7 +47,7 @@ export default class WhyUs extends Vue {
 
 	numbers: ChangingNumber[] = [
 		{
-			description: "klientów w regionie",
+			description: "zadowolonych firm w regionie",
 			number: "100+"
 		},
 		{

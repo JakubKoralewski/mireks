@@ -1,4 +1,4 @@
-$blue-border: transparentize($vibrant-blue, 0.8);
+$blue-border: transparentize($orange, 0.8);
 #services-search {
 	margin-bottom: $global-padding-vertical;
 	display: flex;
@@ -15,7 +15,10 @@ $blue-border: transparentize($vibrant-blue, 0.8);
 	}
 	.round {
 		border: 1px solid $round-border-color;
-		background-color: $round-bg-color;
+		// background-color: $round-bg-color;
+		// background-color: rgba(255,255,255,0.05);
+		background-color: $bg-light-color;
+		// background-color: rgba(255, 69, 0, 1);
 		border-radius: 50%;
 	}
 	.round-bg {
@@ -77,7 +80,7 @@ $blue-border: transparentize($vibrant-blue, 0.8);
 					font-family: "Montserrat", sans-serif;
 					width: 100%;
 					height: 100%;
-					color: transparentize($vibrant-blue, 0.2);
+					color: transparentize($orange, 0.2);
 					border-radius: 2rem;
 					font-size: $input-font-size;
 					padding-top: $search-bar-padding-vertical;
@@ -89,11 +92,11 @@ $blue-border: transparentize($vibrant-blue, 0.8);
 						outline: none !important;
 						border-color: $blue-border;
 						& + .fa-search {
-							color: $vibrant-blue;
+							color: $orange;
 							opacity: 0.8;
 						}
 						&::placeholder {
-							color: $vibrant-blue;
+							color: $orange;
 						}
 					}
 					&::placeholder {
@@ -136,7 +139,7 @@ $blue-border: transparentize($vibrant-blue, 0.8);
 						opacity: 0.8;
 					}
 					&.active {
-						color: $vibrant-blue;
+						color: $orange;
 					}
 				}
 			}
@@ -156,15 +159,16 @@ $blue-border: transparentize($vibrant-blue, 0.8);
 			width: calc(#{$width} - #{$scrollbar-width});
 			height: $height;
 			padding: $padding;
+			padding-right: 0;
 			pointer-events: none;
 			z-index: 20;
 			background: linear-gradient(
 				to bottom,
-				rgba(21, 27, 43, 0.8) 0%,
+				transparentize($bg-light-color, 0.1) 0%,
 				rgba(41, 137, 216, 0) 9%,
 				rgba(32, 124, 202, 0) 93%,
 				rgba(30, 110, 179, 0) 94%,
-				rgba(21, 27, 43, 0.8) 100%
+				transparentize($bg-light-color, 0.1) 100%
 			); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 			filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#151b2b', endColorstr='#151b2b',GradientType=0 ); /* IE6-9 */
 		}
@@ -179,17 +183,19 @@ $blue-border: transparentize($vibrant-blue, 0.8);
 			transition: color 2s ease-in;
 			padding: $padding;
 			padding-right: 0;
+			// background-color: $bg-color;
+			// background-color: 
 			// padding-top: 0;
 			color: #121726;
 			@media not screen and (pointer: fine) {
 				// For elements without mouse support
-				color: $muted-blue;
+				color: $orange;
 			}
 			&:hover {
 				&::-webkit-scrollbar-thumb {
-					background-color: $muted-blue;
+					background-color: $orange;
 				}
-				color: $muted-blue;
+				color: $orange;
 				transition: color 1s ease-out;
 			}
 			.services-group-move {
@@ -237,7 +243,7 @@ $blue-border: transparentize($vibrant-blue, 0.8);
 					align-content: space-evenly;
 					a {
 						border-radius: 2rem;
-						background-color: $vibrant-blue;
+						background-color: $orange;
 						display: flex;
 						justify-content: center;
 						align-items: center;
@@ -320,7 +326,8 @@ $blue-border: transparentize($vibrant-blue, 0.8);
 				border-radius: 0.5rem;
 			}
 			&::-webkit-scrollbar-thumb {
-				border-radius: 0.5rem; // opacity: 0.4;
+				border-radius: 0.5rem;
+				// opacity: 0.4;
 				box-shadow: inset 0 0 0 10px;
 				transition: all 0.25s ease-in-out;
 			}
