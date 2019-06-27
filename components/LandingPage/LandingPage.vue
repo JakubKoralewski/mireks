@@ -22,47 +22,51 @@
 						</div>
 					</div>
 				</div>
-<div id="logotype">
-				<img
-				 svg-inline
-				 src="@/other_assets/logo.svg"
-				 :class="['logo', { 'disappear-at-start': disappearAtStart }]"
-				 ref="logo"
-				/>
-				<img
-				 svg-inline
-				 src="@/other_assets/logo-text.svg"
-				 :class="['logo-text', { 'disappear-at-start': disappearAtStart }]"
-				 ref="logoText"
-				/>
-			</div>
-
-
-			</div>
-				<div id="buttons" :class="{ 'disappear-at-start': disappearAtStart }">
-					<div
-					 class="button"
-					 id="dowiedz-sie-wiecej"
-					 @click="() => this.$emit('findOutMoreClick')"
-					 ref="findOutMoreButton"
-					>
-						Dowiedz się więcej
-					</div>
-
-					<div
-					 class="button"
-					 id="zadzwon"
-					 ref="callButton"
-					>
-						<font-awesome-icon icon="phone" />
-						Zadzwoń
-					</div>
+				<div id="logotype">
+					<transition name="fade">
+						<Loading v-if="!beGoneVileManBeGoneFromMe" />
+					</transition>
+					<img
+					 svg-inline
+					 src="@/other_assets/logo.svg"
+					 :class="['logo', { 'disappear-at-start': disappearAtStart }]"
+					 ref="logo"
+					/>
+					<img
+					 svg-inline
+					 src="@/other_assets/logo-text.svg"
+					 :class="['logo-text', { 'disappear-at-start': disappearAtStart }]"
+					 ref="logoText"
+					/>
 				</div>
-			
+
+			</div>
+			<div
+			 id="buttons"
+			 :class="{ 'disappear-at-start': disappearAtStart }"
+			>
+				<div
+				 class="button"
+				 id="dowiedz-sie-wiecej"
+				 @click="() => this.$emit('findOutMoreClick')"
+				 ref="findOutMoreButton"
+				>
+					Dowiedz się więcej
+				</div>
+
+				<div
+				 class="button"
+				 id="zadzwon"
+				 ref="callButton"
+				>
+					<font-awesome-icon icon="phone" />
+					Zadzwoń
+				</div>
+			</div>
+
 		</div>
 	</section>
 
 </template>
 <script lang="ts" src="./LandingPage.ts"></script>
-
 <style lang="scss" src="./LandingPage.scss" scoped></style>
