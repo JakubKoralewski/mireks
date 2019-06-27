@@ -1,16 +1,19 @@
 <template>
 	<main class="global-padding">
-		<LandingPage @findOutMoreClick="findOutMoreClick" />
-		<WhyUs ref="whyUs" />
+		<LandingPage
+		 @findOutMoreClick="findOutMoreClick"
+		 @callButtonClickScroll="callButtonClickScroll"
+		/>
+		<WhyUs />
 		<Infographic />
 		<ServicesSearch />
-		<Contact />
+		<Contact ref="contact" />
 		<Footer />
 	</main>
 </template>
 
 <script lang="ts">
-	import { Component, Vue } from "nuxt-property-decorator";
+	import { Component } from "nuxt-property-decorator";
 
 	import LandingPage from "@/components/LandingPage/LandingPage";
 	import WhyUs from "@/components/WhyUs/WhyUs";
@@ -18,6 +21,8 @@
 	import ServicesSearch from "@/components/ServicesSearch/ServicesSearch";
 	import Contact from "@/components/Contact/Contact";
 	import Footer from "@/components/Footer/Footer";
+
+	import IsTouchScreen from "@/components/mixins/IsTouchScreen";
 
 	@Component({
 		components: {
@@ -29,12 +34,18 @@
 			Footer
 		}
 	})
-	export default class Index extends Vue {
+	export default class Index extends IsTouchScreen {
 		findOutMoreClick() {
 			console.log("findOutMoreClick()");
 			document
 				.querySelector("#dlaczego-my")!
 				.scrollIntoView({ behavior: "smooth" });
+		}
+		callButtonClickScroll() {
+			console.log("callButtonClickScroll");
+			const contact = this.$refs.contact as Contact; 
+			( contact.$el as HTMLElement ).scrollIntoView();
+			contact.showPhoneNumber();
 		}
 	}
 </script>
@@ -74,7 +85,7 @@
 	.global-padding {
 		padding: $global-padding-vertical $global-padding-horizontal;
 		overflow-x: hidden;
-		
+
 		@media screen and (max-width: 600px) {
 			padding-top: $global-padding-top-override-amount;
 		}

@@ -51,6 +51,27 @@ export default class Contact extends Vue {
 		checkViewportSize();
 	}
 
+	showPhoneNumber() {
+		let index = -1;
+		this.contacts.find((el, i) => {
+			if (el.id === "phone") {
+				index = i;
+				return true;
+			}
+		});
+		this.contacts.forEach((contact, index) => {
+			if (contact.selected) {
+				this.reverseIndex = index;
+				contact.selected = false;
+			}
+		});
+		this.selected = index;
+		this.anySelected = true;
+		this.anyHover = true;
+		this.hoverIndex = index;
+		this.contacts[index].selected = true;
+	}
+
 	contactClosed(index: number) {
 		this.contacts[index].reverse = true;
 		this.reverseIndex = index;

@@ -52,6 +52,10 @@ section#footer {
 			height: fit-content;
 			padding-right: 2vw;
 		}
+		
+		b {
+			color: $bg-color;
+		}
 
 		b {
 			color: $bg-color;
@@ -164,7 +168,6 @@ section#footer {
 				display: block;
 			}
 		}
-
 		svg {
 			color: $bg-color;
 		}

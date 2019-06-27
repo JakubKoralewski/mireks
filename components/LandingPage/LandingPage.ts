@@ -1,7 +1,7 @@
-import { Component, Vue } from "nuxt-property-decorator";
+import { Component } from "nuxt-property-decorator";
 import { Power4, TimelineLite } from "gsap";
 import Loading from "@/components/LandingPage/Loading";
-import sleepFunction from "@/components/sleep";
+import IsTouchScreen from "@/components/mixins/IsTouchScreen";
 
 interface LogoElements {
 	left: SVGPathElement;
@@ -14,7 +14,7 @@ interface LogoElements {
 		Loading
 	}
 })
-export default class LandingPage extends Vue {
+export default class LandingPage extends IsTouchScreen {
 	logoSVG!: HTMLElement;
 	logoTextSVG!: HTMLElement;
 	logoElements: LogoElements = {} as LogoElements;
