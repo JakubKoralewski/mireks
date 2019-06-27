@@ -1,5 +1,7 @@
 import { Component, Vue } from "nuxt-property-decorator";
 import { Power4, TimelineLite } from "gsap";
+import Loading from "@/components/LandingPage/Loading";
+import sleepFunction from "@/components/sleep";
 
 interface LogoElements {
 	left: SVGPathElement;
@@ -7,7 +9,11 @@ interface LogoElements {
 	middle: SVGPathElement;
 }
 
-@Component
+@Component({
+	components: {
+		Loading
+	}
+})
 export default class LandingPage extends Vue {
 	logoSVG!: HTMLElement;
 	logoTextSVG!: HTMLElement;
@@ -17,6 +23,7 @@ export default class LandingPage extends Vue {
 	buttons!: HTMLElement;
 	tl = new TimelineLite();
 	disappearAtStart = true;
+	beGoneVileManBeGoneFromMe = false;
 	mounted() {
 		// Assigns types to $refs elements so less type asserting is necessary
 		this.findOutMoreButton = this.$refs.findOutMoreButton as HTMLDivElement;
@@ -33,6 +40,7 @@ export default class LandingPage extends Vue {
 			this.logoElements[child.id] = child;
 		});
 		this.disappearAtStart = false;
+		this.beGoneVileManBeGoneFromMe = true;
 		this.animateSVG();
 		this.animateButtons();
 	}
