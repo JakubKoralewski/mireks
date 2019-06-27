@@ -10,7 +10,8 @@ section#footer {
 		unquote(toRGB($orange)) 0%,
 		unquote(toRGB(darken($orange, 10%))) 99%
 	);
-	color: $bg-color;
+	$color: darken($bg-color, 10%);
+	color: $color;
 	// color: white;
 
 	width: 100vw;
@@ -56,11 +57,10 @@ section#footer {
 			svg {
 				width: unset;
 				height: unset;
-				// min-width: 80%;
 				padding: 1vmax;
 				box-sizing: border-box;
 				#logo {
-					fill: $bg-color !important;
+					fill: $color !important;
 				}
 			}
 		}
@@ -162,12 +162,12 @@ section#footer {
 		border-radius: 0.5rem;
 		padding: 0.25rem 1rem;
 		@media not screen and (pointer: fine) {
-			background-color: lighten($muted-blue, 3%);
-			border: 1px solid $bg-color;
+			background-color: lighten($orange, 2%);
+			border: 1px solid $color;
 		}
 
 		&:hover {
-			background-color: lighten($muted-blue, 3%);
+			background-color: lighten($orange, 3%);
 		}
 
 		@media #{$mq-phone} {
