@@ -14,7 +14,7 @@
 						<div id="description">
 							<div id="main-description">
 								Jesteśmy doświadczonym biurem rachunkowym z tradycją.
-								Od 25 lat firma prowadzona jest przez Mirosława Koralewskiego bezustannie
+								Od 25 lat firma prowadzona jest przez Mirosława Koralewskiego niezmiennie
 								w tym samym miejscu - na ulicy Nakwasińskiej 1 w Koźminku.
 							</div>
 							<br />
