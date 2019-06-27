@@ -54,14 +54,16 @@
 					Dowiedz się więcej
 				</div>
 
-				<div
+				<a
 				 class="button"
 				 id="zadzwon"
 				 ref="callButton"
+				 @[!isTouchScreen?`click`:``]="() => this.$emit('callButtonClickScroll')"
+				 :[isTouchScreen?`href`:``]="'tel:+48 62 763 74 10'"
 				>
 					<font-awesome-icon icon="phone" />
 					Zadzwoń
-				</div>
+				</a>
 			</div>
 
 		</div>
