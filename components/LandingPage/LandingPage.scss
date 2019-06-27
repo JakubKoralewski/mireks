@@ -53,8 +53,8 @@ svg.landing-page-bg {
 					@media #{$mq-phone} {
 						margin-right: 0;
 					}
-					border: 1.5px solid $vibrant-blue;
-					color: $vibrant-blue;
+					border: 1.5px solid lighten($orange, 5%);
+					color: lighten($orange, 15%);
 					text-align: center;
 					display: flex;
 					justify-content: center;
@@ -65,7 +65,7 @@ svg.landing-page-bg {
 					display: flex;
 					justify-content: center;
 					align-items: center;
-					background-color: $vibrant-blue;
+					background-color: $orange;
 					min-width: calc(5rem + 3vw);
 					justify-content: space-between;
 					margin-right: 2vw;

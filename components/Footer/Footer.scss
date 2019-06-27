@@ -1,11 +1,13 @@
 section#footer {
-	// background-color: $muted-blue;
-	background: linear-gradient(
-		to bottom,
-		rgba(15, 150, 194, 1) 0%,
-		rgba(18, 180, 229, 1) 99%
-	);
+	background-color: $muted-blue;
+	// background-color: rgb(255, 94, 0);
+	// background: linear-gradient(
+	// 	to bottom,
+	// 	rgba(15, 150, 194, 1) 0%,
+	// 	rgba(18, 180, 229, 1) 99%
+	// );
 	color: $bg-color;
+	// color: white;
 
 	width: 100vw;
 	position: absolute;
@@ -50,7 +52,7 @@ section#footer {
 			svg {
 				width: unset;
 				height: unset;
-				min-width: 80%;
+				// min-width: 80%;
 				padding: 1vmax;
 				box-sizing: border-box;
 				#logo {

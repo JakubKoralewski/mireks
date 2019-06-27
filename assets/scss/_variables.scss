@@ -1,11 +1,16 @@
-$bg-color: #0a1020;
+// $bg-color: #0a1020;
+// $bg-color: #111b36;
+$bg-color: #0c1a3f;
+$bg-light-color: #182649;
 $muted-white: #8c8e93;
+$orange: lighten(orangered, 0.1);
 $vibrant-blue: #0ec7ff;
 $muted-blue: #0f96c2;
 $global-padding-vertical: calc(5vh + 4rem);
 $global-padding-horizontal: calc(12vw + 1rem);
 
-$round-border-color: transparentize(#2e3340, 0.7);
+// $round-border-color: transparentize(#2e3340, 0.7);
+$round-border-color: transparentize(lighten($bg-light-color, 20%), 0.7);
 $round-bg-radius: calc(1vmin + 1rem);
 // $round-bg-color: transparentize(#dfdaf7, 0.95);
 $round-bg-color: #151b2b;

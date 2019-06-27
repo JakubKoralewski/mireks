@@ -53,8 +53,9 @@ section#contact {
 	#map {
 		display: flex;
 		justify-content: center;
-		border-radius: 2rem;
-		background-color: $round-bg-color;
+		border-radius: 1rem;
+		// background-color: $round-bg-color;
+		background-color: rgba(255, 69, 0, 1);
 		border: 1px solid $round-border-color;
 		@media #{$mq-phone} {
 			width: 85vw;
@@ -73,8 +74,8 @@ section#contact {
 			justify-content: center;
 
 			iframe {
-				width: 90%;
-				height: 90%;
+				width: 95%;
+				height: 95%;
 				border-radius: 0.5rem;
 			}
 		}
