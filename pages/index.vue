@@ -43,9 +43,13 @@
 		}
 		callButtonClickScroll() {
 			console.log("callButtonClickScroll");
-			const contact = this.$refs.contact as Contact; 
-			( contact.$el as HTMLElement ).scrollIntoView();
+			const contact = this.$refs.contact as Contact;
+			(contact.$el as HTMLElement).scrollIntoView();
 			contact.showPhoneNumber();
+		}
+
+		created() {
+			this.$sentry.captureException(new Error("example"));
 		}
 	}
 </script>

@@ -4,6 +4,8 @@ import structuredJSONData from "./seo/structuredJSONData";
 import metaTags from "./seo/metaTags";
 import { TITLE, DESCRIPTION } from "./seo/variables";
 
+// const SentryWebpackPlugin = require("@sentry/webpack-plugin");
+
 const config: NuxtConfiguration = {
 	mode: "universal",
 
@@ -93,14 +95,29 @@ const config: NuxtConfiguration = {
 	/*
 	** Nuxt.js modules
 	*/
-	modules: ["@nuxtjs/style-resources", "@nuxtjs/pwa", "@nuxtjs/sitemap"],
+	modules: [
+		"@nuxtjs/style-resources",
+		"@nuxtjs/pwa",
+		"@nuxtjs/sentry",
+		"@nuxtjs/sitemap"
+	],
+
+	/*
+	** Sentry
+	*/
+
+	sentry: {
+		publishRelease: true
+	},
 
 	loadingIndicator: {
 		color: "#0a1020",
 		color2: "#0ec7ff"
 	},
 
-	// PWA
+	/*
+	** PWA
+	*/
 	manifest: {
 		lang: "pl",
 		name: "Jesteśmy z Tobą wszędzie!",
@@ -108,7 +125,9 @@ const config: NuxtConfiguration = {
 		description: DESCRIPTION
 	},
 
-	// Sitemap
+	/*
+	** Sitemap
+	*/
 	sitemap: {
 		hostname: "https://www.fhumireks.pl",
 		gzip: true,
@@ -139,6 +158,12 @@ const config: NuxtConfiguration = {
 			if (isClient && isDev) {
 				config.devtool = "#cheap-module-eval-source-map";
 			}
+
+			// config.plugins += new SentryWebpackPlugin({
+			// 	include: ".",
+			// 	ignoreFile: ".sentrycliignore",
+			// 	ignore: ["node_modules", "webpack.config.js", "nuxt.config.ts"]
+			// });
 
 			// config.mode = "production";
 
