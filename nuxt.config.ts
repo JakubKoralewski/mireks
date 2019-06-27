@@ -157,6 +157,8 @@ const config: NuxtConfiguration = {
 		extend(config, { isClient, isDev }) {
 			if (isClient && isDev) {
 				config.devtool = "#cheap-module-eval-source-map";
+			} else if (isClient && !isDev) {
+				config.devtool = "#source-map"; // Sentry
 			}
 
 			// config.plugins += new SentryWebpackPlugin({
