@@ -13,23 +13,26 @@
 					Firma Handlowo-Usługowa<br /> Mireks Mirosław Koralewski
 				</span>
 			</div>
-			<div id="nip-regon">
-				<b>NIP:</b>
-				6181009277<br />
-				<b>REGON:</b>
-				250454919<br />
-				<b>Świadectwo kwalfikacyne:</b>
-				nr 20113/2000
-			</div>
-			<div id="business-time">
-				<b>Godziny otwarcia:</b>
-				<span>Pon: 8:00-16:00</span>
-				<span>Wt: 8:00-16:00</span>
-				<span>Śr: 8:00-16:00</span>
-				<span>Czw: 8:00-16:00</span>
-				<span>Pt: 8:00-16:00</span>
-				<span>Sob: zamknięte</span>
-				<span>Nd: zamknięte</span>
+			<div id="middle">
+
+				<div id="nip-regon">
+					<b>NIP:</b>
+					6181009277<br />
+					<b>REGON:</b>
+					250454919<br />
+					<b>Świadectwo kwalfikacyne:</b>
+					nr 20113/2000
+				</div>
+				<div id="business-time">
+					<b>Godziny otwarcia:</b>
+					<span>Pon: 8:00-16:00</span>
+					<span>Wt: 8:00-16:00</span>
+					<span>Śr: 8:00-16:00</span>
+					<span>Czw: 8:00-16:00</span>
+					<span>Pt: 8:00-16:00</span>
+					<span>Sob: zamknięte</span>
+					<span>Nd: zamknięte</span>
+				</div>
 			</div>
 			<div id="other">
 				<div id="address">

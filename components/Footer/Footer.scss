@@ -1,6 +1,4 @@
 section#footer {
-	// background-color: $muted-blue;
-	// background-color: rgb(255, 94, 0);
 	@function toRGB($color) {
 		@return "rgb(" + red($color) + ", " + green($color) + ", " +
 			blue($color) + ")";
@@ -10,7 +8,6 @@ section#footer {
 		unquote(toRGB($orange)) 0%,
 		unquote(toRGB(mix($bg-color, $orange, $weight: 20%))) 99%
 	);
-	// $color: darken($bg-color, 10%);
 	$color: #dedede;
 	color: mix($bg-color, $orange, $weight: 70%);
 
@@ -29,24 +26,25 @@ section#footer {
 	font-weight: 400;
 
 	#footer-container {
-		$mq-break: "screen and (max-width: 800px)";
+		$mq-break: "screen and (max-width: 850px)";
 		display: flex;
 		align-items: center;
+		justify-content: center;
 		font-size: 12px;
 		flex-wrap: nowrap;
-		
+
 		@media #{$mq-break} {
 			flex-direction: column;
 			justify-content: center;
 			align-items: center;
-			
+
 			div {
 				text-align: center;
-				padding-right: unset;
+				padding-right: unset !important;
 				padding-bottom: 2vh;
 			}
 		}
-		
+
 		div {
 			display: flex;
 			flex-direction: column;
@@ -82,11 +80,35 @@ section#footer {
 			}
 		}
 
-		div#nip-regon {
-			width: min-content;
+		div#middle {
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			div#nip-regon {
+				width: min-content;
+			}
+			@media #{$mq-break} {
+				width: 50%;
+				justify-content: space-around;
+			}
+
+			@media #{$mq-phone} {
+				width: unset;
+				flex-direction: column;
+			}
 		}
 
+		div#other {
+			@media #{$mq-break} {
+				width: 100%;
+				justify-content: space-around;
+				flex-direction: row;
+			}
 
+			@media #{$mq-phone} {
+				flex-direction: column;
+			}
+		}
 		div#e-mail {
 			br {
 				display: none;
