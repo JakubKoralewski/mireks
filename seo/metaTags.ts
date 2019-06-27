@@ -1,4 +1,10 @@
-import { TITLE, DESCRIPTION, KEYWORDS, URL } from "./variables";
+import {
+	TITLE,
+	SHORT_DESCRIPTION,
+	DESCRIPTION,
+	KEYWORDS,
+	URL
+} from "./variables";
 
 export default [
 	{ charset: "utf-8" },
@@ -54,7 +60,7 @@ export default [
 	},
 	{
 		name: "og:description",
-		content: DESCRIPTION
+		content: SHORT_DESCRIPTION
 	},
 	{
 		name: "fb:app_id",
