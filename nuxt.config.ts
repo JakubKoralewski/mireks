@@ -107,7 +107,10 @@ const config: NuxtConfiguration = {
 	*/
 
 	sentry: {
-		publishRelease: true
+		publishRelease: true,
+		config: {
+			release: "xd"
+		}
 	},
 
 	loadingIndicator: {
