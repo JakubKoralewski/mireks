@@ -7,8 +7,6 @@ import { TITLE, DESCRIPTION } from "./seo/variables";
 // tslint:disable:no-var-requires
 const pkg = require("./package.json");
 
-console.log("pkg: ", pkg);
-
 const config: NuxtConfiguration = {
 	mode: "universal",
 
