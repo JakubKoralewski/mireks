@@ -4,7 +4,10 @@ import structuredJSONData from "./seo/structuredJSONData";
 import metaTags from "./seo/metaTags";
 import { TITLE, DESCRIPTION } from "./seo/variables";
 
-// const SentryWebpackPlugin = require("@sentry/webpack-plugin");
+// tslint:disable:no-var-requires
+const pkg = require("./package.json");
+
+console.log("pkg: ", pkg);
 
 const config: NuxtConfiguration = {
 	mode: "universal",
@@ -109,7 +112,7 @@ const config: NuxtConfiguration = {
 	sentry: {
 		publishRelease: true,
 		config: {
-			release: "xd"
+			release: pkg.version
 		}
 	},
 
