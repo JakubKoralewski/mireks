@@ -6,6 +6,7 @@ import { TITLE, DESCRIPTION } from "./seo/variables";
 
 // tslint:disable:no-var-requires
 const pkg = require("./package.json");
+const dev = process.env.NODE_ENV !== "production";
 
 const config: NuxtConfiguration = {
 	mode: "universal",
@@ -82,7 +83,7 @@ const config: NuxtConfiguration = {
 	*/
 	css: ["@fortawesome/fontawesome-svg-core/styles.css"],
 
-	dev: process.env.NODE_ENV !== "production",
+	dev,
 
 	/*
 	** Plugins to load before mounting the App
@@ -90,7 +91,6 @@ const config: NuxtConfiguration = {
 	plugins: [
 		"@/plugins/fontawesome.ts",
 		{ src: "@/plugins/scrollmagic-plugin.ts", ssr: false }
-		// { src: "@/plugins/vue-scrollmagic.ts", ssr: false }
 	],
 
 	/*
@@ -106,9 +106,9 @@ const config: NuxtConfiguration = {
 	/*
 	** Sentry
 	*/
-
 	sentry: {
 		publishRelease: true,
+		disabled: dev,
 		config: {
 			release: pkg.version
 		}
