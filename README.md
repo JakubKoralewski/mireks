@@ -1,4 +1,4 @@
-# mireks [![Netlify Status](https://api.netlify.com/api/v1/badges/dbbbbb4c-77e3-48e9-97c9-6bdf65e0c437/deploy-status)](https://app.netlify.com/sites/thirsty-benz-35b9e1/deploys)
+# mireks [![Netlify Status](https://api.netlify.com/api/v1/badges/dbbbbb4c-77e3-48e9-97c9-6bdf65e0c437/deploy-status)](https://app.netlify.com/sites/thirsty-benz-35b9e1/deploys) [![CircleCI](https://circleci.com/gh/JakubKoralewski/mireks/tree/master.svg?style=svg)](https://circleci.com/gh/JakubKoralewski/mireks/tree/master)
 
 > Strona biura rachunkowego FHU MIREKS
 
