@@ -1,6 +1,7 @@
 language: node_js
-node:
+node_js:
   - 11.9.0
-  - latest
+  - node
+  - lts/*
 cache:
   - npm
