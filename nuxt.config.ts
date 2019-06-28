@@ -4,6 +4,10 @@ import structuredJSONData from "./seo/structuredJSONData";
 import metaTags from "./seo/metaTags";
 import { TITLE, DESCRIPTION } from "./seo/variables";
 
+// tslint:disable:no-var-requires
+const pkg = require("./package.json");
+const dev = process.env.NODE_ENV !== "production";
+
 const config: NuxtConfiguration = {
 	mode: "universal",
 
@@ -79,7 +83,7 @@ const config: NuxtConfiguration = {
 	*/
 	css: ["@fortawesome/fontawesome-svg-core/styles.css"],
 
-	dev: process.env.NODE_ENV !== "production",
+	dev,
 
 	/*
 	** Plugins to load before mounting the App
@@ -87,20 +91,37 @@ const config: NuxtConfiguration = {
 	plugins: [
 		"@/plugins/fontawesome.ts",
 		{ src: "@/plugins/scrollmagic-plugin.ts", ssr: false }
-		// { src: "@/plugins/vue-scrollmagic.ts", ssr: false }
 	],
 
 	/*
 	** Nuxt.js modules
 	*/
-	modules: ["@nuxtjs/style-resources", "@nuxtjs/pwa", "@nuxtjs/sitemap"],
+	modules: [
+		"@nuxtjs/style-resources",
+		"@nuxtjs/pwa",
+		"@nuxtjs/sentry",
+		"@nuxtjs/sitemap"
+	],
+
+	/*
+	** Sentry
+	*/
+	sentry: {
+		publishRelease: true,
+		disabled: dev,
+		config: {
+			release: pkg.version
+		}
+	},
 
 	loadingIndicator: {
 		color: "#0a1020",
 		color2: "#0ec7ff"
 	},
 
-	// PWA
+	/*
+	** PWA
+	*/
 	manifest: {
 		lang: "pl",
 		name: "Jesteśmy z Tobą wszędzie!",
@@ -108,7 +129,9 @@ const config: NuxtConfiguration = {
 		description: DESCRIPTION
 	},
 
-	// Sitemap
+	/*
+	** Sitemap
+	*/
 	sitemap: {
 		hostname: "https://www.fhumireks.pl",
 		gzip: true,
@@ -138,9 +161,9 @@ const config: NuxtConfiguration = {
 		extend(config, { isClient, isDev }) {
 			if (isClient && isDev) {
 				config.devtool = "#cheap-module-eval-source-map";
+			} else if (isClient && !isDev) {
+				config.devtool = "#source-map"; // Sentry
 			}
-
-			// config.mode = "production";
 
 			/* Vue inline svg loader */
 			const vueRule = (config as any).module.rules.find(rule =>

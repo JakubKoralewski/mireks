@@ -43,8 +43,8 @@
 		}
 		callButtonClickScroll() {
 			console.log("callButtonClickScroll");
-			const contact = this.$refs.contact as Contact; 
-			( contact.$el as HTMLElement ).scrollIntoView();
+			const contact = this.$refs.contact as Contact;
+			(contact.$el as HTMLElement).scrollIntoView();
 			contact.showPhoneNumber();
 		}
 	}
@@ -62,7 +62,6 @@
 	body {
 		// scroll-snap-type: proximity;
 		// scroll-snap-points-y: repeat(100vh);
-		// scroll-snap-type: y proximity;
 		overflow-x: hidden;
 		overflow-y: scroll;
 		// scroll-padding-top: $global-padding-vertical;
