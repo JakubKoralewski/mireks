@@ -28,35 +28,35 @@
 			>
 				<label for="name">
 					Twoje imię:
+				</label>
 					<input
 					 type="text"
 					 name="name"
 					 v-model="form.name"
 					>
-				</label>
 				<label for="e-mail">
 					Twój e-mail:
+				</label>
 					<input
 					 type="text"
 					 name="e-mail"
 					 v-model="form.email"
 					>
-				</label>
 				<label for="body">
 					Twoja wiadomość:
+				</label>
 					<textarea
 					 name="body"
 					 v-model="form.body"
 					></textarea>
-				</label>
 				<label for="nie-wpisuj-tego">
 					Nie wpisuj tego:
+				</label>
 					<input
 					 type="text"
 					 name="nie-wpisuj-tego"
 					 v-model="form.honeypot"
 					>
-				</label>
 				<div data-netlify-recaptcha="true"></div>
 				<button>Wyślij</button>
 			</form>
