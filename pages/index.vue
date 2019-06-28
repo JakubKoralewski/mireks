@@ -47,11 +47,6 @@
 			(contact.$el as HTMLElement).scrollIntoView();
 			contact.showPhoneNumber();
 		}
-		
-		mounted() {
-			const xd = this.$refs.xd;
-			( xd as any ).xd.xd.xd = "XD";
-		}
 	}
 </script>
 
