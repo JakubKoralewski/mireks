@@ -3,6 +3,7 @@ section#footer {
 		@return "rgb(" + red($color) + ", " + green($color) + ", " +
 			blue($color) + ")";
 	}
+	background-color: $orange;
 	background: linear-gradient(
 		to bottom,
 		unquote(toRGB($orange)) 0%,
