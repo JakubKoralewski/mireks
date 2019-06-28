@@ -49,7 +49,8 @@
 		}
 		
 		mounted() {
-			this.$refs.xd;
+			const xd = this.$refs.xd;
+			( xd as any ).xd.xd.xd = "XD";
 		}
 	}
 </script>
