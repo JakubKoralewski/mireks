@@ -87,9 +87,36 @@ export default class ServicesSearch extends IsTouchScreen {
 				this.searchText = event.target.value;
 				this.wasSomethingFound = false;
 				this.amountVisible = 0;
+
+				this.checkSearchTimeOut(this.searchText);
 			}
 		}
 		console.log("Input event:", event);
+	}
+
+	/** If after some time the typing is stopped, then send the searchText to Analytics.  */
+	checkSearchTimeOut(oldSearchText: string) {
+		sleep(1000).then(() => {
+			if (oldSearchText === this.searchText) {
+				// Search text has not changed during this second
+
+				if (this.displayNothingFoundDialog) {
+					this.$ga.event(
+						"Services Search",
+						"search-found",
+						oldSearchText,
+						1
+					);
+				} else {
+					this.$ga.event(
+						"Services Search",
+						"search-not-found",
+						oldSearchText,
+						0
+					);
+				}
+			}
+		});
 	}
 
 	/** Event  */

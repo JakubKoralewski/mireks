@@ -45,6 +45,29 @@ export default class LandingPage extends IsTouchScreen {
 		this.animateButtons();
 	}
 
+	findOutMoreClick() {
+		this.$emit("findOutMoreClick");
+		this.$ga.event("Landing Page", "click", "find-out-more", 2);
+	}
+	callButtonClickScroll() {
+		if (!this.isTouchScreen) {
+			this.$emit("callButtonClickScroll");
+			this.$ga.event(
+				"Landing Page",
+				"click",
+				"call-button-scroll",
+				5
+			);
+		} else {
+			this.$ga.event(
+				"Landing Page",
+				"click",
+				"call-button-mobile",
+				5
+			);
+		}
+	}
+
 	animateSVG() {
 		console.log("animateSVG()");
 		this.tl.addLabel("bigM", "0");
