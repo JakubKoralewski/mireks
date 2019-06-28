@@ -201,8 +201,7 @@ const config: NuxtConfiguration = {
 					drop_debugger: true
 				}
 			}
-		} // ,
-		// analyze: true
+		}
 	}
 };
 export default config;

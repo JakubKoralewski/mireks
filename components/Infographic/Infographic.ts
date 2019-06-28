@@ -3,9 +3,7 @@ import { TimelineLite, Linear, Power3, Power4, TweenMax } from "gsap";
 import { textWrap } from "d3plus-text";
 import paths from "./paths";
 import { items, IItem, TARGET_PATH } from "./items";
-// import { faTintSlash } from "@fortawesome/free-solid-svg-icons";
 import isElementInViewport from "@/components/isElementInViewport";
-// import { ScrollMagic } from "scrollmagic";
 
 /* tslint:disable max-classes-per-file*/
 

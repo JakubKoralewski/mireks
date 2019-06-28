@@ -1,9 +1,8 @@
 import { Component, Vue } from "nuxt-property-decorator";
-import { TweenMax, Elastic, Power4 } from "gsap";
+import { TweenMax, Power4 } from "gsap";
 import { AssertionError } from "assert";
 import isElementInViewport from "@/components/isElementInViewport";
 import sleep from "@/components/sleep";
-// import { ScrollMagic } from "scrollmagic";
 
 interface ChangingNumber {
 	number: number | string;
