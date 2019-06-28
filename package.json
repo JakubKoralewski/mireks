@@ -56,7 +56,6 @@
 	"devDependencies": {
 		"@nuxt/typescript": "^2.8.1",
 		"@nuxtjs/sentry": "^3.0.0",
-		"@sentry/webpack-plugin": "^1.6.2",
 		"@types/dom-inputevent": "^1.0.5",
 		"@types/gsap": "^1.20.2",
 		"ava": "^2.1.0",
