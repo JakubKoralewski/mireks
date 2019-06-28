@@ -12,6 +12,8 @@ export default class ContactElement extends IsTouchScreen {
 	@Prop()
 	index!: number;
 
+	infoElement!: HTMLElement;
+
 	copyText = DEFAULT_COPY_TEXT;
 	copyInProgress = false;
 
@@ -20,6 +22,8 @@ export default class ContactElement extends IsTouchScreen {
 		if (this.contact.id !== "phone") {
 			this.isTouchScreenHref = "href";
 		}
+
+		this.infoElement = this.$refs.info as HTMLElement;
 	}
 
 	clicked() {
@@ -60,47 +64,51 @@ export default class ContactElement extends IsTouchScreen {
 
 	copyClicked(event: MouseEvent) {
 		event.stopPropagation();
-		navigator.clipboard.writeText(this.contact.info).then(
-			async () => {
-				console.log("Async: Copying to clipboard was successful!");
-				if (this.copyInProgress) {
-					console.log("Copy animation still happening sorry!");
-					return;
-				} else {
-					console.log("Copy animation under way!");
+		navigator.clipboard
+			.writeText(
+				this.infoElement.textContent || this.infoElement.innerText
+			)
+			.then(
+				async () => {
+					console.log("Async: Copying to clipboard was successful!");
+					if (this.copyInProgress) {
+						console.log("Copy animation still happening sorry!");
+						return;
+					} else {
+						console.log("Copy animation under way!");
+					}
+					this.copyInProgress = true;
+					// this.copyText = "Skopiowano";
+					for (let i = 0; i < 2; i++) {
+						const end = this.copyText.length;
+						this.copyText = this.copyText.slice(0, end - 1);
+						await sleep(100 / i + 1);
+					}
+					for (const letter of "owano".split("")) {
+						await sleep(100);
+						this.copyText = this.copyText + letter;
+					}
+					await sleep(2000);
+					this.copyTextReset();
+					this.copyInProgress = false;
+					this.contact.hover = false;
+					this.$ga.event(
+						"Contact",
+						"contact-copied-succesfully",
+						this.contact.id,
+						0
+					);
+				},
+				err => {
+					this.copyText = "Nie udało się skopiować";
+					console.error("Async: Could not copy text: ", err);
+					this.$ga.event(
+						"Contact",
+						"contact-copied-fail",
+						this.contact.id,
+						0
+					);
 				}
-				this.copyInProgress = true;
-				// this.copyText = "Skopiowano";
-				for (let i = 0; i < 2; i++) {
-					const end = this.copyText.length;
-					this.copyText = this.copyText.slice(0, end - 1);
-					await sleep(100 / i + 1);
-				}
-				for (const letter of "owano".split("")) {
-					await sleep(100);
-					this.copyText = this.copyText + letter;
-				}
-				await sleep(2000);
-				this.copyTextReset();
-				this.copyInProgress = false;
-				this.contact.hover = false;
-				this.$ga.event(
-					"Contact",
-					"contact-copied-succesfully",
-					this.contact.id,
-					0
-				);
-			},
-			err => {
-				this.copyText = "Nie udało się skopiować";
-				console.error("Async: Could not copy text: ", err);
-				this.$ga.event(
-					"Contact",
-					"contact-copied-fail",
-					this.contact.id,
-					0
-				);
-			}
-		);
+			);
 	}
 }

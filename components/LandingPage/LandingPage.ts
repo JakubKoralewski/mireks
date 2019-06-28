@@ -52,19 +52,9 @@ export default class LandingPage extends IsTouchScreen {
 	callButtonClickScroll() {
 		if (!this.isTouchScreen) {
 			this.$emit("callButtonClickScroll");
-			this.$ga.event(
-				"Landing Page",
-				"click",
-				"call-button-scroll",
-				5
-			);
+			this.$ga.event("Landing Page", "click", "call-button-scroll", 5);
 		} else {
-			this.$ga.event(
-				"Landing Page",
-				"click",
-				"call-button-mobile",
-				5
-			);
+			this.$ga.event("Landing Page", "click", "call-button-mobile", 5);
 		}
 	}
 

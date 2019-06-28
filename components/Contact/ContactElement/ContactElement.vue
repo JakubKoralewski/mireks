@@ -22,6 +22,7 @@
 			<div
 			 v-if="!contact.link"
 			 class="info"
+			 ref="info"
 			 v-html="contact.info"
 			/>
 			<a
@@ -29,6 +30,7 @@
 			 class="info"
 			 :[isTouchScreenHref]="contact.link"
 			 target="_blank"
+			 ref="info"
 			 v-html="contact.info"
 			/>
 		</div>
