@@ -47,6 +47,10 @@
 			(contact.$el as HTMLElement).scrollIntoView();
 			contact.showPhoneNumber();
 		}
+
+		mounted() {
+			this.$ga.require("GTM-NTCF867");
+		}
 	}
 </script>
 

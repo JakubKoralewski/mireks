@@ -48,7 +48,7 @@
 				<div
 				 class="button"
 				 id="dowiedz-sie-wiecej"
-				 @click="() => this.$emit('findOutMoreClick')"
+				 @click="findOutMoreClick"
 				 ref="findOutMoreButton"
 				>
 					Dowiedz się więcej
@@ -58,7 +58,7 @@
 				 class="button"
 				 id="zadzwon"
 				 ref="callButton"
-				 @[!isTouchScreen?`click`:``]="() => this.$emit('callButtonClickScroll')"
+				 @click="callButtonClickScroll"
 				 :[isTouchScreen?`href`:``]="'tel:+48 62 763 74 10'"
 				>
 					<font-awesome-icon icon="phone" />

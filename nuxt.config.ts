@@ -26,21 +26,6 @@ const config: NuxtConfiguration = {
 				innerHTML: JSON.stringify(structuredJSONData)
 			},
 			{
-				src:
-					"https://www.googletagmanager.com/gtag/js?id=UA-142751142-1",
-				async: true,
-				type: "application/javascript"
-			},
-			{
-				innerHTML: `
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'UA-142751142-1');`,
-				type: "application/javascript"
-			},
-			{
 				innerHTML: `console.log('%c Created and designed by Jakub Koralewski!', 'font-weight: bold; font-size: 32px; color: red; text-shadow: 3px 3px 0 rgb(217,31,38) , 6px 6px 0 rgb(226,91,14) , 9px 9px 0 rgb(245,221,8) , 12px 12px 0 rgb(5,148,68) , 15px 15px 0 rgb(2,135,206) , 18px 18px 0 rgb(4,77,145) , 21px 21px 0 rgb(42,21,113)');`,
 				type: "application/javascript"
 			}
@@ -100,6 +85,19 @@ const config: NuxtConfiguration = {
 		"@nuxtjs/style-resources",
 		"@nuxtjs/pwa",
 		"@nuxtjs/sentry",
+		[
+			"@nuxtjs/google-analytics",
+			{
+				id: "UA-142751142-1",
+				dev: true,
+				autoTracking: {
+					screenview: true
+				},
+				debug: {
+					enabled: dev
+				}
+			}
+		],
 		"@nuxtjs/sitemap"
 	],
 
@@ -113,6 +111,11 @@ const config: NuxtConfiguration = {
 			release: pkg.version
 		}
 	},
+
+	/*
+	** Google Analytics
+	*/
+	// googleAnalytics: {},
 
 	loadingIndicator: {
 		color: "#0a1020",

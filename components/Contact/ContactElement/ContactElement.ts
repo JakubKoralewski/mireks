@@ -29,6 +29,8 @@ export default class ContactElement extends IsTouchScreen {
 			state: this.contact.selected,
 			index: this.index
 		});
+
+		this.$ga.event("Contact", "contact-clicked", this.contact.id, 0.5);
 	}
 
 	closeButtonClicked(event: MouseEvent) {
@@ -40,14 +42,13 @@ export default class ContactElement extends IsTouchScreen {
 	async copyTextReset() {
 		if (this.copyText === "Skopiowano") {
 			let removeIndex = this.copyText.length;
-			for (const letter of "owano".split("")) {
+			for (const _ of "owano".split("")) {
 				await sleep(100);
 				this.copyText = this.copyText.slice(0, removeIndex - 1);
 				removeIndex--;
 			}
 			let i = 0;
 			for (const letter of "uj".split("")) {
-				const end = this.copyText.length;
 				this.copyText = this.copyText + letter;
 				await sleep(100 / i + 1);
 				i++;
@@ -83,10 +84,22 @@ export default class ContactElement extends IsTouchScreen {
 				this.copyTextReset();
 				this.copyInProgress = false;
 				this.contact.hover = false;
+				this.$ga.event(
+					"Contact",
+					"contact-copied-succesfully",
+					this.contact.id,
+					0
+				);
 			},
 			err => {
 				this.copyText = "Nie udało się skopiować";
 				console.error("Async: Could not copy text: ", err);
+				this.$ga.event(
+					"Contact",
+					"contact-copied-fail",
+					this.contact.id,
+					0
+				);
 			}
 		);
 	}

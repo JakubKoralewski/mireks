@@ -55,6 +55,7 @@
 	},
 	"devDependencies": {
 		"@nuxt/typescript": "^2.8.1",
+		"@nuxtjs/google-analytics": "^2.2.0",
 		"@nuxtjs/sentry": "^3.0.0",
 		"@types/dom-inputevent": "^1.0.5",
 		"@types/gsap": "^1.20.2",
