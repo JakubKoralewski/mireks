@@ -94,7 +94,8 @@ const config: NuxtConfiguration = {
 					screenview: true
 				},
 				debug: {
-					enabled: dev
+					enabled: true,
+					trace: true
 				}
 			}
 		],
