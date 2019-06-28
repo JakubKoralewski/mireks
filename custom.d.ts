@@ -6,7 +6,9 @@ declare module "*.scss" {
 import Vue from "vue";
 declare module "vue/types/vue" {
 	interface Vue {
-		$sentry: any;
+		$sentry: {
+			captureException(err: Error): void
+		}
 	}
 }
 
