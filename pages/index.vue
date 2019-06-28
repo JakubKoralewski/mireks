@@ -47,10 +47,6 @@
 			(contact.$el as HTMLElement).scrollIntoView();
 			contact.showPhoneNumber();
 		}
-
-		created() {
-			this.$sentry.captureException(new Error("example"));
-		}
 	}
 </script>
 
@@ -66,7 +62,6 @@
 	body {
 		// scroll-snap-type: proximity;
 		// scroll-snap-points-y: repeat(100vh);
-		// scroll-snap-type: y proximity;
 		overflow-x: hidden;
 		overflow-y: scroll;
 		// scroll-padding-top: $global-padding-vertical;
