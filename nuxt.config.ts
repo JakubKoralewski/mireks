@@ -152,7 +152,7 @@ const config: NuxtConfiguration = {
 	** https://github.com/nuxt-community/style-resources-module/
 	*/
 	styleResources: {
-		scss: ["@/assets/scss/*.scss"]
+		scss: ["./assets/scss/_variables.scss"]
 	},
 
 	/*
@@ -163,7 +163,7 @@ const config: NuxtConfiguration = {
 		** You can extend webpack config here
 		*/
 		extend(config, { isClient, isDev }) {
-			if (isClient && isDev) {
+			if (isClient && (isDev || process.env.NODE_ENV === "TEST")) {
 				config.devtool = "#cheap-module-eval-source-map";
 			} else if (isClient && !isDev) {
 				config.devtool = "#source-map"; // Sentry

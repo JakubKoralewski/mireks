@@ -28,7 +28,7 @@
 		"member-ordering": false,
 		"member-access": false,
 		"no-shadowed-variable": false,
-		"quotemark": [true, "double"],
+		"quotemark": [true, "double", "avoid-escape"],
 		"indent": [true, "tabs", 4],
 		"curly": [true, "ignore-same-line"],
 		"arrow-parens": [true, "ban-single-arg-parens"],

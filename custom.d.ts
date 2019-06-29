@@ -30,16 +30,6 @@ declare class VueAnalytics {
 	enable: any;
 }
 
-// declare module "vue-analytics" {
-
-// }
-
-// declare module "vue/types/options" {
-// 	interface ComponentOptions<V extends _Vue> {
-// 		ga?: VueAnalytics;
-// 	}
-// }
-
 declare module "vue/types/vue" {
 	interface Vue {
 		$ga: VueAnalytics;

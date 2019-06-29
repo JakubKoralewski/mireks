@@ -64,11 +64,8 @@
 	}
 
 	body {
-		// scroll-snap-type: proximity;
-		// scroll-snap-points-y: repeat(100vh);
 		overflow-x: hidden;
 		overflow-y: scroll;
-		// scroll-padding-top: $global-padding-vertical;
 	}
 </style>
 
@@ -80,8 +77,6 @@
 
 		&::v-deep section {
 			scroll-snap-align: start;
-			// scroll-snap-align: start;
-			// scroll-snap-stop: normal;
 		}
 	}
 

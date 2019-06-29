@@ -4,6 +4,9 @@ import re
 from os import path
 from shutil import copyfile
 from pprint import pprint
+from scss import Compiler
+
+compiler = Compiler()
 
 parser = argparse.ArgumentParser(description="Auto export all variables")
 parser.add_argument("file", type=str, nargs=1,
@@ -34,7 +37,7 @@ cache = {}
 
 for match in all_matches:
     var = match[0]
-    val: str = match[1]
+    val = match[1]
     if val.startswith('"') and val.endswith('"'):
         cache[var] = val[1:-2]
     else:
@@ -43,20 +46,37 @@ for match in all_matches:
     def replfunc(matchobj):
         try:
             # skip the $ character
-            return cache[matchobj.group(2)[1:]]
+            inner: str = matchobj.group(1)
+            if inner.startswith("$"):
+                return cache[inner[1:]]
+            else:
+                return inner
+
         except IndexError as e:
             print(f"Index error , because: `{e}`")
             pprint(matchobj)
 
+    match_template = re.search(r'\$([^}]+)$', val, re.MULTILINE)
     match = re.search(r'#{([^}]+)}', val)
-    while match:
-        # print(f"val from: `{val}`")
-        val = re.sub(r'(#{(\$[^}]+)})', replfunc, val)
-        # print(f"to: `{val}`")
+    while match or match_template:
+        print(f"val from: `{val}`")
+        val = re.sub(r'(\$[.\-^a-z]+)', replfunc, val, re.MULTILINE)
+        val = re.sub(r'#{([^}]+)}', replfunc, val)
+        print(f"val to: `{val}`")
         match = re.search(r'#{([^}]+)}', val)
+        match_template = re.search(r'\$([^}]+)', val, re.MULTILINE)
     
-
     val = val.replace('\n', '').replace('\t', '')
+
+    try:
+        compiled_val: str = compiler.compile_string(f"color: {val}")
+        compiled_val = re.search(r':(.*);', compiled_val).group(1)
+        print(f"compiled_val: {compiled_val}")
+        val = compiled_val
+    except Exception as e:
+        print("error")
+        print(e)
+
     new_var = ""
     was_dash = False
     for char in var:
@@ -82,8 +102,8 @@ export_fragment += "}"
 ts_cont += "};"
 
 # Save new .scss with export of all variables inside
-with open(file, "w", encoding="UTF-8") as f:
-    f.write(delete_old_export + export_fragment)
+# with open(file, "w", encoding="UTF-8") as f:
+#     f.write(delete_old_export + export_fragment)
 
 
 # TypeScript declarations
