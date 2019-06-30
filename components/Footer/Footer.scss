@@ -3,14 +3,16 @@ section#footer {
 		@return "rgb(" + red($color) + ", " + green($color) + ", " +
 			blue($color) + ")";
 	}
-	background-color: $orange;
+	background-color: $vibrant-blue;
+	$bottom-color: mix($bg-color, $vibrant-blue, $weight: 20%); 
+	$bottom-color-gradient: unquote(toRGB($bottom-color)); 
 	background: linear-gradient(
 		to bottom,
-		unquote(toRGB($orange)) 0%,
-		unquote(toRGB(mix($bg-color, $orange, $weight: 20%))) 99%
+		unquote(toRGB($vibrant-blue)) 0%,
+		$bottom-color 99%
 	);
 	$color: #dedede;
-	color: mix($bg-color, $orange, $weight: 70%);
+	color: mix($bg-color, $vibrant-blue, $weight: 70%);
 
 	width: 100vw;
 	position: absolute;
@@ -152,12 +154,15 @@ section#footer {
 		border-radius: 0.5rem;
 		padding: 0.25rem 1rem;
 		@media not screen and (pointer: fine) {
-			background-color: lighten($orange, 2%);
-			border: 1px solid $color;
+			background-color: lighten($bottom-color, 3%);
+			transition: background-color 0.15s ease-in;
+			&:active {
+				background-color: lighten($bottom-color, 9%);
+			}
 		}
-
+		
 		&:hover {
-			background-color: lighten($orange, 3%);
+			background-color: lighten($bottom-color, 5%);
 		}
 
 		@media #{$mq-phone} {
