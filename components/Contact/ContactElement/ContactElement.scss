@@ -7,7 +7,7 @@
 
 	svg.icon {
 		opacity: 0.6 !important;
-		color: $orange !important;
+		color: $vibrant-blue !important;
 	}
 }
 .contact {
@@ -62,7 +62,7 @@
 		}
 	}
 	svg.fa-times {
-		color: darken($orange, 10%) !important;
+		color: darken($vibrant-blue, 20%) !important;
 		$size: 0.7rem;
 		font-size: $size;
 		height: $size;
@@ -103,10 +103,10 @@
 		}
 		a.info {
 			text-decoration: none;
-			color: darken($orange, 20%);
+			color: $vibrant-blue;
 			transition: color 0.5s ease-in;
 			&:hover {
-				color: $orange;
+				color: darken($vibrant-blue, 10%);
 			}
 		}
 	}
@@ -132,13 +132,13 @@
 				@media (hover: hover) {
 					// Disable hover on touch screens,
 					// because it gets applied sometimes for no reason there.
-					color: $orange;
+					color: darken($muted-blue,10%);
 				}
 			}
 			&.copy-in-progress {
 				@media screen and (pointer: coarse) {
 					// Only on touch screens
-					color: $orange;
+					color: darken($muted-blue,10%);
 				}
 			}
 		}
@@ -226,7 +226,7 @@
 		svg.icon {
 			opacity: 0.6;
 			transition: color 0.25s ease-in-out;
-			color: $orange;
+			color: $vibrant-blue;
 		}
 		&:not(.last) {
 			animation: selected;
