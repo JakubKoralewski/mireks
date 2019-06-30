@@ -14,6 +14,9 @@ sw.*
 # PWA
 sw.*
 
+# ignore backups
+*.bak
+
 # Runtime data
 pids
 *.pid
