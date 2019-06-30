@@ -7,6 +7,7 @@ import { TITLE, DESCRIPTION } from "./seo/variables";
 // tslint:disable:no-var-requires
 const pkg = require("./package.json");
 const dev = process.env.NODE_ENV !== "production";
+const test = process.env.NODE_ENV === "TEST";
 
 const config: NuxtConfiguration = {
 	mode: "universal",
@@ -89,7 +90,7 @@ const config: NuxtConfiguration = {
 			"@nuxtjs/google-analytics",
 			{
 				id: "UA-142751142-1",
-				dev: true,
+				dev: false,
 				autoTracking: {
 					screenview: true
 				},
@@ -107,7 +108,7 @@ const config: NuxtConfiguration = {
 	*/
 	sentry: {
 		publishRelease: true,
-		disabled: dev,
+		disabled: dev || test,
 		config: {
 			release: pkg.version
 		}

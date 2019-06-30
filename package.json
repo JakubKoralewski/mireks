@@ -10,7 +10,7 @@
 		"start": "nuxt start",
 		"exportscssvars": "python assets/scss/export_vars.py assets/scss/_variables.scss",
 		"generate": "nuxt generate && rimraf dist/**/*.js.map",
-		"test": "cross-env NODE_ENV=TEST NODE_PATH=src ava"
+		"test": "cross-env NODE_ENV=TEST ava"
 	},
 	"babel": {
 		"presets": [
