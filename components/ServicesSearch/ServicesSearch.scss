@@ -150,13 +150,13 @@ $blue-border: transparentize($vibrant-blue, 0.8);
 		$padding: 2rem;
 		$width: calc(100% - #{$left} - #{$padding} * 2);
 		$height: calc(100% - #{$top} * 1.5 - #{$padding} * 2);
-		$scrollbar-width: 11px;
+		$scrollbar-width: 16px;
 		div#gradient-overlay {
 			position: absolute;
 			left: $left;
 			top: $top;
 			border-radius: $border-radius;
-			width: calc(#{$width} - #{$scrollbar-width});
+			width: calc(#{$width} - #{$scrollbar-width} - 3px);
 			height: $height;
 			padding: $padding;
 			padding-right: 0;
@@ -184,7 +184,7 @@ $blue-border: transparentize($vibrant-blue, 0.8);
 			padding: $padding;
 			padding-right: 0;
 			// background-color: $bg-color;
-			// background-color: 
+			// background-color:
 			// padding-top: 0;
 			color: #121726;
 			@media not screen and (pointer: fine) {
