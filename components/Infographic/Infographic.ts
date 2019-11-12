@@ -23,9 +23,7 @@ function alignPathInRelation(path: BezierPath, elem: SVGGraphicsElement) {
 
 const allCommentTexts = [
 	["Dostarczasz nam swoje dokumenty...", "A my zajmujemy się resztą."],
-	["I znowu dostarczasz dokumenty...", "A my znowu robimy, to co trzeba."],
-	["I znowu...", "Każdego miesiąca."],
-	["I znowu...", "I znowu..."]
+	["Dostarczasz nam swoje dokumenty...", "A my zajmujemy się resztą :)"]
 ];
 
 /** This function will take care of wrapping text
