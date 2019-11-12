@@ -1,5 +1,5 @@
 export default interface Service {
-	id: number;
+	id?: number;
 	title: string;
 	visible: boolean;
 	description: string;

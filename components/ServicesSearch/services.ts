@@ -2,7 +2,6 @@ import IService from "./IService";
 
 const services: IService[] = [
 	{
-		id: 0,
 		title: "Analiza finansowa",
 		description:
 			"Sporządzenie zbioru informacji o wynikach i sytuacji finansowej przedsiębiorstwa.",
@@ -19,7 +18,6 @@ const services: IService[] = [
 		visible: true
 	},
 	{
-		id: 1,
 		title: "Kontrola księgowa",
 		description:
 			"Sprawdzenie poprawności dokumentów pod względem formalnym, merytorycznym i rachunkowym.",
@@ -27,14 +25,12 @@ const services: IService[] = [
 		visible: true
 	},
 	{
-		id: 2,
 		title: "Księgi rachunkowe",
 		description: "Pełna forma prowadzenia ewidencji przychodów i kosztów.",
 		keywords: ["pełna księgowość", "księgi handlowe"],
 		visible: true
 	},
 	{
-		id: 3,
 		title: "Porady finansowe i księgowe",
 		description:
 			"Doświadczenie poparte wieloletnią obsługą księgową firm \
@@ -44,7 +40,6 @@ const services: IService[] = [
 		visible: true
 	},
 	{
-		id: 4,
 		title: "PIT",
 		description: "Rozliczenie podatku dochodowego od osób fizycznych.",
 		keywords: [
@@ -60,14 +55,12 @@ const services: IService[] = [
 		visible: true
 	},
 	{
-		id: 5,
 		title: "CIT",
 		description: "Rozliczenie podatku dochodowego od osób prawnych.",
 		keywords: ["US", "Urząd Skarbowy", "CIT-8"],
 		visible: true
 	},
 	{
-		id: 6,
 		title: "VAT",
 		description: "Rozliczenie podatku od towarów i usług.",
 		keywords: [
@@ -81,14 +74,12 @@ const services: IService[] = [
 		visible: true
 	},
 	{
-		id: 7,
 		title: "Ewidencja VAT",
 		description: "Prowadzenie pełnej ewidencji dla potrzeb podatku VAT.",
 		keywords: ["US", "Urząd Skarbowy"],
 		visible: true
 	},
 	{
-		id: 8,
 		title: "Pomoc w rozliczaniu podatku od nieruchomości",
 		shortTitle: "Podatek od nieruchomości",
 		description: "Mieszkanie, działka, dom, garaż - jaki to podatek?",
@@ -96,7 +87,6 @@ const services: IService[] = [
 		visible: true
 	},
 	{
-		id: 9,
 		title: "Pomoc w rozliczaniu podatku od spadków i darowizn",
 		shortTitle: "Podatek od spadków i darowizn",
 		description:
@@ -105,7 +95,6 @@ const services: IService[] = [
 		visible: true
 	},
 	{
-		id: 10,
 		title: "Pomoc w rozliczaniu podatku akcyzowego",
 		shortTitle: "Akcyza",
 		description:
@@ -114,14 +103,6 @@ const services: IService[] = [
 		visible: true
 	},
 	{
-		id: 11,
-		title: "Pomoc w zakładaniu działalności gospodarczej",
-		description: "Pomagamy zacząć własny biznes.",
-		keywords: ["spółka"],
-		visible: true
-	},
-	{
-		id: 12,
 		title: "Składanie JPK",
 		description: "Składanie Jednolitego Pliku Kontrolnego.",
 		keywords: [
@@ -137,7 +118,6 @@ const services: IService[] = [
 		visible: true
 	},
 	{
-		id: 13,
 		title: "Pomoc w rozliczaniu cła",
 		shortTitle: "Cło",
 		description:
@@ -154,7 +134,6 @@ const services: IService[] = [
 		visible: true
 	},
 	{
-		id: 14,
 		title: "Sporządzanie sprawozdań finansowych",
 		shortTitle: "Sprawozdania finansowe",
 		description:
@@ -163,7 +142,6 @@ const services: IService[] = [
 		visible: true
 	},
 	{
-		id: 15,
 		title: "Rozliczenia międzypodmiotowe",
 		shortTitle: "Rozliczanie produkcji",
 		description:
@@ -172,7 +150,6 @@ const services: IService[] = [
 		visible: true
 	},
 	{
-		id: 16,
 		title: "Podatkowa Księga Przychodu i Rozchodu",
 		shortTitle: "PKPiR",
 		description:
@@ -181,7 +158,6 @@ const services: IService[] = [
 		visible: true
 	},
 	{
-		id: 17,
 		title: "Rozliczenia czasu pracy kierowców",
 		shortTitle: "Kierowcy",
 		description:
@@ -190,7 +166,6 @@ const services: IService[] = [
 		visible: true
 	},
 	{
-		id: 18,
 		title: "Ryczałt ewidencjonowany",
 		description:
 			"Uproszczona forma opodatkowania działalności gospodarczej.",
@@ -198,7 +173,6 @@ const services: IService[] = [
 		visible: true
 	},
 	{
-		id: 19,
 		title: "Deklaracje",
 		description:
 			"Roczne deklaracje podatkowe, miesięczne deklaracje podatkowe.",
@@ -206,14 +180,12 @@ const services: IService[] = [
 		visible: true
 	},
 	{
-		id: 20,
 		title: "Kadry i płace",
 		description:
 			"Administracja, dokumentacja pracownicza, rozliczanie i tworzenie umów, listy płac itp.",
 		visible: true
 	},
 	{
-		id: 21,
 		title: "Ewidencje",
 		description:
 			"Ewidencja środków trwałych, ewidencje pracownicze, wartości prawnych i niematerialnych.",
@@ -221,5 +193,10 @@ const services: IService[] = [
 		visible: true
 	}
 ];
+let id = 0;
+for (const service of services) {
+	service.id = id;
+	id++;
+}
 
 export default services;
