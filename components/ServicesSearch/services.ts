@@ -1,6 +1,6 @@
-import IService from "./IService";
+import { IService, IServiceTemp } from "./IService";
 
-const services: IService[] = [
+const services: IServiceTemp[] = [
 	{
 		title: "Analiza finansowa",
 		description:
@@ -199,4 +199,4 @@ for (const service of services) {
 	id++;
 }
 
-export default services;
+export default services as IService[];

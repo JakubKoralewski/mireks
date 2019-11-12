@@ -1,4 +1,8 @@
-export default interface Service {
+export interface IService extends IServiceTemp {
+	id: number;
+}
+
+export interface IServiceTemp {
 	id?: number;
 	title: string;
 	visible: boolean;

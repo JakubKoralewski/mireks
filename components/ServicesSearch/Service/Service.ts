@@ -1,5 +1,6 @@
 import { Component, Vue, Prop, Watch } from "nuxt-property-decorator";
-import IService from "../IService";
+import { IService } from "../IService";
+
 @Component
 export default class Service extends Vue {
 	lowerService!: IService;
@@ -36,6 +37,7 @@ export default class Service extends Vue {
 		}
 		this.lowerService = lowerService;
 	}
+
 	@Watch("searchText")
 	isVisible() {
 		const searchedKeywords = this.searchText.toLowerCase().split(" ");
