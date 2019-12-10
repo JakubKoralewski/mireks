@@ -26,7 +26,7 @@ const config: NuxtConfiguration = {
 				innerHTML: JSON.stringify(structuredJSONData)
 			},
 			{
-				type: "application/json",
+				type: "application/javascript",
 				innerHTML: `
 					if (window.NodeList && !NodeList.prototype.forEach) {
 						NodeList.prototype.forEach = function (callback, thisArg) {
