@@ -253,11 +253,11 @@ export default class WhyUs extends Vue {
 		}).setTween(
 			TweenMax.fromTo(
 				this.whyUsElement.querySelector(
-					"#mireks-bg-img"
+					"div#picture"
 				) as HTMLDivElement,
 				1,
 				{
-					y: "-70%"
+					y: "-40%"
 				},
 				{
 					y: "00%"

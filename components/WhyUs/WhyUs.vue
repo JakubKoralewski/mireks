@@ -109,16 +109,20 @@
 				 class="mireks-bg-shape"
 				 preserveAspectRatio="none"
 				/>
-				<picture id="mireks-bg-img">
-					<source
-					 srcset="/mireks_bg.webp"
-					 type="image/webp"
-					>
-					<img
-					 src="/mireks_bg.jpg"
-					 alt="Siedziba firmy Mireks"
-					>
-				</picture>
+				<div id="picture">
+
+					<picture id="mireks-bg-img">
+						<source
+						 srcset="/mireks_bg.webp"
+						 type="image/webp"
+						>
+						<img
+						 src="/mireks_bg.jpg"
+						 alt="Siedziba firmy Mireks"
+						>
+					</picture>
+
+				</div>
 				<!-- <div
 				 id="mireks-bg-img"
 				 ref="bgImg"
