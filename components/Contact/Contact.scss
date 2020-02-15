@@ -17,6 +17,7 @@ section#contact {
 		&.big-viewport {
 			width: $contact-whole-width;
 			height: $contact-height;
+			//left: calc(-1 * #{$contact-space-const});
 			position: relative;
 		}
 		margin-bottom: 3rem;
@@ -28,14 +29,15 @@ section#contact {
 			display: flex;
 			flex-direction: column;
 		}
-		&.active-hover {
+		&:not(.active-selected).active-hover {
 			&::v-deep .contact {
+				transition: transform 1s ease-out;
 				&:not(.hover):not(.small-viewport) {
-					transition: transform 1s ease-out;
+					will-change: transform;
 					transform: translateX(
 						calc(
-							#{$contact-space} / 50 * ((var(--hoverIndex) + 1) /
-										(var(--index) + 1))
+							#{$contact-space-const} / 10 * ((var(--hoverIndex))) /
+										(var(--index) + 1)
 						)
 					);
 				}

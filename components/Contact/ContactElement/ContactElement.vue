@@ -9,8 +9,8 @@
 	}, 'contact']"
 	 :id="contact.id"
 	 :index="index"
-	 @[!smallViewport?`mouseenter`:`touchstart`]="contact.hover = true"
-	 @[!smallViewport?`mouseleave`:`touchend`]="contact.hover = false"
+	 @[!smallViewport?`mouseover`:`touchstart`]="contact.hover = true"
+	 @[!smallViewport?`mouseout`:`touchend`]="contact.hover = false"
 	 @[!smallViewport?`click`:``]="clicked"
 	>
 		<font-awesome-icon
@@ -28,7 +28,7 @@
 			<a
 			 v-else
 			 class="info"
-			 :[isTouchScreenHref]="contact.link"
+			 :href="contact.link"
 			 target="_blank"
 			 ref="info"
 			 v-html="contact.info"
@@ -39,7 +39,7 @@
 		 @[!smallViewport?`click`:`touchstart`]="copyClicked"
 		>
 			<font-awesome-icon
-			 :icon="[ 'far', 'copy' ]"
+			 :icon="['far', 'copy']"
 			 :class="{'copy-in-progress': copyInProgress}"
 			 :title="copyText"
 			 @mouseleave="copyTextReset"

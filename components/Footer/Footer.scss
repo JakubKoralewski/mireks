@@ -28,6 +28,11 @@ section#footer {
 	//Font
 	font-weight: 400;
 
+	a {
+		text-decoration: none;
+		color: inherit;
+	}
+
 	#footer-container {
 		$mq-break: "screen and (max-width: 850px)";
 		display: flex;
@@ -115,8 +120,19 @@ section#footer {
 			@media #{$mq-phone} {
 				flex-direction: column;
 			}
+			div {
+				span {
+					display: flex;
+					flex-direction: row;
+					align-items: center;
+					svg {
+						font-size: 0.5rem;
+						margin-right: 0.2rem;
+					}
+				}
+			}
 		}
-		div#e-mail {
+		div#e-mail, div#fb {
 			br {
 				display: none;
 			}

@@ -12,9 +12,14 @@ import {
 	faBusinessTime,
 	faMapMarkedAlt,
 	faTimes,
-	faExternalLinkAlt
+	faExternalLinkAlt,
+	faLink,
 } from "@fortawesome/free-solid-svg-icons";
 import { faCopy } from "@fortawesome/free-regular-svg-icons";
+import {
+	faFacebookMessenger,
+	faFacebook
+} from "@fortawesome/free-brands-svg-icons";
 
 // This is important, we are going to let Nuxt.js worry about the CSS
 config.autoAddCss = false;
@@ -29,11 +34,14 @@ library.add(
 	faThLarge,
 	faUser,
 	faAt,
+	faLink,
 	faBusinessTime,
 	faMapMarkedAlt,
 	faTimes,
 	faCopy,
-	faExternalLinkAlt
+	faExternalLinkAlt,
+	faFacebookMessenger,
+	faFacebook
 );
 
 // Register the component globally

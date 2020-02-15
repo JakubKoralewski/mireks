@@ -1,8 +1,21 @@
+$duration-selected-reverse-last: 1.5s;
+$duration-selected-reverse: 2.5s;
+$duration-selected: 2s;
+$duration-selected-last: 2s;
+
+:export {
+	//https://til.hashrocket.com/posts/sxbrscjuqu-share-scss-variables-with-javascript
+	durationSelectedReverseLast: $duration-selected-reverse-last;
+	durationSelectedReverse: $duration-selected-reverse;
+	durationSelectedLast: $duration-selected-last;
+	durationSelected: $duration-selected;
+}
+//$hover-transform: translateX(calc(#{$contact-space-const} * -1/10));
 .hover {
-	cursor: pointer;
-	&.big-viewport {
-		transition: transform 0.5s ease-out;
-		transform: translateX(calc(#{$contact-space} * -1 / 50));
+	//&.big-viewport, &.big-viewport.reverse.contact {
+	&.big-viewport:not(.reverse) {
+		transition: all 0.5s ease-out;
+		transform: translateX(calc(#{$contact-space-const} * -1/10));
 	}
 
 	svg.icon {
@@ -23,23 +36,21 @@
 	align-items: center;
 	height: $contact-height;
 
-	transition: transform 1.5s ease-out;
-	display: flex;
-	flex-direction: row;
+	transition: all 1.5s ease-out;
 	justify-content: space-between;
-	align-items: center;
 	flex-basis: 80%;
+	animation: none;
 
-	&#phone {
-		.info-container {
-			.info {
-				@media screen and (pointer: fine) {
-					cursor: default;
-					color: inherit;
-				}
-			}
-		}
-	}
+	//&#phone {
+	//	.info-container {
+	//		.info {
+	//			@media screen and (pointer: fine) {
+	//				cursor: default;
+	//				color: inherit;
+	//			}
+	//		}
+	//	}
+	//}
 
 	br {
 		display: none;
@@ -143,10 +154,10 @@
 			}
 		}
 		span#copy-text {
-			display: none;
+			margin-top: 1vh;
 			font-size: 0.5rem;
 			font-weight: 400;
-			opacity: 0.8;
+			opacity: 0.4;
 		}
 		@media screen and (pointer: coarse) {
 			// Only on touch screens
@@ -170,13 +181,13 @@
 		}
 		100% {
 			z-index: 10;
-			transform: $contact-middle;
+			transform: translateX($contact-middle);
 		}
 	}
 	@keyframes selected-reverse {
 		0% {
 			z-index: 10;
-			transform: $contact-middle;
+			transform: translateX($contact-middle);
 		}
 		30% {
 			transform: translateX($contact-move);
@@ -193,6 +204,7 @@
 	}
 	@keyframes selected-last {
 		0% {
+			transform: translateX(0);
 			z-index: inherit;
 		}
 		50% {
@@ -219,10 +231,33 @@
 		}
 		100% {
 			z-index: inherit;
-			// transform: translateX(0);
+			transform: translateX(0);
 		}
 	}
+	@keyframes selected-last-reverse-hover {
+		0% {
+			z-index: 10;
+			transform: translateX($contact-middle);
+		}
+		50% {
+			z-index: 10;
+		}
+		51% {
+			z-index: inherit;
+		}
+		100% {
+			z-index: inherit;
+			transform: translateX(calc(#{$contact-space-const} * -1/10));
+		}
+	}
+	&:not(.selected) {
+		cursor: pointer;
+	}
+	&.last {
+		transition: all 1s ease-out;
+	}
 	&.selected {
+		will-change: transform;
 		svg.icon {
 			opacity: 0.6;
 			transition: color 0.25s ease-in-out;
@@ -230,24 +265,30 @@
 		}
 		&:not(.last) {
 			animation: selected;
-			animation-duration: 2s;
+			animation-duration: $duration-selected;
 			animation-fill-mode: forwards;
 		}
 		&.last {
 			animation: selected-last;
-			animation-duration: 2s;
+			animation-duration: $duration-selected-last;
 			animation-fill-mode: forwards;
 		}
 	}
 	&.reverse {
+		will-change: transform;
 		&:not(.last) {
 			animation: selected-reverse;
-			animation-duration: 2.5s;
+			animation-duration: $duration-selected-reverse;
 			animation-fill-mode: forwards;
 		}
-		&.last {
+		&.last:not(.hover) {
 			animation: selected-last-reverse;
-			animation-duration: 1.5s;
+			animation-duration: $duration-selected-reverse-last;
+			animation-fill-mode: forwards;
+		}
+		&.last.hover {
+			animation: selected-last-reverse-hover;
+			animation-duration: $duration-selected-reverse-last;
 			animation-fill-mode: forwards;
 		}
 	}

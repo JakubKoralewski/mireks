@@ -45,14 +45,18 @@
 			 id="buttons"
 			 :class="{ 'disappear-at-start': disappearAtStart }"
 			>
-				<div
+				<a
 				 class="button"
-				 id="dowiedz-sie-wiecej"
-				 @click="findOutMoreClick"
-				 ref="findOutMoreButton"
+				 id="napisz-do-nas"
+				 @click="fbMessageClick"
+				 ref="fbMessageButton"
+				 href="https://m.me/biurokoralewski"
+				 target="_blank"
 				>
-					Dowiedz się więcej
-				</div>
+					<font-awesome-icon :icon="['fab', 'facebook-messenger']" />
+					Napisz<br> do nas
+					<font-awesome-icon icon="external-link-alt" />
+				</a>
 
 				<a
 				 class="button"
@@ -61,7 +65,7 @@
 				 @click="callButtonClickScroll"
 				 :[isTouchScreen?`href`:``]="'tel:+48 62 763 74 10'"
 				>
-					<font-awesome-icon icon="phone" />
+					<font-awesome-icon icon="phone"  />
 					Zadzwoń
 				</a>
 			</div>

@@ -27,10 +27,13 @@
 		},
 		"types": [
 			"@types/node",
-			"@nuxt/vue-app",
+			"@nuxt/types",
 			"@types/dom-inputevent"
 		]
 	},
+	"include": [
+		"custom.d.ts"
+	],
 	"exclude": [
 		"node_modules"
 	]

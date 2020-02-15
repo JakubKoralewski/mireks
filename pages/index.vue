@@ -1,7 +1,6 @@
 <template>
 	<main class="global-padding">
 		<LandingPage
-		 @findOutMoreClick="findOutMoreClick"
 		 @callButtonClickScroll="callButtonClickScroll"
 		/>
 		<WhyUs />
@@ -35,16 +34,10 @@
 		}
 	})
 	export default class Index extends IsTouchScreen {
-		findOutMoreClick() {
-			console.log("findOutMoreClick()");
-			document
-				.querySelector("#dlaczego-my")!
-				.scrollIntoView({ behavior: "smooth" });
-		}
 		callButtonClickScroll() {
 			console.log("callButtonClickScroll");
 			const contact = this.$refs.contact as Contact;
-			(contact.$el as HTMLElement).scrollIntoView();
+			(contact.$el as HTMLElement).scrollIntoView({behavior: "smooth"});
 			contact.showPhoneNumber();
 		}
 
