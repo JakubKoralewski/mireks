@@ -85,18 +85,16 @@
 
 					$big-number-size: 4rem;
 					$description-size: 1rem;
+					$description-margin-bottom: 0.25rem;
 					position: relative;
 					overflow: hidden;
-					// flex-basis: 40%;
 					display: flex;
 					justify-content: center;
 					align-items: center;
 					flex-direction: column;
-					$number-height: $big-number-size + $description-size;
+					$number-height: $big-number-size + $description-size + $description-margin-bottom;
 
 					@media screen and (max-width: $mq-break) {
-						// min-height: 20vh;
-						// width: 100%;
 						grid-column: 1;
 						grid-row: 2 / span 1;
 					}
@@ -110,7 +108,6 @@
 							flex-direction: row;
 							position: absolute;
 							width: 100%;
-							// height: 100%;
 							align-items: center;
 							height: $number-height;
 
@@ -124,6 +121,7 @@
 
 								#number-description {
 									height: $description-size;
+									margin-bottom: $description-margin-bottom;
 								}
 
 								#number {
@@ -137,8 +135,6 @@
 						}
 					}
 					#controls {
-						// width: 100%;
-						// height: 2rem;
 						overflow: hidden;
 						position: relative;
 						.circle {
@@ -162,8 +158,6 @@
 							flex-direction: row;
 							justify-content: center;
 							cursor: pointer;
-							// width: 100%;
-							// height: 100%;
 						}
 					}
 				}
@@ -188,20 +182,13 @@
 			position: absolute;
 			z-index: -5;
 			opacity: 0.5;
-			//display: flex;
-			//justify-content: center;
-			//align-content: center;
 			picture#mireks-bg-img {
 				width: 100%;
-				//position: relative;
 
 				& > * {
 					width: 100%;
 					height: 100%;
 					object-fit: cover;
-					//margin-left: auto;
-					//position: absolute;
-					//left: -25%;
 				}
 			}
 		}

@@ -7,7 +7,6 @@ import sleep from "@/components/sleep";
 interface ChangingNumber {
 	number: number | string;
 	description: string;
-	shouldBeUpdatedEveryYear?: boolean;
 }
 /** Founding date of FHU MIREKS  */
 const FOUNDING_DATE = new Date(1994, 9, 1);
@@ -43,6 +42,7 @@ export default class WhyUs extends Vue {
 	isCountdownStarted = false;
 
 	STARTING_LEFT_TRANSFORM = "translateX(-100%)";
+	yearsSinceFounding = diffYears(new Date(), FOUNDING_DATE);
 
 	numbers: ChangingNumber[] = [
 		{
@@ -51,31 +51,12 @@ export default class WhyUs extends Vue {
 		},
 		{
 			description: "tyle lat jesteśmy z Wami",
-			number: 25,
-			shouldBeUpdatedEveryYear: true
+			number: this.yearsSinceFounding
 		}
 	];
 
 	STARTING_RIGHT_TRANSFORM = `translateX(calc(${100 *
 		this.numbers.length}% + ${0.25 * (this.numbers.length - 1)}rem)`;
-
-	created() {
-		// Calculate current year from founding date
-		const numberObjectNeedingToUpdate = this.numbers.find(number => {
-			if (number.shouldBeUpdatedEveryYear) {
-				return true;
-			}
-			return false;
-		});
-		if (!numberObjectNeedingToUpdate) {
-			throw new AssertionError({
-				message: "no number object needing to update"
-			});
-		} else {
-			const now = new Date();
-			numberObjectNeedingToUpdate.number = diffYears(now, FOUNDING_DATE);
-		}
-	}
 
 	onScrollCheckIfNumbersInViewport() {
 		if (
