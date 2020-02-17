@@ -99,36 +99,11 @@ export default class Contact extends Vue {
 				(cssVariables as ICSSVariables).durationSelectedReverse * 1000;
 		}
 		console.log("Sleeping for ", sleepTime);
-		// await Promise.all([sleep(sleepTime), this.check_hover(sleepTime - 100)]);
 		await sleep(sleepTime);
 		this.contacts[index].reverse = false;
 		this.reverseIndex = -1;
 		this.selected = -1;
 		console.groupEnd();
-	}
-	// While reverse animation is in progress hover stuff
-	// will not get recognised
-	async checkHover(sleepTime: number) {
-		console.assert((sleepTime / 100) % 100 === 0);
-		const contacts = (this.$refs.contacts as HTMLElement).querySelector(
-			".contact"
-		);
-		const checkOver = (ev) => {
-			let mouseX; let mouseY;
-			if (ev) {
-				mouseX = ev.clientX;
-				mouseY = ev.clientY;
-			}
-			if (mouseX == null || mouseY == null) return;
-
-			const rect = this.getBoundingClientRect();
-			const isInside = mouseX >= rect.left && mouseX < rect.right && mouseY >= rect.top && mouseY < rect.bottom;
-			return isInside;
-		};
-		while (sleepTime !== 0) {
-			await sleep(100);
-			// https://stackoverflow.com/questions/40323988/mouseover-and-mouseout-not-firing-with-animating-element
-		}
 	}
 
 	contactClicked(options: { state: boolean; index: number }) {
@@ -136,9 +111,16 @@ export default class Contact extends Vue {
 		if (this.selected !== -1 && this.selected !== options.index) {
 			/* Other is currently selected */
 			console.log("Other is currently selected ");
-			this.contacts[this.selected].reverse = true;
-			this.reverseIndex = this.selected;
-			this.contacts[this.selected].selected = false;
+			// TODO: if other is currently selected but not ready...
+			if (this.contacts[options.index].ready) {
+				// Animation to center has finished
+				this.contacts[this.selected].reverse = true;
+				this.reverseIndex = this.selected;
+				this.contacts[this.selected].selected = false;
+			} else {
+				// Animation to center of the other selected
+				// has not finished
+			}
 		}
 		if (options.state) {
 			/* Clicked is true */

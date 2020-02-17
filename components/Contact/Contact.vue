@@ -16,7 +16,7 @@
 			 v-for="( contact, index ) in contacts"
 			 :class="{
 				'last': index + 1 === contacts.length,
-			 	'reverse': contact.reverse
+			 	'reverse': contact.reverse,
 			 }"
 			 :index="index"
 			 :key="contact.id"

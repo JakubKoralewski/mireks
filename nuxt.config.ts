@@ -103,7 +103,7 @@ const config: Configuration = {
 			"@nuxtjs/google-analytics",
 			{
 				id: "UA-142751142-1",
-				dev: true,
+				dev,
 				autoTracking: {
 					screenview: true
 				},

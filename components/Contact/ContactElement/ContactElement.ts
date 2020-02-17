@@ -30,6 +30,7 @@ export default class ContactElement extends IsTouchScreen {
 		this.infoElement = this.$refs.info as HTMLElement;
 	}
 
+	// Only may possible fire on !smallViewport
 	clicked() {
 		console.log("Contact clicked");
 		this.contact.selected = true;

@@ -29,11 +29,11 @@ section#contact {
 			display: flex;
 			flex-direction: column;
 		}
+
+
 		&:not(.active-selected).active-hover {
-			&::v-deep .contact {
-				transition: transform 1s ease-out;
+			&::v-deep .contact-container {
 				&:not(.hover):not(.small-viewport) {
-					will-change: transform;
 					transform: translateX(
 						calc(
 							#{$contact-space-const} / 10 * ((var(--hoverIndex))) /
@@ -44,7 +44,7 @@ section#contact {
 			}
 		}
 		&.active-selected {
-			&::v-deep .contact {
+			&::v-deep .contact-container {
 				&:not(.selected):not(.reverse) {
 					transition: transform 1s ease-out;
 				}
