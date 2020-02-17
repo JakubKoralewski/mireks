@@ -12,7 +12,7 @@
 					 id="description"
 					 ref="whyUsDescription"
 					>
-						Jesteśmy nowoczesną firmą z tradycją sięgająca 25 lat świadczenia usług rachunkowych
+						Jesteśmy nowoczesną firmą z tradycją sięgającą {{this.yearsSinceFounding}} lat świadczenia usług rachunkowych
 						oraz doradczych. Dążąc do wyznaczania nowych standardów obsługi klienta dbamy o komfort
 						i jakość świadczonych przez nas usług. Szeroka gama ofert naszego biura
 						specjalizuje się w świadczeniu usług rachunkowych w:<br /> małych i średnich przedsiębiorstwach,
@@ -109,16 +109,20 @@
 				 class="mireks-bg-shape"
 				 preserveAspectRatio="none"
 				/>
-				<picture id="mireks-bg-img">
-					<source
-					 srcset="/mireks_bg.webp"
-					 type="image/webp"
-					>
-					<img
-					 src="/mireks_bg.jpg"
-					 alt="Siedziba firmy Mireks"
-					>
-				</picture>
+				<div id="picture">
+
+					<picture id="mireks-bg-img">
+						<source
+						 srcset="/mireks_bg.webp"
+						 type="image/webp"
+						>
+						<img
+						 src="/mireks_bg.jpg"
+						 alt="Siedziba firmy Mireks"
+						>
+					</picture>
+
+				</div>
 				<!-- <div
 				 id="mireks-bg-img"
 				 ref="bgImg"

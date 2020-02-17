@@ -5,24 +5,25 @@
 		 id="contact-container"
 		 :style="`--length: ${contacts.length}; ${anyHover ? `--hoverIndex: ${hoverIndex}` : ''}`"
 		 :class="{
-			'active-hover': anyHover,
+			'active-hover': anyHover && hoverIndex !== (contacts.length - 1),
 			'active-selected': anySelected,
 			'small-viewport': smallViewport,
 			'big-viewport': !smallViewport
 		 }"
+         ref="contacts"
 		>
 			<ContactElement
 			 v-for="( contact, index ) in contacts"
 			 :class="{
 				'last': index + 1 === contacts.length,
-			 	'reverse': reverseIndex === index,
+			 	'reverse': contact.reverse,
 			 }"
 			 :index="index"
-			 ref="contacts"
 			 :key="contact.id"
 			 :contact="contact"
 			 :style="`--index: ${index};`"
 			 :smallViewport="smallViewport"
+			 :title="(!contact.selected && index !== (contacts.length - 1)) ? contact.subtitle : ``"
 			 @clicked="contactClicked"
 			 @closed="contactClosed"
 			/>

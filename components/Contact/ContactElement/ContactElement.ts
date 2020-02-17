@@ -2,7 +2,10 @@ import { Component, Vue, Prop } from "nuxt-property-decorator";
 import IsTouchScreen from "@/components/mixins/IsTouchScreen";
 import IContact from "../IContact";
 import sleep from "~/components/sleep";
+
+
 const DEFAULT_COPY_TEXT = "Skopiuj";
+
 @Component
 export default class ContactElement extends IsTouchScreen {
 	@Prop()
@@ -12,20 +15,22 @@ export default class ContactElement extends IsTouchScreen {
 	@Prop()
 	index!: number;
 
+	// shouldHaveHref: boolean;
+	shouldHaveHrefHref!: "href" | "";
+
 	infoElement!: HTMLElement;
 
 	copyText = DEFAULT_COPY_TEXT;
 	copyInProgress = false;
 
 	mounted() {
-		// Only overwrite for phone, leave email link intact
-		if (this.contact.id !== "phone") {
-			this.isTouchScreenHref = "href";
-		}
-
+		const shouldHaveHref =
+			(this.isTouchScreen && this.contact.id === "phone");
+		this.shouldHaveHrefHref = shouldHaveHref ? `href` : ``;
 		this.infoElement = this.$refs.info as HTMLElement;
 	}
 
+	// Only may possible fire on !smallViewport
 	clicked() {
 		console.log("Contact clicked");
 		this.contact.selected = true;
@@ -37,7 +42,7 @@ export default class ContactElement extends IsTouchScreen {
 		this.$ga.event("Contact", "contact-clicked", this.contact.id, 0.5);
 	}
 
-	closeButtonClicked(event: MouseEvent) {
+	async closeButtonClicked(event: MouseEvent) {
 		console.log("Close button clicked");
 		event.stopPropagation();
 		this.$emit("closed", this.index);

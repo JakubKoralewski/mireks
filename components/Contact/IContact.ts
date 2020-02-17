@@ -1,6 +1,6 @@
 export default interface IContact {
 	id: string;
-	icon: string;
+	icon: string | [string, string];
 	subtitle: string;
 	link?: string;
 	info: string;

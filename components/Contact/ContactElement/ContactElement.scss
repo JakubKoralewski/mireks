@@ -1,49 +1,41 @@
-.hover {
-	cursor: pointer;
-	&.big-viewport {
-		transition: transform 0.5s ease-out;
-		transform: translateX(calc(#{$contact-space} * -1 / 50));
-	}
+$duration-selected-reverse-last: 1.5s;
+$duration-selected-reverse: 2.5s;
+$duration-selected: 2s;
+$duration-selected-last: 2s;
 
-	svg.icon {
-		opacity: 0.6 !important;
-		color: $vibrant-blue !important;
-	}
+:export {
+	//https://til.hashrocket.com/posts/sxbrscjuqu-share-scss-variables-with-javascript
+	durationSelectedReverseLast: $duration-selected-reverse-last;
+	durationSelectedReverse: $duration-selected-reverse;
+	durationSelectedLast: $duration-selected-last;
+	durationSelected: $duration-selected;
 }
-.contact {
-	background-color: darken(white, 0.09);
-	box-shadow: -10px 10px 2rem -0.5rem transparentize(black, 0.8);
-	border-radius: 1rem;
-	box-sizing: border-box;
 
-	padding: 1rem $contact-horizontal-padding;
-	color: black;
-	display: flex;
-	flex-direction: row;
-	align-items: center;
-	height: $contact-height;
+//$hover-transform: translateX(calc(#{$contact-space-const} * -1/10));
 
-	transition: transform 1.5s ease-out;
-	display: flex;
-	flex-direction: row;
-	justify-content: space-between;
-	align-items: center;
-	flex-basis: 80%;
 
-	&#phone {
-		.info-container {
-			.info {
-				@media screen and (pointer: fine) {
-					cursor: default;
-					color: inherit;
-				}
+//}
+.contact-container {
+	transition: transform 1s ease-out;
+	will-change: transform;
+
+	&:hover:not(.selected) {
+		//&.big-viewport, &.big-viewport.reverse.contact {
+		svg.icon {
+			opacity: 0.6 !important;
+			color: $vibrant-blue !important;
+		}
+		&.big-viewport > .contact {
+			&:not(.reverse) {
+				transform: translateX(calc(#{$contact-space-const} * -1 / 10));
+			}
+
+			&.reverse {
+				transform: translateX(calc(#{$contact-space-const} * -1 / 10));
 			}
 		}
 	}
 
-	br {
-		display: none;
-	}
 	//@media
 	&.big-viewport {
 		left: $contact-space;
@@ -51,6 +43,7 @@
 		top: 0;
 		width: $contact-width;
 	}
+
 	//@media
 	&.small-viewport {
 		margin-bottom: 2rem;
@@ -61,100 +54,7 @@
 			display: block !important;
 		}
 	}
-	svg.fa-times {
-		color: darken($vibrant-blue, 20%) !important;
-		$size: 0.7rem;
-		font-size: $size;
-		height: $size;
-		cursor: pointer;
-		opacity: 1;
-		position: absolute;
-		top: 1rem;
-		right: 1rem;
-		transition: opacity 1s ease-in-out;
-		pointer-events: all;
-		z-index: 9;
-		&:not(.visible) {
-			opacity: 0;
-			pointer-events: none;
-		}
-	}
 
-	svg.icon {
-		color: black;
-		opacity: 0.4;
-		font-size: $contact-font-size;
-		height: 80%;
-		margin-right: $contact-horizontal-padding;
-		transition: opacity 1s ease-in-out, color 2s ease-in;
-	}
-	.info-container {
-		.subtitle {
-			font-weight: 400;
-			@media #{$mq-phone} {
-				font-size: 0.8rem;
-			}
-		}
-		.info {
-			font-weight: 500;
-			@media #{$mq-phone} {
-				font-size: 0.9rem;
-			}
-		}
-		a.info {
-			text-decoration: none;
-			color: $vibrant-blue;
-			transition: color 0.5s ease-in;
-			&:hover {
-				color: darken($vibrant-blue, 10%);
-			}
-		}
-	}
-	div.copy {
-		margin-left: auto;
-		margin-right: 5%;
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
-		svg.fa-copy {
-			font-size: 1.3rem;
-			opacity: 0.3;
-			cursor: pointer;
-
-			transition: transform 0.6s ease-in, color 0.7s ease-in;
-			&:active {
-				transition: transform 0.1s ease-out, color 0.5s ease-in;
-				// font-size: 1.7rem;
-				transform: scale(1.07);
-			}
-			&:hover {
-				@media (hover: hover) {
-					// Disable hover on touch screens,
-					// because it gets applied sometimes for no reason there.
-					color: darken($muted-blue,10%);
-				}
-			}
-			&.copy-in-progress {
-				@media screen and (pointer: coarse) {
-					// Only on touch screens
-					color: darken($muted-blue,10%);
-				}
-			}
-		}
-		span#copy-text {
-			display: none;
-			font-size: 0.5rem;
-			font-weight: 400;
-			opacity: 0.8;
-		}
-		@media screen and (pointer: coarse) {
-			// Only on touch screens
-			span#copy-text {
-				display: block;
-			}
-		}
-	}
 	@keyframes selected {
 		0% {
 			z-index: inherit;
@@ -170,13 +70,13 @@
 		}
 		100% {
 			z-index: 10;
-			transform: $contact-middle;
+			transform: translateX($contact-middle);
 		}
 	}
 	@keyframes selected-reverse {
 		0% {
 			z-index: 10;
-			transform: $contact-middle;
+			transform: translateX($contact-middle);
 		}
 		30% {
 			transform: translateX($contact-move);
@@ -193,6 +93,7 @@
 	}
 	@keyframes selected-last {
 		0% {
+			transform: translateX(0);
 			z-index: inherit;
 		}
 		50% {
@@ -219,36 +120,207 @@
 		}
 		100% {
 			z-index: inherit;
-			// transform: translateX(0);
+			transform: translateX(0);
 		}
 	}
-	&.selected {
-		svg.icon {
-			opacity: 0.6;
-			transition: color 0.25s ease-in-out;
-			color: $vibrant-blue;
+	@keyframes selected-last-reverse-hover {
+		0% {
+			z-index: 10;
+			transform: translateX($contact-middle);
 		}
+		50% {
+			z-index: 10;
+		}
+		51% {
+			z-index: inherit;
+		}
+		100% {
+			z-index: inherit;
+			transform: translateX(calc(#{$contact-space-const} * -1 / 10));
+		}
+	}
+
+	&:not(.selected) {
+		cursor: pointer;
+	}
+
+	&.last {
+		transition: all 1s ease-out;
+	}
+
+	&.selected {
+		will-change: transform;
+		.contact {
+			svg.icon {
+				opacity: 0.6;
+				transition: color 0.25s ease-in-out;
+				color: $vibrant-blue !important;
+			}
+		}
+
+
 		&:not(.last) {
 			animation: selected;
-			animation-duration: 2s;
+			animation-duration: $duration-selected;
 			animation-fill-mode: forwards;
 		}
+
 		&.last {
 			animation: selected-last;
-			animation-duration: 2s;
+			animation-duration: $duration-selected-last;
 			animation-fill-mode: forwards;
 		}
 	}
+
 	&.reverse {
+		will-change: transform;
+
 		&:not(.last) {
 			animation: selected-reverse;
-			animation-duration: 2.5s;
+			animation-duration: $duration-selected-reverse;
 			animation-fill-mode: forwards;
 		}
+
 		&.last {
 			animation: selected-last-reverse;
-			animation-duration: 1.5s;
+			animation-duration: $duration-selected-reverse-last;
 			animation-fill-mode: forwards;
+		}
+	}
+
+	.contact {
+		background-color: darken(white, 0.09);
+		box-shadow: -10px 10px 2rem -0.5rem transparentize(black, 0.8);
+		border-radius: 1rem;
+		box-sizing: border-box;
+		height: $contact-height;
+		will-change: transform;
+		transition: all 0.5s ease-out;
+		//box-sizing: border-box;
+		padding: 1rem $contact-horizontal-padding;
+		color: black;
+		display: flex;
+		flex-direction: row;
+		align-items: center;
+		//height: 100%;
+		width: 100%;
+		justify-content: space-between;
+		flex-basis: 80%;
+
+		//transition: all 1.5s ease-out;
+		animation: none;
+
+
+		br {
+			display: none;
+		}
+
+
+		svg.fa-times {
+			color: darken($vibrant-blue, 20%) !important;
+			$size: 0.7rem;
+			font-size: $size;
+			height: $size;
+			cursor: pointer;
+			opacity: 1;
+			position: absolute;
+			top: 1rem;
+			right: 1rem;
+			transition: opacity 1s ease-in-out;
+			pointer-events: all;
+			z-index: 9;
+
+			&:not(.visible) {
+				opacity: 0;
+				pointer-events: none;
+			}
+		}
+
+		svg.icon {
+			color: black;
+			opacity: 0.4;
+			font-size: $contact-font-size;
+			height: 80%;
+			margin-right: $contact-horizontal-padding;
+			transition: opacity 0.5s ease-in-out, color 0.7s ease-out;
+		}
+
+		.info-container {
+			.subtitle {
+				font-weight: 400;
+				@media #{$mq-phone} {
+					font-size: 0.8rem;
+				}
+			}
+
+			.info {
+				font-weight: 500;
+				@media #{$mq-phone} {
+					font-size: 0.9rem;
+				}
+			}
+
+			a.info {
+				text-decoration: none;
+				color: darken($vibrant-blue, 5%);
+				transition: color 0.5s ease-in;
+
+				&:hover {
+					color: lighten($vibrant-blue, 10%);
+				}
+			}
+		}
+
+		div.copy {
+			margin-left: auto;
+			margin-right: 5%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			align-items: center;
+
+			svg.fa-copy {
+				font-size: 1.3rem;
+				opacity: 0.3;
+				cursor: pointer;
+
+				transition: transform 0.6s ease-in, color 0.7s ease-in;
+
+				&:active {
+					transition: transform 0.1s ease-out, color 0.5s ease-in;
+					// font-size: 1.7rem;
+					transform: scale(1.07);
+				}
+
+				&:hover {
+					@media (hover: hover) {
+						// Disable hover on touch screens,
+						// because it gets applied sometimes for no reason there.
+						color: darken($muted-blue, 10%);
+					}
+				}
+
+				&.copy-in-progress {
+					@media screen and (pointer: coarse) {
+						// Only on touch screens
+						color: darken($muted-blue, 10%);
+					}
+				}
+			}
+
+			span#copy-text {
+				margin-top: 1vh;
+				font-size: 0.5rem;
+				font-weight: 400;
+				opacity: 0.4;
+			}
+
+			@media screen and (pointer: coarse) {
+				// Only on touch screens
+				span#copy-text {
+					display: block;
+				}
+			}
 		}
 	}
 }

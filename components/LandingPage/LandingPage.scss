@@ -42,53 +42,128 @@ svg.landing-page-bg {
 			//height: calc(2rem + 5vh);
 
 			.button {
+				position: relative;
 				cursor: pointer;
 				font-weight: 400;
 				padding: calc(0.8rem + 1vh) calc(0.8rem + 2vw);
 				border-radius: 2rem;
 				box-sizing: border-box;
 
-				&#dowiedz-sie-wiecej {
-					margin-right: calc(1rem + 1vw);
-					@media #{$mq-phone} {
-						margin-right: 0;
+				display: flex;
+				min-width: calc(5rem + 3vw);
+				justify-content: center;
+				align-items: center;
+				text-align: center;
+
+				svg {
+					margin-right: 1rem;
+					font-size: 1.5rem;
+				}
+
+				@media #{$mq-phone} {
+					padding: calc(0.8rem + 1vh) calc(1.8rem + 3vw);
+					svg {
+						font-size: 1rem !important;
 					}
+					margin-right: 0 !important;
+
+					margin-top: 1rem !important;
+					width: 90% !important;
+				}
+
+					@at-root #{selector-unify(&, a)} {
+					text-decoration: none;
+				}
+
+				&#napisz-do-nas {
+					margin-right: calc(1rem + 1vw);
 					border: 1.5px solid lighten($vibrant-blue, 5%);
 					color: lighten($vibrant-blue, 15%);
-					text-align: center;
-					display: flex;
-					justify-content: center;
-					align-items: center;
+					justify-content: space-between;
+					br {
+						display: none;
+					}
+
+					&:hover {
+
+					}
+
+					@media #{$mq-phone} {
+						br {
+							display: initial;
+						}
+						justify-content: space-around !important;
+					}
+					.fa-external-link-alt {
+						//position: absolute;
+						//right: 0.25rem;
+						margin-right: 0;
+						margin-left: 1rem;
+						font-size: 0.8rem;
+						opacity: 0.5;
+					}
 				}
 
 				&#zadzwon {
-					display: flex;
-					justify-content: center;
-					align-items: center;
 					background-color: $vibrant-blue;
-					min-width: calc(5rem + 3vw);
-					justify-content: space-between;
+					color: $bg-color;
 					margin-right: 2vw;
-					
-					text-decoration: none;
-					color: inherit;
-
-					svg {
-						margin-right: 1vw;
-					}
-
 					@media #{$mq-phone} {
-						padding-left: calc(5rem - 2vw);
-						padding-right: calc(5rem - 2vw);
-						width: inherit;
-						//margin-right: calc(1rem + 1vw);
-						justify-content: space-evenly;
-						margin-top: 1rem;
-						margin-right: 0;
+						justify-content: center !important;
 					}
+
 				}
-				@media #{$mq-phone} {
-					width: 90% !important;
+				&:hover {
+					@keyframes wiggle {
+						0% {
+							transform: rotate(20deg);
+						}
+						12.5% {
+							transform: rotate(-20deg);
+						}
+						25% {
+							transform: rotate(15deg);
+						}
+						37.5% {
+							transform: rotate(-15deg);
+						}
+						50% {
+							transform: rotate(10deg);
+						}
+						62.5% {
+							transform: rotate(-10deg);
+						}
+						75% {
+							transform: rotate(5deg);
+						}
+						87.5% {
+							transform: rotate(-5deg);
+						}
+						10% {
+							transform: rotate(0deg);
+						}
+					}
+
+					.fa-phone {
+						animation: wiggle 0.75s ease-out;
+					}
+
+					@keyframes turn {
+						0% {
+							transform: rotate(0deg);
+						}
+
+						80% {
+							transform: rotate(400deg);
+						}
+						100% {
+							transform: rotate(360deg);
+						}
+					}
+
+					.fa-facebook-messenger {
+						animation: turn 1s ease;
+					}
 				}
 			}
 		}
@@ -99,7 +174,6 @@ svg.landing-page-bg {
 				flex-direction: column;
 				margin-bottom: 2rem;
 			}
-			//flex-basis: 61%;
 
 			#text-inner-container {
 				flex-basis: 61%;
@@ -123,7 +197,6 @@ svg.landing-page-bg {
 				}
 
 				#description-container {
-					//height: 100%;
 
 					#description {
 						margin-top: 2rem;
@@ -140,12 +213,15 @@ svg.landing-page-bg {
 						}
 						display: flex;
 						flex-direction: column;
-						//height: 70%;
 						justify-content: center;
 
 						#main-description {
 							color: white;
 							font-weight: 300;
+						}
+
+						br {
+							margin-top: 1vh;
 						}
 					}
 				}

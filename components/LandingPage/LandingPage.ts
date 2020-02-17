@@ -18,15 +18,15 @@ export default class LandingPage extends IsTouchScreen {
 	logoSVG!: HTMLElement;
 	logoTextSVG!: HTMLElement;
 	logoElements: LogoElements = {} as LogoElements;
-	findOutMoreButtonTimeline = new TimelineLite();
-	findOutMoreButton!: HTMLDivElement;
+	fbMessageButtonTimeline = new TimelineLite();
+	fbMessageButton!: HTMLDivElement;
 	buttons!: HTMLElement;
 	tl = new TimelineLite();
 	disappearAtStart = true;
 	beGoneVileManBeGoneFromMe = false;
 	mounted() {
 		// Assigns types to $refs elements so less type asserting is necessary
-		this.findOutMoreButton = this.$refs.findOutMoreButton as HTMLDivElement;
+		this.fbMessageButton = this.$refs.fbMessageButton as HTMLDivElement;
 		this.logoTextSVG = this.$refs.logoText as HTMLElement;
 		this.logoSVG = this.$refs.logo as HTMLElement;
 		this.buttons = this.$refs.buttons as HTMLElement;
@@ -45,9 +45,9 @@ export default class LandingPage extends IsTouchScreen {
 		this.animateButtons();
 	}
 
-	findOutMoreClick() {
-		this.$emit("findOutMoreClick");
-		this.$ga.event("Landing Page", "click", "find-out-more", 2);
+	fbMessageClick() {
+		this.$emit("fbMessageClick");
+		this.$ga.event("Landing Page", "click", "napisz-do-nas", 2);
 	}
 	callButtonClickScroll() {
 		if (!this.isTouchScreen) {
@@ -128,7 +128,7 @@ export default class LandingPage extends IsTouchScreen {
 	animateButtons() {
 		console.log("this.animateButtons()");
 		this.tl.from(
-			this.$refs.findOutMoreButton,
+			this.$refs.fbMessageButton,
 			4,
 			{ y: 100, opacity: 0, ease: Power4.easeOut },
 			"letters+=0.5"

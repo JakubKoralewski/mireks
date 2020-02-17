@@ -48,6 +48,18 @@
 					<b>Email:</b>
 					mireks40<br />@poczta.onet.pl
 				</div>
+				<div id="fb">
+					<b>Facebook:</b>
+					<span>
+						<font-awesome-icon icon="link" />
+						<a href="https://fb.me/biurokoralewski">fb.me/biurokoralewski</a>
+					</span>
+					<b>Napisz do nas:</b>
+					<span>
+						<font-awesome-icon icon="link" />
+						<a href="https://m.me/biurokoralewski">m.me/biurokoralewski</a>
+					</span>
+				</div>
 			</div>
 		</div>
 		<a
@@ -61,6 +73,7 @@
 			</div>
 			<font-awesome-icon icon="external-link-alt" />
 		</a>
+		<font-awesome-icon icon="font-awesome" />
 	</section>
 </template>
 

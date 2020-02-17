@@ -1,4 +1,4 @@
-import NuxtConfiguration from "@nuxt/config";
+import { Configuration } from "@nuxt/types/config";
 
 import structuredJSONData from "./seo/structuredJSONData";
 import metaTags from "./seo/metaTags";
@@ -8,8 +8,9 @@ import { TITLE, DESCRIPTION } from "./seo/variables";
 const pkg = require("./package.json");
 const dev = process.env.NODE_ENV !== "production";
 
-const config: NuxtConfiguration = {
+const config: Configuration = {
 	mode: "universal",
+	buildModules: ["@nuxt/typescript-build"],
 
 	/*
 	** Headers of the page
@@ -102,7 +103,7 @@ const config: NuxtConfiguration = {
 			"@nuxtjs/google-analytics",
 			{
 				id: "UA-142751142-1",
-				dev: true,
+				dev,
 				autoTracking: {
 					screenview: true
 				},
@@ -200,6 +201,21 @@ const config: NuxtConfiguration = {
 			];
 			delete vueRule.loader;
 			delete vueRule.options;
+
+			// const scssRule = (config as any).module.rules.find(rule =>
+			// 	rule.test.test(".scss")
+			// );
+			// (scssRule.use as any[]).concat([
+			// 	{
+			// 		loader: "style-loader" // creates style nodes from JS strings
+			// 	},
+			// 	{
+			// 		loader: "css-loader" // translates CSS into CommonJS
+			// 	},
+			// 	{
+			// 		loader: "sass-loader" // compiles Sass to CSS
+			// 	}
+			// ]);
 		},
 		postcss: {
 			plugins: {},

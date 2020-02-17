@@ -11,6 +11,16 @@ const contacts: IContact[] = [
 		reverse: false
 	},
 	{
+		id: "fb",
+		icon: ["fab", "facebook"],
+		subtitle: "Facebook",
+		info: "@biurokoralewski",
+		link: "https://fb.me/biurokoralewski",
+		hover: false,
+		selected: false,
+		reverse: false
+	},
+	{
 		id: "phone",
 		icon: "phone",
 		subtitle: "Numer telefonu",

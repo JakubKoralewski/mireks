@@ -24,10 +24,10 @@ $contact-width: calc(20rem + 5vw);
 $contact-horizontal-padding: 2vw;
 $contact-right-margin: calc(0.5rem + 1vw);
 $contact-font-size: 1.5rem;
-$contact-space-const: calc(
+$contact-space-const:calc(
 	(#{$contact-horizontal-padding} * 2 + #{$contact-font-size})
 );
-$contact-space: calc((#{$contact-space-const}) * var(--index));
+$contact-space: calc((#{$contact-space-const}) * calc((var(--index))));
 $contact-whole-width: calc(
 	#{$contact-width} + #{$contact-space-const} * (var(--length) - 1)
 );

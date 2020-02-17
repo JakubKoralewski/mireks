@@ -7,8 +7,9 @@ import Vue from "vue";
 declare module "vue/types/vue" {
 	interface Vue {
 		$sentry: {
-			captureException(err: Error): void
-		}
+			captureException(err: Error): void;
+		};
+		$ga: any;
 	}
 }
 
@@ -40,8 +41,8 @@ declare class VueAnalytics {
 // 	}
 // }
 
-declare module "vue/types/vue" {
-	interface Vue {
-		$ga: VueAnalytics;
-	}
-}
+// declare module "vue/types/vue" {
+// 	interface Vue {
+// 		$ga: VueAnalytics;
+// 	}
+// }
