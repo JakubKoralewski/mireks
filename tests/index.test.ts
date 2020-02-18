@@ -62,16 +62,6 @@ type ITestInterface = TestInterface<IContext>;
 	t.assert(null !== main, "main does not exist in DOM");
 });
 
-(test as ITestInterface)("HTML tests are not cheating on me", t => {
-	const window = t.context.window;
-
-	const main: HTMLElement = window.document.querySelector(
-		"main"
-	) as HTMLElement;
-
-	t.assert(null == main, "main does not exist in DOM");
-});
-
 (test as ITestInterface)("CSS classes applied", t => {
 	const window = t.context.window;
 
