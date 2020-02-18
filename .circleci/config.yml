@@ -1,12 +1,12 @@
 version: 2
 
 jobs:
-  node:
+  node13:
     docker:
-      - image: circleci/node:11.9.0
+      - image: circleci/node:13.3.0
     steps:
       - checkout
-      - run: sudo npm install -g npm@6.5.0
+      - run: sudo npm install -g npm@6.13.7
       - restore_cache: 
           key: dependency-cache-{{ checksum "package-lock.json" }}
       - run: npm install
@@ -33,7 +33,7 @@ jobs:
 workflows:
   Mireks tests:
     jobs:
-      - node
+      - node13
       - node_latest
   version: 2
       
