@@ -1,13 +1,22 @@
-// @ts-ignore
-import test from "ava";
-// @ts-ignore
+import test, { TestInterface } from "ava";
 import { Nuxt, Builder } from "nuxt";
-// @ts-ignore
 import { Configuration } from "@nuxt/types";
 import { resolve } from "path";
 
-// Init Nuxt.js and start listening on localhost:4000
-test.serial.before("Init Nuxt.js", async t => {
+interface IBeforeContext {
+	nuxt?: Nuxt;
+	window?: Window;
+}
+
+interface IContext {
+	nuxt: Nuxt;
+	window: Window;
+}
+
+type IBeforeTestInterface = TestInterface<IBeforeContext>;
+type ITestInterface = TestInterface<IContext>;
+
+(test as IBeforeTestInterface).serial.before("Init Nuxt.js", async t => {
 	const rootDir = resolve(__dirname, "..");
 	let config: Configuration = {};
 	try {
@@ -15,11 +24,9 @@ test.serial.before("Init Nuxt.js", async t => {
 	} catch (e) {
 		console.log("Config error: ", e);
 	}
-	// console.log("Nuxt config:\n", config);
 	config.rootDir = rootDir; // project folder
 	config.dev = false; // production build
 	config.mode = "universal"; // Isomorphic application
-	// config._typescript = { build: true };
 	const nuxt = new Nuxt(config);
 	t.context.nuxt = nuxt;
 	console.log("Awaiting nuxt ready");
@@ -32,8 +39,8 @@ test.serial.before("Init Nuxt.js", async t => {
 });
 
 // Example of testing via DOM checking
-test.serial.before("Index Route / loads", async t => {
-	const nuxt = t.context.nuxt;
+(test as ITestInterface).serial.before("Index Route / loads", async t => {
+	const nuxt = t.context.nuxt as Nuxt;
 	console.log("Rendering window");
 	console.log("Awaiting window");
 	const window: Window = await nuxt.renderAndGetWindow(
@@ -45,17 +52,27 @@ test.serial.before("Index Route / loads", async t => {
 	t.context.window = window;
 });
 
-test("Basic HTML preserved", t => {
+(test as ITestInterface)("Basic HTML preserved", t => {
 	const window = t.context.window;
 
 	const main: HTMLElement = window.document.querySelector(
 		"main"
 	) as HTMLElement;
 
-	t.not(main, null, "main does not exist in DOM");
+	t.assert(null !== main, "main does not exist in DOM");
 });
 
-test("CSS classes applied", t => {
+(test as ITestInterface)("HTML tests are not cheating on me", t => {
+	const window = t.context.window;
+
+	const main: HTMLElement = window.document.querySelector(
+		"main"
+	) as HTMLElement;
+
+	t.assert(null == main, "main does not exist in DOM");
+});
+
+(test as ITestInterface)("CSS classes applied", t => {
 	const window = t.context.window;
 
 	const main: HTMLElement = window.document.querySelector(
@@ -69,6 +86,6 @@ test("CSS classes applied", t => {
 });
 
 // Close the Nuxt server
-test.after("Closing server", t => {
+(test as ITestInterface).after("Closing server", t => {
 	t.context.nuxt.close();
 });
