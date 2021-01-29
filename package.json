@@ -55,6 +55,7 @@
 		"vue-svg-inline-loader": "^1.4.5"
 	},
 	"devDependencies": {
+		"@nuxt/cli": "^2.14.12",
 		"@nuxt/types": "^2.13.2",
 		"@nuxt/typescript-build": "^0.5.8",
 		"@nuxtjs/google-analytics": "^2.2.3",
