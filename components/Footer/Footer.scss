@@ -4,8 +4,8 @@ section#footer {
 			blue($color) + ")";
 	}
 	background-color: $vibrant-blue;
-	$bottom-color: mix($bg-color, $vibrant-blue, $weight: 20%); 
-	$bottom-color-gradient: unquote(toRGB($bottom-color)); 
+	$bottom-color: mix($bg-color, $vibrant-blue, $weight: 20%);
+	$bottom-color-gradient: unquote(toRGB($bottom-color));
 	background: linear-gradient(
 		to bottom,
 		unquote(toRGB($vibrant-blue)) 0%,
@@ -60,7 +60,7 @@ section#footer {
 			height: fit-content;
 			padding-right: 2vw;
 		}
-		
+
 		b {
 			color: $bg-color;
 		}
@@ -90,6 +90,9 @@ section#footer {
 				align-items: center;
 				text-align: center;
 			}
+			@media #{$mq-phone} {
+				order: 1;
+			}
 		}
 
 		div#middle {
@@ -107,6 +110,7 @@ section#footer {
 			@media #{$mq-phone} {
 				width: unset;
 				flex-direction: column;
+				order: 2;
 			}
 		}
 
@@ -119,6 +123,7 @@ section#footer {
 
 			@media #{$mq-phone} {
 				flex-direction: column;
+				order: 3;
 			}
 			div {
 				span {
@@ -141,6 +146,11 @@ section#footer {
 				br {
 					display: block;
 				}
+			}
+		}
+		div#fb {
+			span {
+				justify-content: center;
 			}
 		}
 	}
@@ -176,7 +186,7 @@ section#footer {
 				background-color: lighten($bottom-color, 9%);
 			}
 		}
-		
+
 		&:hover {
 			background-color: lighten($bottom-color, 5%);
 		}

@@ -13,7 +13,7 @@ import {
 	faMapMarkedAlt,
 	faTimes,
 	faExternalLinkAlt,
-	faLink,
+	faLink
 } from "@fortawesome/free-solid-svg-icons";
 import { faCopy } from "@fortawesome/free-regular-svg-icons";
 import {
