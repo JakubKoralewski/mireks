@@ -1,4 +1,4 @@
-import { Configuration } from "@nuxt/types/config";
+import { NuxtConfig } from "@nuxt/types/config";
 
 import structuredJSONData from "./seo/structuredJSONData";
 import metaTags from "./seo/metaTags";
@@ -8,7 +8,7 @@ import { TITLE, DESCRIPTION } from "./seo/variables";
 const pkg = require("./package.json");
 const dev = process.env.NODE_ENV !== "production";
 
-const config: Configuration = {
+const config: NuxtConfig = {
 	mode: "universal",
 	buildModules: ["@nuxt/typescript-build"],
 
